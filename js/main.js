@@ -26,6 +26,8 @@
     mobileNav();
     headerScroll();
     scrollReveal();
+    heroSlider();
+    counters();
     tabs();
     gallery();
     forms();
@@ -33,6 +35,63 @@
     chatbot();
     whatsapp();
     const y = $("#year"); if (y) y.textContent = new Date().getFullYear();
+  }
+
+  /* ---- Carrusel del hero ---- */
+  function heroSlider() {
+    const slider = $(".hero__slider");
+    if (!slider) return;
+    const slides = $$(".hero__slide", slider);
+    const dotsBox = $(".hero__dots", slider);
+    if (slides.length < 2) return;
+    let i = 0, timer;
+    slides.forEach((_, n) => {
+      const b = document.createElement("button");
+      b.setAttribute("aria-label", "Ir a la diapositiva " + (n + 1));
+      if (n === 0) b.classList.add("is-active");
+      b.addEventListener("click", () => go(n, true));
+      dotsBox && dotsBox.appendChild(b);
+    });
+    const dots = dotsBox ? $$("button", dotsBox) : [];
+    function go(n, manual) {
+      slides[i].classList.remove("is-active");
+      dots[i] && dots[i].classList.remove("is-active");
+      i = (n + slides.length) % slides.length;
+      slides[i].classList.add("is-active");
+      dots[i] && dots[i].classList.add("is-active");
+      if (manual) restart();
+    }
+    function restart() { clearInterval(timer); timer = setInterval(() => go(i + 1), 5500); }
+    const prev = $(".hero__nav.prev", slider), next = $(".hero__nav.next", slider);
+    on(prev, "click", () => go(i - 1, true));
+    on(next, "click", () => go(i + 1, true));
+    on(slider, "mouseenter", () => clearInterval(timer));
+    on(slider, "mouseleave", restart);
+    restart();
+  }
+
+  /* ---- Contadores animados ---- */
+  function counters() {
+    const els = $$("[data-count]");
+    if (!els.length) return;
+    const run = el => {
+      const target = parseFloat(el.dataset.count) || 0;
+      const sep = el.hasAttribute("data-sep");
+      const dur = 1400, t0 = performance.now();
+      const fmt = v => sep ? Math.round(v).toLocaleString("es-BO") : Math.round(v).toString();
+      const tick = now => {
+        const p = Math.min(1, (now - t0) / dur);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(target * eased);
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    if (!("IntersectionObserver" in window)) { els.forEach(run); return; }
+    const io = new IntersectionObserver((ents, obs) => {
+      ents.forEach(e => { if (e.isIntersecting) { run(e.target); obs.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    els.forEach(e => io.observe(e));
   }
 
   /* ---- Navegación móvil ---- */
@@ -109,27 +168,30 @@
     });
   }
 
-  /* ---- Galería: lightbox (placeholder) ---- */
+  /* ---- Galería: lightbox ---- */
   function gallery() {
     const figs = $$(".gallery figure");
     if (!figs.length) return;
     let box;
-    const open = label => {
+    const open = (src, label) => {
       box = document.createElement("div");
       box.style.cssText = "position:fixed;inset:0;z-index:200;display:grid;place-items:center;" +
-        "background:rgba(20,12,8,.86);backdrop-filter:blur(4px);padding:24px;cursor:zoom-out";
-      box.innerHTML = '<div style="max-width:760px;width:100%;aspect-ratio:16/10;border-radius:18px;overflow:hidden;' +
-        'box-shadow:0 30px 80px rgba(0,0,0,.5)"><div class="ph" style="height:100%">' +
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="m21 15-5-5L5 21"/></svg>' +
-        '<span style="font-size:1rem">' + label + '</span></div></div>';
+        "background:rgba(20,12,8,.88);backdrop-filter:blur(4px);padding:24px;cursor:zoom-out";
+      const media = src
+        ? '<img src="' + src + '" alt="' + label + '" style="width:100%;height:100%;object-fit:cover">'
+        : '<div class="ph" style="height:100%"><span>' + label + '</span></div>';
+      box.innerHTML = '<figure style="max-width:820px;width:100%;aspect-ratio:16/10;border-radius:18px;overflow:hidden;position:relative;' +
+        'box-shadow:0 30px 80px rgba(0,0,0,.5)">' + media +
+        '<figcaption style="position:absolute;left:0;right:0;bottom:0;padding:16px 20px;color:#fff;font-weight:700;' +
+        'background:linear-gradient(0deg,rgba(0,0,0,.7),transparent)">' + label + '</figcaption></figure>';
       document.body.appendChild(box);
       document.body.style.overflow = "hidden";
       on(box, "click", close);
     };
     const close = () => { box && box.remove(); document.body.style.overflow = ""; };
     figs.forEach(f => on(f, "click", () => {
-      const cap = $(".ph span", f);
-      open(cap ? cap.textContent : "FECAFEB");
+      const im = $("img", f), cap = $("figcaption", f);
+      open(im ? im.getAttribute("src") : "", cap ? cap.textContent : "FECAFEB");
     }));
     on(document, "keydown", e => e.key === "Escape" && close());
   }
@@ -150,7 +212,7 @@
     es: {
       "nav.home": "Inicio", "nav.about": "Nosotros", "nav.affiliates": "Afiliados",
       "nav.services": "Servicios", "nav.trace": "Trazabilidad", "nav.press": "Prensa",
-      "nav.gallery": "Galería", "nav.contact": "Contacto", "cta.platform": "Plataforma",
+      "nav.gallery": "Galería", "nav.contact": "Contacto", "cta.platform": "Portal Institucional",
       "cta.export": "Regístrese como exportador",
       "hero.badge": "Café orgánico y de especialidad de Bolivia",
       "hero.title": "El café boliviano que <em>Europa</em> busca, con trazabilidad garantizada",
@@ -160,7 +222,7 @@
     en: {
       "nav.home": "Home", "nav.about": "About", "nav.affiliates": "Members",
       "nav.services": "Services", "nav.trace": "Traceability", "nav.press": "Press",
-      "nav.gallery": "Gallery", "nav.contact": "Contact", "cta.platform": "Platform",
+      "nav.gallery": "Gallery", "nav.contact": "Contact", "cta.platform": "Institutional Portal",
       "cta.export": "Register as exporter",
       "hero.badge": "Organic & specialty coffee from Bolivia",
       "hero.title": "The Bolivian coffee <em>Europe</em> is looking for, with guaranteed traceability",
@@ -208,7 +270,7 @@
         a:["Estamos en Av. Juan Pablo II 2974, El Alto, La Paz, Bolivia 📍","Tel/WhatsApp: +591 71537365 · Correo: " + CONFIG.email] },
       { k:["mision","misión","vision","visión","valor","quienes","quiénes","historia","directorio"],
         a:["Somos el ente rector del café boliviano desde 1991.","Encontrará misión, visión, valores, historia y directorio en la página Nosotros."] },
-      { k:["hola","buenas","hello","hi","saludos","qué tal","que tal"],
+      { k:["hola","buenas","hello","hi","saludos"],
         a:["¡Hola! 👋 Soy el asistente virtual de FECAFEB.","¿Le interesa comprar café, afiliarse o conocer la trazabilidad EUDR?"] }
     ];
     const FALLBACK = ["Gracias por su mensaje 🙏","Un asesor de FECAFEB puede ayudarle en detalle. Para respuesta inmediata escríbanos por WhatsApp o a " + CONFIG.email + "."];
@@ -230,7 +292,6 @@
       body.appendChild(t); body.scrollTop = body.scrollHeight;
       return t;
     };
-    // Responde con una o varias burbujas, simulando que el agente escribe
     const botRespond = lines => {
       let i = 0;
       const step = () => {

@@ -6,6 +6,64 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 # ---- Iconos reutilizables ----
 PH_ICO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="m21 15-5-5L5 21"/></svg>'
 CHK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 11 3 3 8-8"/></svg>'
+LOCK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>'
+BEAN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="12" rx="7" ry="9"/><path d="M9 5c4 4 4 10 0 14"/></svg>'
+ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
+
+# ---- Imágenes provisionales (Unsplash · reemplazables vía CMS) ----
+PHOTOS = {
+  "cherries":"https://images.unsplash.com/photo-1442550528053-c431ecb55509",
+  "farm":"https://images.unsplash.com/photo-1429277096327-11ee3b761c93",
+  "specialty":"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085",
+  "beans":"https://images.unsplash.com/photo-1447933601403-0c6688de566e",
+  "cup":"https://images.unsplash.com/photo-1461023058943-07fcbe16d735",
+  "roast":"https://images.unsplash.com/photo-1498804103079-a6351b050096",
+  "shop":"https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+  "hands":"https://images.unsplash.com/photo-1559056199-641a0ac8b55e",
+  "bag":"https://images.unsplash.com/photo-1521302080334-4bebac2763a6",
+  "pour":"https://images.unsplash.com/photo-1442512595331-e89e73853f31",
+  "green":"https://images.unsplash.com/photo-1518057111178-44a106bad636",
+  "field":"https://images.unsplash.com/photo-1500423079914-b65af272b8db",
+}
+def U(key, w=900):
+    return PHOTOS[key] + ("?auto=format&fit=crop&w=%d&q=70" % w)
+def img(key, alt, tag="", w=900, cls=""):
+    t = ('<span class="tagfloat">%s</span>' % tag) if tag else ""
+    return ('<div class="imgwrap %s" style="height:100%%"><img src="%s" alt="%s" loading="lazy" '
+            'onerror="this.style.display=&quot;none&quot;">%s</div>') % (cls, U(key, w), alt, t)
+
+def marquee():
+    items = ["Fundación Ayuda en Acción","Unión Europea","CNCJ · Comercio Justo","OIT (ILO)",
+             "Fundación Rabobank","Embajada de Francia","Cooperación Alemana","Proyecto AAGIL"]
+    one = "".join('<span class="marquee__item">%s%s</span>' % (BEAN, t) for t in items)
+    return ('<div class="partners"><div class="container">'
+            '<p class="partners__title">Aliados y cooperantes que respaldan al café boliviano</p>'
+            '<div class="marquee"><div class="marquee__track">%s%s</div></div></div></div>') % (one, one)
+
+SIDERAIL = ('<div class="siderail" aria-label="Accesos rápidos">'
+  '<a href="#" title="Portal Institucional">' + LOCK + '<span>Portal Institucional</span></a>'
+  '<a class="is-gold" href="afiliados.html" title="Regístrese como exportador">' + ARROW + '<span>Regístrese como exportador</span></a>'
+  '<a href="trazabilidad.html" title="Trazabilidad EUDR"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6Z"/><path d="m9 12 2 2 4-4"/></svg><span>Trazabilidad EUDR</span></a>'
+  '<a href="contacto.html" title="Contacto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg><span>Contacto</span></a>'
+  '</div>')
+
+# ---- Mapa de Bolivia (SVG) con regiones cafetaleras ----
+def pin(x, y):
+    return (f'<g class="map-bo__pin" transform="translate({x},{y})">'
+            f'<circle class="map-bo__pulse" r="6" style="transform-box:fill-box;transform-origin:center"/>'
+            f'<circle r="5.5"/><circle class="core" r="2.4"/></g>')
+MAP_BO = f'''<div class="map-bo">
+  <svg class="map-bo__svg" viewBox="0 0 320 320" role="img" aria-label="Mapa de Bolivia con regiones cafetaleras">
+    <path class="map-bo__region is-active" d="M118 38 L172 52 L206 44 L236 72 L258 78 L270 110 L258 140 L276 166 L262 202 L240 216 L250 250 L224 278 L194 272 L172 288 L148 274 L134 246 L108 252 L78 236 L68 206 L50 186 L60 150 L46 120 L70 94 L96 88 L104 58 Z"/>
+    {pin(96,128)}{pin(112,142)}{pin(150,170)}{pin(208,176)}
+  </svg>
+  <ul class="map-bo__legend">
+    <li><span class="mk"></span><div><b>La Paz · Yungas</b><span>Núcleo cafetalero: ~96% de la producción nacional.</span></div></li>
+    <li><span class="mk"></span><div><b>Caranavi</b><span>Principal municipio productor de café de altura.</span></div></li>
+    <li><span class="mk"></span><div><b>Cochabamba</b><span>Organizaciones afiliadas del valle.</span></div></li>
+    <li><span class="mk"></span><div><b>Santa Cruz</b><span>Afiliadas del oriente boliviano.</span></div></li>
+  </ul>
+</div>'''
 
 def ph(label, cls=""):
     return f'<div class="ph {cls}">{PH_ICO}<span>{label}</span></div>'
@@ -69,7 +127,7 @@ def header(active):
   </div>
   <div class="topbar__right">
     <div class="social" aria-label="Redes sociales">{SOC}</div>
-    <a href="#" class="topbar__plat">⮞ Plataforma institucional</a>
+    <a href="#" class="topbar__plat">⮞ Portal Institucional</a>
     <div class="lang" role="group" aria-label="Idioma"><button data-lang="es" class="is-active" type="button">ES</button><button data-lang="en" type="button">EN</button></div>
   </div>
 </div></div>
@@ -77,8 +135,8 @@ def header(active):
   <a href="index.html" class="brand" aria-label="FECAFEB inicio"><img src="assets/img/logo-fecafeb.png" alt="FECAFEB"></a>
   <nav aria-label="Principal"><ul class="menu" id="menu">{menu(active)}</ul></nav>
   <div class="nav__cta">
-    <a href="#" class="btn btn--ghost" data-i18n="cta.platform">Plataforma</a>
-    <a href="afiliados.html" class="btn" data-i18n="cta.export">Regístrese como exportador</a>
+    <a href="#" class="btn btn--portal">{LOCK}<span data-i18n="cta.platform">Portal Institucional</span></a>
+    <a href="afiliados.html" class="btn btn--gold" data-i18n="cta.export">Regístrese como exportador</a>
     <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span></button>
   </div>
 </div></header>'''
@@ -89,7 +147,7 @@ def subhero(crumb, title, desc):
   <h1>{title}</h1><p class="lead">{desc}</p>
 </div></section>'''
 
-FLOAT = '''
+FLOAT = SIDERAIL + '''
 <a class="fab fab--wa" href="https://wa.me/59171537365?text=Hola%20FECAFEB%2C%20deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20caf%C3%A9%20boliviano." target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.06 24l1.7-6.2A11.9 11.9 0 1 1 12 24a11.9 11.9 0 0 1-5.7-1.45L.06 24Zm6.6-3.9.37.22a9.9 9.9 0 0 0 5 1.37 9.9 9.9 0 1 0-9.9-9.9 9.9 9.9 0 0 0 1.5 5.25l.24.38-1 3.65 3.8-.97Zm11.4-5.55c-.15-.25-.55-.4-1.15-.7s-1.77-.87-2.04-.97-.47-.15-.67.15-.77.97-.94 1.17-.35.22-.65.07a8.1 8.1 0 0 1-2.4-1.48 9 9 0 0 1-1.66-2.07c-.17-.3 0-.46.13-.6s.3-.35.45-.52a2 2 0 0 0 .3-.5.55.55 0 0 0 0-.52c-.07-.15-.67-1.62-.92-2.22s-.49-.5-.67-.51h-.57a1.1 1.1 0 0 0-.8.37 3.35 3.35 0 0 0-1.04 2.49 5.8 5.8 0 0 0 1.22 3.08 13.3 13.3 0 0 0 5.1 4.5c.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.08 1.77-.72 2.02-1.42s.25-1.3.17-1.42Z"/></svg>
 </a>
@@ -155,7 +213,15 @@ SVG = {
  "phone":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3.08 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L9 11a16 16 0 0 0 4 4l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>',
  "mail":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>',
  "screen":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>',
+ "barcode":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5v14M7 5v14M11 5v14M15 5v14M19 5v14"/></svg>',
+ "sat":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 0-7 17M22 12A10 10 0 0 0 5 5"/><circle cx="12" cy="12" r="3"/></svg>',
 }
+
+def traz_cards():
+    items=[("pin","Geolocalización satelital","Monitoreo satelital preciso de cada parcela de origen, con polígonos en GeoJSON/WGS84."),
+           ("leaf","Cero deforestación","Verificación de que el café no proviene de zonas deforestadas, conforme a EUDR."),
+           ("barcode","Código único de lote","Acceso digital al historial completo: producción, lavado, secado y cadena de custodia.")]
+    return ''.join(f'<article class="card reveal"><div class="card__ico">{SVG[i]}</div><h3>{t}</h3><p>{d}</p></article>' for i,t,d in items)
 
 def services_cards():
     items=[("leaf","Asistencia técnica productiva","Acompañamiento en campo para mejorar rendimientos, calidad de taza y manejo agroforestal sostenible."),
@@ -187,19 +253,20 @@ def trace_steps():
     return ''.join(f'<div class="step reveal"><h3>{t}</h3><p>{d}</p></div>' for t,d in s)
 
 def news_items():
-    data=[("Eventos","Junio 2026","FECAFEB impulsa la trazabilidad EUDR para sus afiliadas","Nueva plataforma digital para sistematizar datos de productores y parcelas."),
-          ("Calidad","Mayo 2026","Taza de Excelencia: el café boliviano brilla en el exterior","Productores de los Yungas destacan por su café de especialidad."),
-          ("Escuela de Café","Abril 2026","Nueva generación de catadores se forma en la Escuela de Café","Jóvenes y mujeres lideran la mejora de la calidad en sus cooperativas."),
-          ("Comercio","Marzo 2026","Ronda de negocios con compradores europeos","Encuentro comercial para conectar oferta boliviana con la demanda de la UE."),
-          ("Sostenibilidad","Febrero 2026","Agroforestería: café que protege el bosque","Modelo productivo alineado a la normativa de deforestación de la UE."),
-          ("Institucional","Enero 2026","FECAFEB presenta su Plan Estratégico 2023–2027","Hoja de ruta hacia la sostenibilidad financiera e institucional.")]
-    return ''.join(f'''<article class="news__item reveal"><div class="news__cover"><span class="badge">{c}</span>{ph("Fotografía de la noticia")}</div>
-      <div class="news__body"><time>{d}</time><h3>{t}</h3><p>{x}</p><a href="#">Leer más →</a></div></article>''' for c,d,t,x in data)
+    data=[("Eventos","Junio 2026","FECAFEB impulsa la trazabilidad EUDR para sus afiliadas","Nueva plataforma digital para sistematizar datos de productores y parcelas.","shop"),
+          ("Calidad","Mayo 2026","Taza de Excelencia: el café boliviano brilla en el exterior","Productores de los Yungas destacan por su café de especialidad.","specialty"),
+          ("Escuela de Café","Abril 2026","Nueva generación de catadores se forma en la Escuela de Café","Jóvenes y mujeres lideran la mejora de la calidad en sus cooperativas.","cup"),
+          ("Comercio","Marzo 2026","Ronda de negocios con compradores europeos","Encuentro comercial para conectar oferta boliviana con la demanda de la UE.","bag"),
+          ("Sostenibilidad","Febrero 2026","Agroforestería: café que protege el bosque","Modelo productivo alineado a la normativa de deforestación de la UE.","farm"),
+          ("Institucional","Enero 2026","FECAFEB presenta su Plan Estratégico 2023–2027","Hoja de ruta hacia la sostenibilidad financiera e institucional.","beans")]
+    return ''.join(f'''<article class="news__item reveal"><div class="news__cover"><span class="badge">{c}</span><img src="{U(k,640)}" alt="{t}" loading="lazy" onerror="this.style.display=&quot;none&quot;"></div>
+      <div class="news__body"><time>{d}</time><h3>{t}</h3><p>{x}</p><a href="#">Leer más →</a></div></article>''' for c,d,t,x,k in data)
 
 def gallery_items():
-    g=[("Cafetales de los Yungas","tall"),("Cosecha selectiva",""),("Beneficiado y secado",""),("Catación y calidad",""),
-       ("Familias cafetaleras",""),("Escuela de Café","tall"),("Exportación de café verde",""),("Ferias internacionales","")]
-    return ''.join(f'<figure class="{c}">{ph(t)}</figure>' for t,c in g)
+    g=[("Cafetales de los Yungas","tall","field"),("Cosecha selectiva","","cherries"),("Beneficiado y secado","","bag"),
+       ("Catación y calidad","","cup"),("Familias cafetaleras","","hands"),("Escuela de Café","tall","shop"),
+       ("Exportación de café verde","","green"),("Ferias internacionales","","roast")]
+    return ''.join(f'<figure class="{c}"><img src="{U(k,700)}" alt="{t}" loading="lazy" onerror="this.style.display=&quot;none&quot;"><figcaption>{t}</figcaption></figure>' for t,c,k in g)
 
 def board():
     groups=[("Directorio Ejecutivo Nacional",[("Hugo Poma Maqui","Presidente",""),("Jimmy Gustavo Chávez Quijhua","Tesorero / Coordinador",""),("Juan Pablo Rojas Marino","Secretario","")]),
@@ -228,13 +295,23 @@ home_body = f'''
       <a href="nosotros.html" class="btn btn--ghost btn--lg" data-i18n="hero.cta2">Conocer la Federación</a>
     </div>
     <div class="hero__stats">
-      <div><div class="num">17.500</div><div class="lbl">Familias cafetaleras</div></div>
-      <div><div class="num">42</div><div class="lbl">Organizaciones afiliadas</div></div>
+      <div><div class="num" data-count="17500" data-sep>0</div><div class="lbl">Familias cafetaleras</div></div>
+      <div><div class="num" data-count="42">0</div><div class="lbl">Organizaciones afiliadas</div></div>
       <div><div class="num">1991</div><div class="lbl">Año de fundación</div></div>
       <div><div class="num">EUDR</div><div class="lbl">Trazabilidad UE 2023/1115</div></div>
     </div>
   </div>
-  <aside class="hero__card reveal"><span class="ribbon">EUDR ready</span><img src="assets/img/logo-fecafeb.png" alt="Sello FECAFEB"><div class="cap">Café de calidad · Origen Yungas, Bolivia</div></aside>
+  <aside class="hero__slider reveal" data-controls aria-label="Galería del café boliviano">
+    <span class="hero__ribbon">EUDR ready</span>
+    <div class="hero__slides">
+      <div class="hero__slide is-active"><img src="{U('cherries',1000)}" alt="Cosecha de café en los Yungas" onerror="this.style.display=&quot;none&quot;"><div class="scrim"></div><div class="cap"><b>Trazabilidad EUDR</b><span>Geolocalización de cada parcela para el mercado europeo</span></div></div>
+      <div class="hero__slide"><img src="{U('specialty',1000)}" alt="Café de especialidad" loading="lazy" onerror="this.style.display=&quot;none&quot;"><div class="scrim"></div><div class="cap"><b>Café de especialidad</b><span>Orgánico y de altura · origen Yungas</span></div></div>
+      <div class="hero__slide"><img src="{U('farm',1000)}" alt="Familias cafetaleras de Bolivia" loading="lazy" onerror="this.style.display=&quot;none&quot;"><div class="scrim"></div><div class="cap"><b>17.500 familias</b><span>Caficultores de Bolivia · 42 organizaciones</span></div></div>
+    </div>
+    <button class="hero__nav prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
+    <button class="hero__nav next" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg></button>
+    <div class="hero__dots"></div>
+  </aside>
 </div></section>
 
 <div class="trust"><div class="container trust__row">
@@ -244,8 +321,10 @@ home_body = f'''
   <span>{SVG["bean"]} Orgánico &amp; de especialidad</span>
 </div></div>
 
-<section class="section"><div class="container about">
-  <div class="about__media reveal"><div class="frame">{ph("Fotografía: productores / cafetal de los Yungas")}</div><span class="pill">Ente rector del café boliviano</span></div>
+{marquee()}
+
+<section class="section section--pattern"><div class="container about">
+  <div class="about__media reveal"><div class="frame">{img('hands','Productores de café de los Yungas',w=900)}</div><span class="pill">Ente rector del café boliviano</span></div>
   <div class="about__content reveal" data-delay="120">
     <span class="eyebrow">Nosotros</span>
     <h2>Una federación, miles de familias detrás de cada grano</h2>
@@ -306,13 +385,23 @@ home_body = f'''
       <a href="nosotros.html" class="btn btn--ghost btn--lg" data-i18n="hero.cta2">Conocer la Federación</a>
     </div>
     <div class="hero__stats">
-      <div><div class="num">17.500</div><div class="lbl">Familias cafetaleras</div></div>
-      <div><div class="num">42</div><div class="lbl">Organizaciones afiliadas</div></div>
+      <div><div class="num" data-count="17500" data-sep>0</div><div class="lbl">Familias cafetaleras</div></div>
+      <div><div class="num" data-count="42">0</div><div class="lbl">Organizaciones afiliadas</div></div>
       <div><div class="num">1991</div><div class="lbl">Año de fundación</div></div>
       <div><div class="num">EUDR</div><div class="lbl">Trazabilidad UE 2023/1115</div></div>
     </div>
   </div>
-  <aside class="hero__card reveal"><span class="ribbon">EUDR ready</span><img src="assets/img/logo-fecafeb.png" alt="Sello FECAFEB"><div class="cap">Café de calidad · Origen Yungas, Bolivia</div></aside>
+  <aside class="hero__slider reveal" data-controls aria-label="Galería del café boliviano">
+    <span class="hero__ribbon">EUDR ready</span>
+    <div class="hero__slides">
+      <div class="hero__slide is-active"><img src="{U('cherries',1000)}" alt="Cosecha de café en los Yungas" onerror="this.style.display=&quot;none&quot;"><div class="scrim"></div><div class="cap"><b>Trazabilidad EUDR</b><span>Geolocalización de cada parcela para el mercado europeo</span></div></div>
+      <div class="hero__slide"><img src="{U('specialty',1000)}" alt="Café de especialidad" loading="lazy" onerror="this.style.display=&quot;none&quot;"><div class="scrim"></div><div class="cap"><b>Café de especialidad</b><span>Orgánico y de altura · origen Yungas</span></div></div>
+      <div class="hero__slide"><img src="{U('farm',1000)}" alt="Familias cafetaleras de Bolivia" loading="lazy" onerror="this.style.display=&quot;none&quot;"><div class="scrim"></div><div class="cap"><b>17.500 familias</b><span>Caficultores de Bolivia · 42 organizaciones</span></div></div>
+    </div>
+    <button class="hero__nav prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
+    <button class="hero__nav next" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg></button>
+    <div class="hero__dots"></div>
+  </aside>
 </div></section>
 
 <div class="trust"><div class="container trust__row">
@@ -322,8 +411,10 @@ home_body = f'''
   <span>{SVG["bean"]} Orgánico &amp; de especialidad</span>
 </div></div>
 
-<section class="section"><div class="container about">
-  <div class="about__media reveal"><div class="frame">{ph("Fotografía: productores / cafetal de los Yungas")}</div><span class="pill">Ente rector del café boliviano</span></div>
+{marquee()}
+
+<section class="section section--pattern"><div class="container about">
+  <div class="about__media reveal"><div class="frame">{img('hands','Productores de café de los Yungas',w=900)}</div><span class="pill">Ente rector del café boliviano</span></div>
   <div class="about__content reveal" data-delay="120">
     <span class="eyebrow">Nosotros</span>
     <h2>Una federación, miles de familias detrás de cada grano</h2>
@@ -371,8 +462,8 @@ page("index.html","index.html","FECAFEB · Federación de Caficultores Exportado
 
 # ---------- NOSOTROS ----------
 nosotros_body = f'''
-<section class="section" id="mvv"><div class="container about">
-  <div class="about__media reveal"><div class="frame">{ph("Fotografía institucional / equipo FECAFEB")}</div><span class="pill">Desde 1991</span></div>
+<section class="section section--pattern" id="mvv"><div class="container about">
+  <div class="about__media reveal"><div class="frame">{img('shop','Equipo e institucionalidad FECAFEB',w=900)}</div><span class="pill">Desde 1991</span></div>
   <div class="about__content reveal" data-delay="120">
     <span class="eyebrow">Quiénes somos</span>
     <h2>El ente rector del café boliviano</h2>
@@ -452,7 +543,7 @@ afiliados_body = f'''
     <article class="card reveal" data-delay="80"><div class="card__ico">{SVG["leaf"]}</div><h3>Asociaciones</h3><p>Agrupaciones de productores enfocadas en calidad y sostenibilidad.</p></article>
     <article class="card reveal" data-delay="160"><div class="card__ico">{SVG["globe"]}</div><h3>Coracas</h3><p>Corporaciones agropecuarias campesinas integradas a la cadena del café.</p></article>
   </div>
-  <div class="map-ph" style="margin-top:2.4rem">{ph("Mapa de cooperativas afiliadas (La Paz · Santa Cruz · Cochabamba)")}</div>
+  <div style="margin-top:2.6rem">{MAP_BO}</div>
 </div></section>
 '''
 page("afiliados.html","afiliados.html","Afiliados · FECAFEB","Afíliese a FECAFEB o regístrese como comprador/exportador de café boliviano trazable conforme a EUDR.",afiliados_body,
@@ -460,7 +551,7 @@ page("afiliados.html","afiliados.html","Afiliados · FECAFEB","Afíliese a FECAF
 
 # ---------- SERVICIOS ----------
 servicios_body = f'''
-<section class="section"><div class="container">
+<section class="section section--pattern"><div class="container">
   <div class="head-block center"><span class="eyebrow">Servicios</span><h2>Una plataforma integral de servicios</h2>
   <p class="lead">Del cultivo a la exportación, acompañamos a la familia cafetalera y conectamos al comprador con un origen confiable.</p></div>
   <div class="grid grid-3">{services_cards()}</div>
@@ -476,10 +567,10 @@ page("servicios.html","servicios.html","Servicios · FECAFEB","Asistencia técni
      ("Servicios","Servicios","Servicios para la familia cafetalera y para el comprador internacional."))
 
 # ---------- TRAZABILIDAD ----------
-traz_body = f'''
-<section class="section"><div class="container">
+traz_body = f"""
+<section class="section section--pattern"><div class="container">
   <div class="about">
-    <div class="about__media reveal"><div class="frame">{ph("Mapa / parcela geolocalizada (GeoJSON)")}</div><span class="pill">UE 2023/1115</span></div>
+    <div class="about__media reveal"><div class="frame">{img('field','Parcela cafetalera georreferenciada',w=900)}</div><span class="pill">UE 2023/1115</span></div>
     <div class="about__content reveal" data-delay="120">
       <span class="eyebrow">Trazabilidad EUDR</span>
       <h2>Café libre de deforestación, verificable</h2>
@@ -491,43 +582,48 @@ traz_body = f'''
     </div>
   </div>
 </div></section>
+<section class="section section--tint"><div class="container">
+  <div class="head-block center"><span class="eyebrow">Garantías para el comprador</span><h2>Transparencia y trazabilidad global</h2>
+  <p class="lead">Cumplimos rigurosamente las normativas de la Unión Europea (EUDR) de cero deforestación y comercio justo.</p></div>
+  <div class="grid grid-3">{traz_cards()}</div>
+</div></section>
 <section class="section section--accent"><div class="container">
   <div class="head-block"><span class="eyebrow">El proceso</span><h2>Del cafetal a Europa, grano por grano</h2></div>
   <div class="steps">{trace_steps()}</div>
   <div class="eudr-note reveal">{SVG["shield"]}<p><b>Acceso preferente al mercado europeo.</b> Reducimos riesgos y tiempos de la diligencia debida para el importador.</p></div>
 </div></section>
-'''
+"""
 page("trazabilidad.html","trazabilidad.html","Trazabilidad EUDR · FECAFEB","Trazabilidad geoespacial del café boliviano conforme al Reglamento UE 2023/1115: GeoJSON, DDS y TRACES NT.",traz_body,
      ("Trazabilidad","Trazabilidad EUDR","Cumplimiento del Reglamento UE 2023/1115 sobre productos libres de deforestación."))
 
 # ---------- PRENSA ----------
-prensa_body = f'''
+prensa_body = f"""
 <section class="section"><div class="container">
   <div class="news">{news_items()}</div>
 </div></section>
-'''
+"""
 page("prensa.html","prensa.html","Prensa · FECAFEB","Noticias y actualidad de la Federación de Caficultores Exportadores de Bolivia.",prensa_body,
      ("Prensa","Prensa","Noticias, eventos y actualidad del café boliviano."))
 
-# ---------- GALERÍA ----------
-galeria_body = f'''
+# ---------- GALERIA ----------
+galeria_body = f"""
 <section class="section"><div class="container">
-  <p class="lead center" style="margin:0 auto 2.4rem">Reemplace estos espacios por fotografías reales de cafetales, cosecha, beneficiado y comunidades.</p>
+  <p class="lead center" style="margin:0 auto 2.4rem">Imágenes de referencia (provisionales). Se reemplazarán por fotografías propias de FECAFEB al integrar el CMS.</p>
   <div class="gallery">{gallery_items()}</div>
 </div></section>
-'''
+"""
 page("galeria.html","galeria.html","Galería · FECAFEB","Galería del origen: cafetales, cosecha, beneficiado y comunidades cafetaleras de Bolivia.",galeria_body,
      ("Galería","Galería","El origen del café boliviano, en imágenes."))
 
 # ---------- CONTACTO ----------
-contacto_body = f'''
+contacto_body = f"""
 <section class="section"><div class="container contact">
   <div class="contact__info">
     <div class="info-row reveal"><div class="ico">{SVG["pin"]}</div><div><b>Dirección</b><span>Av. Juan Pablo II 2974, El Alto · La Paz, Bolivia</span></div></div>
     <div class="info-row reveal" data-delay="60"><div class="ico">{SVG["phone"]}</div><div><b>Teléfono / WhatsApp</b><a href="https://wa.me/59171537365" target="_blank" rel="noopener">+591 71537365</a></div></div>
     <div class="info-row reveal" data-delay="120"><div class="ico">{SVG["mail"]}</div><div><b>Correo</b><a href="mailto:fecafebfinanzas@gmail.com">fecafebfinanzas@gmail.com</a></div></div>
-    <div class="info-row reveal" data-delay="180"><div class="ico">{SVG["screen"]}</div><div><b>Plataforma institucional</b><a href="#">Acceso para afiliados y técnicos (próximamente)</a></div></div>
-    <div class="map-ph">{ph("Mapa de ubicación (El Alto · La Paz)")}</div>
+    <div class="info-row reveal" data-delay="180"><div class="ico">{SVG["screen"]}</div><div><b>Portal Institucional</b><a href="#">Acceso para afiliados y técnicos (próximamente)</a></div></div>
+    <div class="map-ph">{ph("Mapa de ubicación (El Alto · La Paz) — integrar Google Maps")}</div>
   </div>
   <form class="form" data-demo>
     <div class="form__ok">✓ ¡Gracias! Su mensaje fue registrado. Le contactaremos pronto.</div>
@@ -544,8 +640,8 @@ contacto_body = f'''
     <p class="form__note">Demo de plantilla — conectar a backend/CRM en la siguiente fase del proyecto.</p>
   </form>
 </div></section>
-'''
+"""
 page("contacto.html","contacto.html","Contacto · FECAFEB","Contacte a FECAFEB: compradores, cooperativas y aliados del café boliviano.",contacto_body,
      ("Contacto","Hablemos de café","Compradores, cooperativas y aliados: escríbanos y le responderemos a la brevedad."))
 
-print("OK - páginas generadas")
+print("OK - paginas generadas")
