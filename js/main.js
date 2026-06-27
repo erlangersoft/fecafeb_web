@@ -55,18 +55,22 @@
     }));
   }
 
-  /* ---- Sombra del header + activación de sección ---- */
+  /* ---- Sombra del header (+ section-spy solo en el Home) ---- */
   function headerScroll() {
     const header = $(".header");
-    const links = $$('.menu > li > a[href^="#"]');
+    const isHome = !!$(".hero");
+    const links = isHome ? $$('.menu > li > a[href^="index.html#"], .menu > li > a[href^="#"]') : [];
     const onScroll = () => {
       header && header.classList.toggle("is-scrolled", window.scrollY > 8);
+      if (!isHome) return;
       let current = "";
-      $$("section[id]").forEach(sec => {
-        if (window.scrollY >= sec.offsetTop - 140) current = sec.id;
+      $$("section[id]").forEach(sec => { if (window.scrollY >= sec.offsetTop - 140) current = sec.id; });
+      if (!current) return;
+      links.forEach(l => {
+        const href = l.getAttribute("href");
+        if (href && href.includes("#"))
+          l.parentElement.classList.toggle("is-active", href.endsWith("#" + current));
       });
-      links.forEach(l => l.parentElement.classList
-        .toggle("is-active", l.getAttribute("href") === "#" + current));
     };
     on(window, "scroll", onScroll, { passive: true });
     onScroll();
@@ -105,26 +109,27 @@
     });
   }
 
-  /* ---- Galería: lightbox simple ---- */
+  /* ---- Galería: lightbox (placeholder) ---- */
   function gallery() {
     const figs = $$(".gallery figure");
     if (!figs.length) return;
     let box;
-    const open = (label, bg) => {
+    const open = label => {
       box = document.createElement("div");
       box.style.cssText = "position:fixed;inset:0;z-index:200;display:grid;place-items:center;" +
         "background:rgba(20,12,8,.86);backdrop-filter:blur(4px);padding:24px;cursor:zoom-out";
-      box.innerHTML = '<figure style="max-width:760px;width:100%;aspect-ratio:16/10;border-radius:18px;' +
-        'box-shadow:0 30px 80px rgba(0,0,0,.5);background:' + bg + ';position:relative;display:grid;place-items:end start">' +
-        '<figcaption style="color:#fff;font-weight:700;padding:18px 22px;font-size:1.05rem">' + label + '</figcaption></figure>';
+      box.innerHTML = '<div style="max-width:760px;width:100%;aspect-ratio:16/10;border-radius:18px;overflow:hidden;' +
+        'box-shadow:0 30px 80px rgba(0,0,0,.5)"><div class="ph" style="height:100%">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="m21 15-5-5L5 21"/></svg>' +
+        '<span style="font-size:1rem">' + label + '</span></div></div>';
       document.body.appendChild(box);
       document.body.style.overflow = "hidden";
       on(box, "click", close);
     };
     const close = () => { box && box.remove(); document.body.style.overflow = ""; };
     figs.forEach(f => on(f, "click", () => {
-      const cap = $("figcaption", f);
-      open(cap ? cap.textContent : "FECAFEB", getComputedStyle(f).background);
+      const cap = $(".ph span", f);
+      open(cap ? cap.textContent : "FECAFEB");
     }));
     on(document, "keydown", e => e.key === "Escape" && close());
   }
@@ -182,46 +187,72 @@
     if (wa) wa.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(CONFIG.whatsappMsg);
   }
 
-  /* ---- Mini chatbot (reglas locales, sin servicios externos) ---- */
+  /* ---- Mini chatbot simulado (reglas locales, con indicador de escritura) ---- */
   function chatbot() {
-    const fab = $(".fab--chat"), panel = $(".chat"),
-          body = $(".chat__body"), input = $("#chatInput"),
-          send = $("#chatSend"), close = $(".chat .x");
+    const fab = $(".fab--chat"), panel = $(".chat"), body = $(".chat__body"),
+          input = $("#chatInput"), send = $("#chatSend"), close = $(".chat .x"),
+          badge = $(".fab--chat .badge");
     if (!fab || !panel) return;
 
     const KB = [
-      { k: ["export", "comprar", "import", "proveedor", "precio", "buy", "supplier"],
-        a: "Exportamos café verde oro orgánico y de especialidad a la UE, EE.UU. y Asia. Escríbenos a " + CONFIG.email + " o usa el botón de WhatsApp para cotizar." },
-      { k: ["eudr", "trazab", "trace", "geo", "2023/1115", "dds"],
-        a: "Cumplimos el Reglamento UE 2023/1115 (EUDR): geolocalización de parcelas (GeoJSON/WGS84), declaración de diligencia debida (DDS) e integración con TRACES NT. Visita la sección Trazabilidad." },
-      { k: ["afili", "member", "cooperativ", "socio", "unirme"],
-        a: "Agrupamos 42 organizaciones (cooperativas, asociaciones y Coracas). Mira la sección Afiliados o regístrate como exportador." },
-      { k: ["escuela", "school", "capacit", "formaci", "curso"],
-        a: "La Escuela de Café ofrece formación en producción, calidad, catación y administración para la familia cafetalera." },
-      { k: ["contacto", "telefono", "correo", "email", "ubica", "direccion", "contact"],
-        a: "Estamos en Av. Juan Pablo II 2974, El Alto, La Paz, Bolivia. Correo: " + CONFIG.email + "." },
-      { k: ["mision", "vision", "valor", "quienes", "about", "history", "historia"],
-        a: "Somos el ente rector del café boliviano desde 1991. Conoce nuestra misión, visión, valores e historia en la sección Nosotros." }
+      { k:["export","comprar","import","proveedor","precio","buy","supplier","cotiz","muestra"],
+        a:["Con gusto 🙌 Exportamos café verde oro orgánico y de especialidad a la UE, EE.UU. y Asia.",
+           "¿Qué volumen y perfil de taza busca? Puedo derivarle al equipo comercial por WhatsApp o al correo " + CONFIG.email + "."] },
+      { k:["eudr","trazab","trace","geo","2023","1115","dds","deforest","traces"],
+        a:["Cumplimos el Reglamento UE 2023/1115 (EUDR) ✅","Geolocalizamos cada parcela (GeoJSON/WGS84), emitimos la DDS y la presentamos en TRACES NT. Puede ver el detalle en la página de Trazabilidad."] },
+      { k:["afili","member","cooperativ","socio","unirme","asociac"],
+        a:["Agrupamos 42 organizaciones: cooperativas, asociaciones y Coracas.","Si representa a una organización de productores, en la página de Afiliados está el proceso paso a paso."] },
+      { k:["escuela","school","capacit","formaci","curso","cata","catacion","catación"],
+        a:["La Escuela de Café forma a productores, jóvenes y mujeres ☕","Cubre producción orgánica, calidad, catación y gestión. ¿Le interesa capacitarse?"] },
+      { k:["contacto","telefono","teléfono","correo","email","ubica","direccion","dónde","donde"],
+        a:["Estamos en Av. Juan Pablo II 2974, El Alto, La Paz, Bolivia 📍","Tel/WhatsApp: +591 71537365 · Correo: " + CONFIG.email] },
+      { k:["mision","misión","vision","visión","valor","quienes","quiénes","historia","directorio"],
+        a:["Somos el ente rector del café boliviano desde 1991.","Encontrará misión, visión, valores, historia y directorio en la página Nosotros."] },
+      { k:["hola","buenas","hello","hi","saludos","qué tal","que tal"],
+        a:["¡Hola! 👋 Soy el asistente virtual de FECAFEB.","¿Le interesa comprar café, afiliarse o conocer la trazabilidad EUDR?"] }
     ];
-    const reply = txt => {
+    const FALLBACK = ["Gracias por su mensaje 🙏","Un asesor de FECAFEB puede ayudarle en detalle. Para respuesta inmediata escríbanos por WhatsApp o a " + CONFIG.email + "."];
+    const match = txt => {
       const t = txt.toLowerCase();
       const hit = KB.find(e => e.k.some(k => t.includes(k)));
-      return hit ? hit.a : "Gracias por tu mensaje. Un asesor de FECAFEB te atenderá. Para respuesta inmediata usa el botón de WhatsApp o escribe a " + CONFIG.email + ".";
+      return hit ? hit.a : FALLBACK;
     };
+    const now = () => new Date().toLocaleTimeString("es-BO", { hour: "2-digit", minute: "2-digit" });
     const add = (text, who) => {
       const m = document.createElement("div");
-      m.className = "msg " + who; m.textContent = text;
+      m.className = "msg " + who;
+      m.innerHTML = text + '<span class="time">' + now() + "</span>";
       body.appendChild(m); body.scrollTop = body.scrollHeight;
     };
-    const botSay = text => setTimeout(() => add(text, "bot"), 380);
+    const typing = () => {
+      const t = document.createElement("div");
+      t.className = "typing"; t.innerHTML = "<span></span><span></span><span></span>";
+      body.appendChild(t); body.scrollTop = body.scrollHeight;
+      return t;
+    };
+    // Responde con una o varias burbujas, simulando que el agente escribe
+    const botRespond = lines => {
+      let i = 0;
+      const step = () => {
+        if (i >= lines.length) return;
+        const t = typing();
+        const delay = 650 + Math.min(1400, lines[i].length * 22);
+        setTimeout(() => {
+          t.remove(); add(lines[i], "bot"); i++;
+          if (i < lines.length) setTimeout(step, 350);
+        }, delay);
+      };
+      step();
+    };
+    let opened = false;
     const toggle = open => {
       panel.classList.toggle("is-open", open);
       fab.setAttribute("aria-expanded", String(open));
-      if (open && !body.dataset.init) {
-        add("¡Hola! 👋 Soy el asistente de FECAFEB. ¿En qué puedo ayudarte?", "bot");
-        body.dataset.init = "1";
+      if (open) {
+        if (badge) badge.style.display = "none";
+        if (!opened) { opened = true; botRespond(["¡Hola! 👋 Soy el asistente virtual de FECAFEB.", "¿En qué puedo ayudarle hoy?"]); }
+        setTimeout(() => input && input.focus(), 300);
       }
-      if (open) setTimeout(() => input && input.focus(), 300);
     };
     on(fab, "click", () => toggle(!panel.classList.contains("is-open")));
     on(close, "click", () => toggle(false));
@@ -229,10 +260,10 @@
       const v = (input.value || "").trim();
       if (!v) return;
       add(v, "user"); input.value = "";
-      botSay(reply(v));
+      botRespond(match(v));
     };
     on(send, "click", submit);
     on(input, "keydown", e => e.key === "Enter" && submit());
-    $$(".chip").forEach(c => on(c, "click", () => { add(c.textContent, "user"); botSay(reply(c.dataset.q || c.textContent)); }));
+    $$(".chip").forEach(c => on(c, "click", () => { add(c.textContent, "user"); botRespond(match(c.dataset.q || c.textContent)); }));
   }
 })();

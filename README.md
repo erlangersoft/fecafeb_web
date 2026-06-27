@@ -2,23 +2,29 @@
 
 Base profesional, responsiva y de vanguardia para la Federación de Caficultores Exportadores de Bolivia. Pensada como **plantilla de diseño del sistema completo** (orientada a compradores de la UE que buscan proveedores latinos de café).
 
-## Estructura (HTML / CSS / JS separados)
+## Estructura (multipágina · HTML / CSS / JS separados)
 
 ```
 fecafeb_web/
-├── index.html              # Estructura y contenido (semántico, SEO + Schema.org)
-├── css/
-│   └── styles.css          # Sistema de diseño completo (tokens, layout, responsivo)
-├── js/
-│   └── main.js             # Interacciones (nav, tabs, i18n, chatbot, WhatsApp, reveal)
-├── assets/img/
-│   ├── logo-fecafeb.png     # Logo institucional (optimizado web)
-│   ├── logo-escuela-cafe.png# Logo Escuela de Café (optimizado web)
-│   └── favicon.png
+├── index.html              # Home (hero, cifras, teasers de servicios/trazabilidad/prensa)
+├── nosotros.html           # Misión/Visión/Valores + Historia + Directorio
+├── afiliados.html          # Afiliación + registro de comprador/exportador + red
+├── servicios.html          # Servicios + Escuela de Café
+├── trazabilidad.html       # Proceso EUDR detallado
+├── prensa.html             # Noticias
+├── galeria.html            # Galería (placeholders de foto)
+├── contacto.html           # Datos + formulario + mapa
+├── css/styles.css          # Sistema de diseño (tokens, layout, responsivo)
+├── js/main.js              # nav, tabs, i18n, chatbot, WhatsApp, reveal, lightbox
+├── build_pages.py          # Generador (header/footer compartidos) — re-ejecutar para regenerar
+├── assets/img/             # logo-fecafeb.png · logo-escuela-cafe.png (fondo removido) · favicon.png
 └── README.md
 ```
 
-Abrir: doble clic en `index.html` (no requiere servidor). Para fuentes y CDNs se necesita conexión; sin ella degrada con elegancia a fuentes del sistema.
+Abrir: doble clic en `index.html` (no requiere servidor). Para regenerar todas las páginas tras editar el generador: `python3 build_pages.py`. Para fuentes/CDN se necesita conexión; sin ella degrada a fuentes del sistema.
+
+## Imágenes
+Donde irá una fotografía hay un **placeholder con ícono** (`.ph`). Reemplácelo por `<img src="...">` real en galería, prensa, "Nosotros", "Escuela de Café", mapas y trazabilidad.
 
 ## Identidad visual (v2 · blanco / moderno)
 Estilo limpio tipo plantilla profesional: **fondo blanco**, mucho aire, tarjetas suaves y acentos café + verde. Variables CSS en `:root`:
