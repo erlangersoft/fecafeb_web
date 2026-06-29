@@ -254,7 +254,7 @@ kul = f"""
   <img src="assets/img/logo-kullaka.png" alt="Café Kullaka">
   <div><span class="eyebrow">Vitrina comercial</span><h2>Café Kullaka — “Esencia que abraza”</h2>
   <p class="lead">La marca de café de especialidad de FECAFEB con identidad de mujer, que impulsa la comercialización nacional e internacional.</p>
-  <div class="hero__actions" style="margin-top:1.2rem"><a href="contacto.html" class="btn btn--gold">Comprar / cotizar</a><a href="comite-mujeres.html" class="btn btn--ghost">Comité de Mujeres</a></div></div>
+  <div class="hero__actions" style="margin-top:1.2rem"><a href="tienda.html" class="btn btn--gold">Comprar / hacer pedido</a><a href="comite-mujeres.html" class="btn btn--ghost">Comité de Mujeres</a></div></div>
 </div></section>
 <section class="section section--tint"><div class="container grid grid-3">
   <article class="card reveal"><div class="card__ico">{I['venus']}</div><h3>Identidad de mujer</h3><p>Café producido y liderado por las mujeres cafetaleras de Bolivia.</p></article>
@@ -265,6 +265,28 @@ kul = f"""
 """
 page("kullaka.html","servicios.html","Marca Kullaka · FECAFEB","Café Kullaka, la marca de especialidad con identidad de mujer de FECAFEB. Esencia que abraza.",kul,
      ("Servicios / Marca Kullaka","Marca Kullaka","Café de especialidad con identidad de mujer."))
+
+# ===================== TIENDA / PEDIDOS =====================
+tienda = f"""
+<section class="section section--pattern"><div class="container">
+  <div class="head-block"><span class="eyebrow">Tienda</span><h2>Café de la Federación — pedidos</h2>
+  <p class="lead">Compre café <b>Kullaka</b> (tostado) y <b>café verde de exportación</b>. Agregue productos a su pedido; para finalizar, regístrese o inicie sesión como comprador.</p></div>
+  <div class="shop-grid" id="shopGrid"></div>
+  <p class="form__note" style="margin-top:1.2rem">Precios referenciales en USD. El pedido es una solicitud de cotización; FECAFEB confirma disponibilidad, precios FOB y logística.</p>
+</div></section>
+<section class="section section--tint"><div class="container">
+  <div class="head-block center"><span class="eyebrow">¿Cómo pedir?</span><h2>Pedidos para el exterior en 4 pasos</h2></div>
+  <div class="grid grid-4">
+    <article class="card reveal"><div class="card__ico">{I['cup']}</div><h3>1. Explore</h3><p>Revise el catálogo y agregue productos a su pedido.</p></article>
+    <article class="card reveal" data-delay="80"><div class="card__ico">{I['users']}</div><h3>2. Regístrese</h3><p>Cree su cuenta de comprador (queda en revisión para ser dada de alta por FECAFEB).</p></article>
+    <article class="card reveal" data-delay="160"><div class="card__ico">{I['doc']}</div><h3>3. Solicite</h3><p>Envíe su pedido como solicitud de cotización.</p></article>
+    <article class="card reveal" data-delay="240"><div class="card__ico">{I['globe']}</div><h3>4. Exporte</h3><p>Confirmamos disponibilidad, precios FOB, trazabilidad EUDR y logística.</p></article>
+  </div>
+</div></section>
+"""
+page("tienda.html","servicios.html","Tienda · FECAFEB","Compra y pedidos de café boliviano (Kullaka y café verde de exportación) para compradores del exterior.",tienda,
+     ("Servicios / Tienda","Tienda & pedidos","Café Kullaka y café verde de exportación. Pedidos con registro de comprador."))
+
 
 # ===================== TAZA PRESIDENCIAL =====================
 results=[("1°","Coop. Mejillones","Caranavi, La Paz","Geisha","89,5"),("2°","Coop. Antofagasta","Caranavi, La Paz","Java","88,75"),("3°","Coop. San Juan","Coroico, La Paz","Caturra","88,25"),("4°","Coop. Villa Oriente","Palos Blancos","Catuaí","87,9"),("5°","CENAPROC","Caranavi, La Paz","Typica","87,5")]

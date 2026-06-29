@@ -1,67 +1,95 @@
-# FECAFEB — Plantilla de sitio web institucional
+# FECAFEB — Sitio web institucional (plantilla)
 
-Base profesional, responsiva y de vanguardia para la Federación de Caficultores Exportadores de Bolivia. Pensada como **plantilla de diseño del sistema completo** (orientada a compradores de la UE que buscan proveedores latinos de café).
+Sitio multipágina, **mobile-first**, estático (HTML/CSS/JS), para la **Federación de Caficultores Exportadores de Bolivia (FECAFEB)**, orientado a compradores de la Unión Europea y a la familia cafetalera. Diseño y desarrollo: **ERLANGER-SOFT · Cognitio SRL** — Proyecto AAGIL (Ayuda en Acción).
 
-## Estructura (multipágina · HTML / CSS / JS separados)
-
-```
-fecafeb_web/
-├── index.html              # Home (hero, cifras, teasers de servicios/trazabilidad/prensa)
-├── nosotros.html           # Misión/Visión/Valores + Historia + Directorio
-├── afiliados.html          # Afiliación + registro de comprador/exportador + red
-├── servicios.html          # Servicios + Escuela de Café
-├── trazabilidad.html       # Proceso EUDR detallado
-├── prensa.html             # Noticias
-├── galeria.html            # Galería (placeholders de foto)
-├── contacto.html           # Datos + formulario + mapa
-├── css/styles.css          # Sistema de diseño (tokens, layout, responsivo)
-├── js/main.js              # nav, tabs, i18n, chatbot, WhatsApp, reveal, lightbox
-├── build_pages.py          # Generador (header/footer compartidos) — re-ejecutar para regenerar
-├── assets/img/             # logo-fecafeb.png · logo-escuela-cafe.png (fondo removido) · favicon.png
-└── README.md
-```
-
-Abrir: doble clic en `index.html` (no requiere servidor). Para regenerar todas las páginas tras editar el generador: `python3 build_pages.py`. Para fuentes/CDN se necesita conexión; sin ella degrada a fuentes del sistema.
-
-## Imágenes
-Donde irá una fotografía hay un **placeholder con ícono** (`.ph`). Reemplácelo por `<img src="...">` real en galería, prensa, "Nosotros", "Escuela de Café", mapas y trazabilidad.
-
-## Identidad visual (v2 · blanco / moderno)
-Estilo limpio tipo plantilla profesional: **fondo blanco**, mucho aire, tarjetas suaves y acentos café + verde. Variables CSS en `:root`:
-
-- Fondo `#ffffff` · Sección alterna `#F7F8F6` · Crema `#FBF8F3`
-- Café (marca/texto fuerte) `#4E342E` · Verde acento (orgánico/EUDR) `#2F7D57`
-- Oro (detalles) `#C8962E` · Títulos `#23302A` · Texto `#51605A`
-- Bandas de acento en **verde profundo** (`section--accent`) para dar ritmo sin saturar
-- Tipografía: **Fraunces** (títulos) + **Inter** (texto)
-
-> El fondo turquesa del logo de la Escuela de Café fue eliminado (ahora transparente) para que luzca pulcro sobre blanco.
-
-Cambiar toda la apariencia = editar las variables en `css/styles.css`.
-
-## Secciones / navegación
-Inicio (hero) · Nosotros (Misión/Visión/Valores/Historia en pestañas) · Cifras · Servicios (+ Escuela de Café) · Afiliados (afiliación + registro de exportador/comprador) · Trazabilidad EUDR · Prensa · Galería · Contacto · Footer · Plataforma institucional · Redes sociales · **Chatbot** + **botón flotante de WhatsApp**.
-
-## Funcionalidades JS
-- Menú móvil, header con sombra al scroll y resaltado de sección activa.
-- Animaciones de aparición (IntersectionObserver) y pestañas de "Nosotros".
-- Galería con lightbox.
-- Conmutador de idioma **ES/EN** (diccionario en `main.js → DICT`, atributos `data-i18n`).
-- Mini chatbot por reglas locales (sin servicios externos) y botón de WhatsApp.
-- Formularios en modo demo (sin backend).
-
-## Personalización rápida (editar en `js/main.js → CONFIG`)
-```js
-whatsapp: "59171537365",            // número real (sin +)
-email: "fecafebfinanzas@gmail.com",
-platformUrl: "#plataforma"          // URL real del sistema institucional
-```
-- **Fotos:** reemplazar los bloques de degradado de `.gallery`, `.news__cover` y `.feature__media` por imágenes reales.
-- **Idiomas:** ampliar el diccionario `DICT` y añadir `data-i18n="clave"` a más elementos.
-- **Misión/Visión:** la web usa la versión del PEI 2023–2027. Confirmar con FECAFEB el enunciado oficial.
-
-## Pendientes para fase de desarrollo
-Conectar formularios a backend/CRM · login real de la plataforma · CMS para Prensa/Galería · sitemap.xml y robots.txt · imágenes reales optimizadas (WebP) · integración del chatbot con la plataforma de trazabilidad.
+> Estado: prototipo navegable con datos/imágenes **de ejemplo**. Pensado para conectarse luego a un **CMS autogestionable** y al **sistema/Portal** (datos de afiliados, trazabilidad, tienda y pedidos).
 
 ---
-Diseño y desarrollo: **ERLANGER-SOFT · Cognitio SRL** — Proyecto AAGIL (Ayuda en Acción).
+
+## 1. Cómo verlo y publicarlo
+- **Ver localmente:** abrir `index.html` en el navegador (doble clic). Requiere conexión a internet para fuentes (Google Fonts), mapas (Leaflet + OpenStreetMap/CARTO) e imágenes de ejemplo (Unsplash). Sin conexión, degrada con elegancia.
+- **Publicado (GitHub Pages):** subir el contenido de `fecafeb_web/` al repositorio. Las rutas son relativas, funciona tal cual.
+
+## 2. Estructura de archivos
+```
+fecafeb_web/
+├── index.html              Inicio (hero-carrusel, hub de 6 pilares, cifras, marcas, noticias)
+├── quienes-somos.html      Misión/Visión/Valores · Instancias (Directorio, Fiscalización, Mujeres) · Historia
+├── afiliados.html          Afiliación + registro de comprador · 3 niveles de acceso · mapa de zonas (Leaflet)
+├── trazabilidad.html       EUDR · consulta pública de lote · 3 niveles de acceso
+├── servicios.html          Servicios + accesos a Escuela, Kullaka, Taza
+├── escuela-cafe.html       Escuela de Café (formación)
+├── comite-mujeres.html     Comité de Mujeres + sinergia con Kullaka
+├── kullaka.html            Marca Café Kullaka (vitrina comercial)
+├── taza-presidencial.html  Torneo Nacional (SCA) + tabla de resultados
+├── tienda.html             Catálogo + pedidos (carrito + registro de comprador)
+├── publicaciones.html      Documentos · Blog del Café · Comunicados · Galería
+├── noticias.html           Noticias + boletín semanal
+├── contacto.html           Datos + formulario + mapa
+├── nosotros.html / prensa.html / galeria.html   → redirecciones a las páginas nuevas
+│
+├── css/
+│   ├── styles.css          Base: tokens, layout, cabecera, hero, footer, tarjetas, chatbot, responsivo
+│   └── pages.css           Componentes: hub, niveles de acceso, mapa, consulta de lote, blog,
+│                           carrusel de marcas, búsqueda, tienda/carrito, modal de compra, topbar acciones
+├── js/
+│   ├── main.js             Navegación, scroll, reveal, carrusel del hero, contadores, tabs, galería,
+│   │                       formularios demo, i18n ES/EN, chatbot, WhatsApp
+│   ├── maps.js             Mapa de zonas productoras (Leaflet) + panel de información
+│   ├── trace.js            Consulta pública de trazabilidad por lote (+ polígono de parcela)
+│   ├── search.js           Búsqueda global del sitio (overlay)
+│   └── shop.js             Tienda, carrito, registro/login de comprador y pedido (demo, localStorage)
+├── assets/img/             Logos (institucional, comercial 2024, Kullaka, Comité de Mujeres, Escuela) + favicon
+│
+├── parts.py                GENERADOR · scaffolding compartido (cabecera, pie, flotantes, helpers, nav)
+├── build.py                GENERADOR · contenido de cada página → escribe los .html
+└── README.md
+```
+> Nota: `build_pages.py` y `assets/img/new1..4` son restos antiguos sin uso (pueden borrarse manualmente).
+
+## 3. Cómo regenerar las páginas
+Las páginas HTML se generan con Python (no se editan a mano):
+```
+python3 build.py
+```
+`build.py` importa `parts.py`. Para cambiar cabecera, pie, menú o flotantes globales → editar `parts.py`. Para cambiar el contenido de una página → editar `build.py` y regenerar. Estilos y scripts (`css/`, `js/`) se editan directamente.
+
+## 4. Identidad visual
+Estilo limpio sobre **fondo blanco**, alto contraste, **café + dorado** con detalles crema. Tokens en `css/styles.css :root`:
+- Café `#4E342E` · Espresso `#241712` · Dorado `#C8962E` / `#F0E0BE` · Crema `#F4ECDD`
+- Títulos `#241C17` · Texto `#574C44` · Fondos `#FFFFFF` / `#F6F4F0` / `#FBF8F2`
+- Tipografía: **Fraunces** (títulos) + **Inter** (texto). Bandas oscuras puntuales en espresso para dar ritmo.
+
+## 5. Navegación (orden aprobado por el directivo)
+Inicio · Quiénes Somos · Afiliados · Trazabilidad · Servicios · Publicaciones · Noticias · Contacto.
+- **Barra superior (café):** teléfono (clic-para-llamar) y correo, redes sociales animadas, switch **ES/EN**, y a su derecha los accesos **Escuela de Café**, **Portal** (candado) y **Regístrese**.
+- **Menú principal:** logo + navegación + **búsqueda** (lupa) y **carrito**. Submenús en Quiénes Somos (Directorio, Fiscalización, Comité de Mujeres, Historia) y Servicios (Escuela, Kullaka, Taza, Tienda, Asistencia técnica).
+- **Riel lateral fijo** (desktop) con accesos rápidos y tooltip deslizante.
+
+## 6. Funcionalidades implementadas (demo)
+- **Hero con carrusel** de imágenes (auto-rotación, flechas, puntos) y **contadores animados**.
+- **Hub Lineal**: 6 pilares de acceso directo (Afiliados, Escuela, Comité de Mujeres, Kullaka, Taza Presidencial, EUDR).
+- **Carrusel de marcas/instancias** propio (logos en movimiento, efecto al hover).
+- **Tres niveles de acceso** (Afiliados y Trazabilidad): público abierto / compartido con autorización / exclusivo de afiliado (se gestionará a nivel de sistema).
+- **Mapa de zonas productoras** (Leaflet + OpenStreetMap/CARTO) con marcadores y panel de información.
+- **Consulta pública de trazabilidad** por código de lote: ficha de origen, foto del producto, **polígono de la parcela** en mapa, cumplimiento EUDR y descarga de certificados (demo). Lotes de prueba: `LOT-000123`, `LOT-000456`, `LOT-000789`.
+- **Tienda y pedidos**: catálogo (Kullaka + café verde de exportación), **carrito** lateral, **registro/login de comprador** (cuenta queda "en revisión para alta") y confirmación de pedido con N°. Persistencia local.
+- **Búsqueda global** (overlay; atajos `/` o `Ctrl/⌘+K`).
+- **Chatbot** simulado con indicador de escritura, **botón flotante de WhatsApp**, **i18n ES/EN** (nav, hero y CTAs), animaciones al hacer scroll.
+
+## 7. Datos y medios de ejemplo (a reemplazar con CMS/sistema)
+- **Imágenes**: fotos de Unsplash (referenciales, contexto andino/cafetalero). Reemplazar por fotografías propias de FECAFEB.
+- **Productos, precios, lotes, polígonos, resultados de la Taza, noticias y documentos**: contenido demo.
+- **Pedidos y registro de compradores**: simulados en `localStorage`; se conectarán a backend/CRM y al alta real de clientes.
+
+## 8. Pendiente para la fase de sistema/CMS
+- CMS autogestionable (noticias, blog, documentos, productos, galería) sin depender de programadores.
+- Portal Institucional (login real con roles) y los 3 niveles de acceso a nivel de datos.
+- Trazabilidad real: carga de polígonos **GeoJSON** por el afiliado, DDS y **TRACES NT**; mapa de intervención por parcela.
+- Tienda real: pasarela de pago/cotización, alta y aprobación de compradores, gestión de pedidos.
+- Escuela de Café: preinscripción, sílabos y pago en línea.
+- Boletín (Mailchimp/Brevo). Internacionalización EN definitiva (i18next o LibreTranslate) con URLs `/en/` para SEO.
+- Reemplazo de imágenes y textos definitivos; sitemap.xml y robots.txt.
+
+---
+© FECAFEB · Plantilla desarrollada por ERLANGER-SOFT · Cognitio SRL.

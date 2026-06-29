@@ -65,7 +65,7 @@ NAV = [
  ("afiliados.html","Afiliados",None),
  ("trazabilidad.html","Trazabilidad",None),
  ("servicios.html","Servicios",[("escuela-cafe.html","Escuela de Café"),("kullaka.html","Marca Kullaka"),
-     ("taza-presidencial.html","Taza Presidencial"),("servicios.html","Asistencia técnica")]),
+     ("taza-presidencial.html","Taza Presidencial"),("tienda.html","Tienda / Pedidos"),("servicios.html","Asistencia técnica")]),
  ("publicaciones.html","Publicaciones",None),
  ("noticias.html","Noticias",None),
  ("contacto.html","Contacto",None),
@@ -99,23 +99,28 @@ def head(title, desc, extra_head=""):
       '<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">\n'
       '<link rel="stylesheet" href="css/styles.css">\n<link rel="stylesheet" href="css/pages.css">\n' + extra_head + '</head>\n<body>') % (title, desc, title)
 
+SEARCHBTN = '<button class="iconbtn" id="searchBtn" aria-label="Buscar en el sitio" title="Buscar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>'
+CARTBTN = '<button class="iconbtn" id="cartBtn" aria-label="Su pedido" title="Su pedido"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6 5 3H2"/></svg><span class="cartcount" id="cartCount" data-n="0"></span></button>'
 def header(active):
     return ('<div class="topbar"><div class="container topbar__row">'
       '<div class="topbar__info">'
-      '<a class="topbar__tel topbar__lnk" href="tel:+59171537365">%s +591 71537365</a><a class="topbar__lnk" href="mailto:contacto@fecafeb.org">%s contacto@fecafeb.org</a><span>El Alto · La Paz · Bolivia</span></div>'
-      '<div class="topbar__right"><div class="social" aria-label="Redes sociales">%s</div>'
-      '<a href="#" class="topbar__plat">⮞ <span data-i18n="cta.platform2">Portal Institucional</span></a>'
+      '<a class="topbar__tel topbar__lnk" href="tel:+59171537365">'+I["phone"]+' +591 71537365</a>'
+      '<a class="topbar__lnk" href="mailto:contacto@fecafeb.org">'+I["mail"]+' contacto@fecafeb.org</a>'
+      '<span>El Alto · La Paz · Bolivia</span></div>'
+      '<div class="topbar__right">'
+      '<div class="social" aria-label="Redes sociales">'+SOC+'</div>'
       '<div class="lang" role="group" aria-label="Idioma"><button data-lang="es" class="is-active" type="button">ES</button><button data-lang="en" type="button">EN</button></div>'
-      '</div></div></div>'
+      '<div class="topbar__act">'
+      '<a href="escuela-cafe.html" class="tbtn" title="Escuela de Café">'+I["cap"]+'<span data-i18n="cta.escuela">Escuela de Café</span></a>'
+      '<a href="#" class="tbtn tbtn--icon" title="Portal Institucional" aria-label="Portal Institucional">'+I["lock"]+'</a>'
+      '<a href="afiliados.html" class="tbtn tbtn--gold" data-i18n="cta.register">Regístrese</a>'
+      '</div></div></div></div>'
       '<header class="header"><div class="container nav">'
       '<a href="index.html" class="brand" aria-label="FECAFEB inicio"><img src="assets/img/logo-fecafeb.png" alt="FECAFEB"></a>'
-      '<nav aria-label="Principal"><ul class="menu" id="menu">%s</ul></nav>'
-      '<div class="nav__cta">'
-      '<a href="escuela-cafe.html" class="btn btn--escuela btn--icon" title="Escuela de Café">%s<span data-i18n="cta.escuela">Escuela de Café</span></a>'
-      '<a href="#" class="btn btn--portal btn--icon" title="Portal Institucional">%s<span data-i18n="cta.platform">Portal</span></a>'
-      '<a href="afiliados.html" class="btn btn--gold" data-i18n="cta.register">Regístrese</a>'
+      '<nav aria-label="Principal"><ul class="menu" id="menu">'+menu(active)+'</ul></nav>'
+      '<div class="nav__cta">'+SEARCHBTN+CARTBTN+'<span id="userSlot"></span>'
       '<button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span></button>'
-      '</div></div></header>') % (I["phone"], I["mail"], SOC, menu(active), I["cap"], I["lock"])
+      '</div></div></header>')
 
 def subhero(crumb, title, desc):
     return ('<section class="subhero"><div class="container"><div class="crumb"><a href="index.html">Inicio</a> / <span>%s</span></div>'
@@ -140,7 +145,7 @@ FLOAT = SIDERAIL + ('\n<a class="fab fab--wa" href="https://wa.me/59171537365?te
   '<button class="chip" data-q="afiliarme cooperativa">Afiliación</button>'
   '<button class="chip" data-q="escuela de cafe">Escuela de Café</button></div>'
   '<div class="chat__input"><input id="chatInput" type="text" placeholder="Escriba su consulta…" aria-label="Mensaje"><button id="chatSend" aria-label="Enviar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button></div></div>'
-  '')
+  '<div class="search-ov" id="searchOv"><div class="search-box"><div class="search-box__in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input id="searchInput" type="text" placeholder="Buscar en el sitio…" aria-label="Buscar"><button class="esc" id="searchClose">Esc</button></div><div class="search-res" id="searchRes"></div></div></div><div class="cart-bd" id="cartBd"></div><aside class="cart" id="cartDrawer" aria-label="Su pedido"><div class="cart__hd"><b>Su pedido</b><button class="x" id="cartClose">&times;</button></div><div class="cart__body" id="cartBody"></div><div class="cart__ft"><div class="cart__total" id="cartTotal"></div><p class="cart__note">Precios referenciales. El pedido es una solicitud de cotización; FECAFEB confirma disponibilidad y condiciones FOB.</p><button class="btn btn--gold btn--lg" id="checkoutBtn" style="width:100%">Finalizar pedido</button></div></aside><div class="modal-bd" id="authModal"><div class="modal"><div class="modal__hd"><b>Acceso de compradores</b><button class="x" id="authClose">&times;</button></div><div class="modal__tabs"><button data-pane="authLogin" class="is-active">Iniciar sesión</button><button data-pane="authReg">Registrarse</button></div><div class="modal__pane is-active" id="authLogin"><form id="logForm"><div class="field"><label for="logEmail">Correo</label><input id="logEmail" type="email" required placeholder="correo@empresa.com"></div><div class="field"><label>Contraseña</label><input type="password" required placeholder="••••••••"></div><button class="btn btn--lg" type="submit" style="width:100%">Ingresar</button><p class="auth-note">Demo: ingrese con cualquier correo previamente registrado.</p></form></div><div class="modal__pane" id="authReg"><form id="regForm"><div class="form__row"><div class="field"><label for="regName">Nombre / contacto</label><input id="regName" required></div><div class="field"><label for="regCompany">Empresa</label><input id="regCompany"></div></div><div class="form__row"><div class="field"><label for="regEmail">Correo</label><input id="regEmail" type="email" required></div><div class="field"><label for="regCountry">País</label><input id="regCountry" placeholder="Ej. Alemania"></div></div><div class="field"><label>Contraseña</label><input type="password" required></div><button class="btn btn--gold btn--lg" type="submit" style="width:100%">Crear cuenta y continuar</button><p class="auth-note">Las cuentas de comprador quedan en revisión para ser dadas de alta por FECAFEB. (Demo: se habilita de inmediato.)</p></form></div><div class="modal__pane" id="authOk"><div class="modal__ok"><div class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 11 3 3 8-8"/><path d="M21 12a9 9 0 1 1-6.2-8.5"/></svg></div><h3>¡Pedido recibido!</h3><p>Gracias por su solicitud. Un asesor comercial de FECAFEB le contactará para confirmar disponibilidad, precios FOB y logística.</p><div class="ord">N° de pedido: <span id="orderNo"></span></div><button class="btn" id="okClose">Entendido</button></div></div></div></div><script src="js/shop.js"></script><script src="js/search.js"></script>')
 
 def footer():
     return ('<footer class="footer"><div class="container"><div class="footer__grid">'
