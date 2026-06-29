@@ -210,26 +210,24 @@
   /* ---- i18n ES/EN (claves mínimas; ampliable) ---- */
   const DICT = {
     es: {
-      "nav.home": "Inicio", "nav.about": "Nosotros", "nav.affiliates": "Afiliados",
-      "nav.services": "Servicios", "nav.trace": "Trazabilidad", "nav.press": "Prensa",
-      "nav.gallery": "Galería", "nav.contact": "Contacto", "cta.platform": "Portal Institucional",
-      "cta.export": "Regístrese como exportador",
-      "hero.badge": "Café orgánico y de especialidad de Bolivia",
-      "hero.title": "El café boliviano que <em>Europa</em> busca, con trazabilidad garantizada",
-      "hero.lead": "Federación de Caficultores Exportadores de Bolivia: 17.500 familias productoras, 42 organizaciones y trazabilidad geoespacial conforme al Reglamento UE 2023/1115 (EUDR).",
-      "hero.cta1": "Importar nuestro café", "hero.cta2": "Conocer la Federación"
+      "nav.home":"Inicio","nav.about":"Quiénes Somos","nav.affiliates":"Afiliados","nav.trace":"Trazabilidad",
+      "nav.services":"Servicios","nav.pubs":"Publicaciones","nav.news":"Noticias","nav.contact":"Contacto",
+      "cta.platform":"Portal","cta.platform2":"Portal Institucional","cta.escuela":"Escuela de Café","cta.register":"Regístrese",
+      "hero.badge":"Café orgánico y de especialidad de Bolivia",
+      "hero.title":"El café boliviano que <em>Europa</em> busca, con trazabilidad garantizada",
+      "hero.lead":"Federación de Caficultores Exportadores de Bolivia: 17.500 familias productoras, 42 organizaciones y trazabilidad geoespacial conforme al Reglamento UE 2023/1115 (EUDR).",
+      "hero.cta1":"Importar nuestro café","hero.cta2":"Conocer la Federación"
     },
     en: {
-      "nav.home": "Home", "nav.about": "About", "nav.affiliates": "Members",
-      "nav.services": "Services", "nav.trace": "Traceability", "nav.press": "Press",
-      "nav.gallery": "Gallery", "nav.contact": "Contact", "cta.platform": "Institutional Portal",
-      "cta.export": "Register as exporter",
-      "hero.badge": "Organic & specialty coffee from Bolivia",
-      "hero.title": "The Bolivian coffee <em>Europe</em> is looking for, with guaranteed traceability",
-      "hero.lead": "Federation of Coffee Exporting Growers of Bolivia: 17,500 producing families, 42 organizations and geospatial traceability compliant with EU Regulation 2023/1115 (EUDR).",
-      "hero.cta1": "Source our coffee", "hero.cta2": "About the Federation"
+      "nav.home":"Home","nav.about":"About Us","nav.affiliates":"Members","nav.trace":"Traceability",
+      "nav.services":"Services","nav.pubs":"Publications","nav.news":"News","nav.contact":"Contact",
+      "cta.platform":"Portal","cta.platform2":"Institutional Portal","cta.escuela":"Coffee School","cta.register":"Register",
+      "hero.badge":"Organic & specialty coffee from Bolivia",
+      "hero.title":"The Bolivian coffee <em>Europe</em> is looking for, with guaranteed traceability",
+      "hero.lead":"Federation of Coffee Exporting Growers of Bolivia: 17,500 producing families, 42 organizations and geospatial traceability compliant with EU Regulation 2023/1115 (EUDR).",
+      "hero.cta1":"Source our coffee","hero.cta2":"About the Federation"
     }
-  };
+  }
   function i18n() {
     const apply = lang => {
       $$("[data-i18n]").forEach(el => {
