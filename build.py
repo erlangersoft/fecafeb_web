@@ -59,6 +59,7 @@ home = f"""
     <div class="metric reveal" data-delay="240"><div class="num">96%</div><div class="lbl">Producción en La Paz (Yungas / Caranavi)</div></div>
   </div>
 </div></section>
+{brands_marquee()}
 <section class="section"><div class="container">
   <div class="head-block center"><span class="eyebrow">Noticias</span><h2>Actualidad cafetalera</h2></div>
   <div class="news">{''.join(__import__('parts').__dict__.get('NEWS3',''))}</div>

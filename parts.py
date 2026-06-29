@@ -205,3 +205,12 @@ MAP_BO = ('<div class="map-bo"><svg class="map-bo__svg" viewBox="0 0 320 320" ro
 
 LEAFLET_CSS = '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">\n'
 LEAFLET_JS  = '<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>\n'
+
+def brands_marquee():
+    items=[("logo-fecafeb.png","FECAFEB institucional"),("logo-fecafeb-comercial.png","FECAFEB comercial 2024"),
+           ("logo-kullaka.png","Café Kullaka"),("logo-comite-mujeres.jpg","Comité de Mujeres Cafetaleras"),
+           ("logo-escuela-cafe.png","Escuela de Café")]
+    one="".join('<div class="brand-logo"><img src="assets/img/%s" alt="%s" loading="lazy"></div>'%(f,a) for f,a in items)
+    return ('<section class="section brands" style="padding:2.8rem 0"><div class="container">'
+            '<p class="partners__title">Nuestras marcas e instancias</p>'
+            '<div class="brand-marquee"><div class="brand-track">%s%s</div></div></div></section>') % (one+one, one+one)

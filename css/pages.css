@@ -143,7 +143,7 @@
 .lookup__hint b{color:var(--gold-soft)}
 .lot{display:none;margin-top:1.6rem;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);color:var(--body)}
 .lot.show{display:block;animation:fade .4s ease}
-.lot__hd{background:linear-gradient(120deg,#6E0D12,#3a0a0d);color:#fff;padding:1.4rem 1.6rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.lot__hd{background:linear-gradient(120deg,var(--coffee),var(--espresso));color:#fff;padding:1.4rem 1.6rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
 .lot__hd .k{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.8}
 .lot__hd h3{color:#fff;font-size:1.7rem;letter-spacing:.02em}
 .lot__verified{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);padding:.4rem .8rem;border-radius:999px;font-size:.82rem;font-weight:600}
@@ -185,3 +185,24 @@
 .comunicado span{font-size:.85rem;color:var(--muted)}
 .comunicado a{margin-left:auto;font-weight:700;color:var(--coffee);font-size:.84rem;white-space:nowrap}
 @media (max-width:860px){.blog{grid-template-columns:1fr}.comunicado{flex-wrap:wrap}.comunicado a{margin-left:0}}
+
+/* Producto consultado (foto de seguridad) */
+.lot__prod{width:54px;height:54px;border-radius:10px;object-fit:cover;border:2px solid rgba(255,255,255,.5);flex:none}
+.lot__product{display:flex;align-items:center;gap:1rem;background:var(--soft-warm);border:1px solid var(--line);border-radius:12px;padding:.8rem 1rem;margin-bottom:1rem}
+.lot__product img{width:72px;height:72px;border-radius:10px;object-fit:cover;border:1px solid var(--line);flex:none}
+.lot__product b{font-family:var(--f-head);color:var(--ink);display:block}
+.lot__product span{font-size:.82rem;color:var(--muted)}
+.lot__hd-left{display:flex;align-items:center;gap:1rem}
+
+/* ---------- Carrusel de logos/marcas propias ---------- */
+.brands{background:var(--soft-warm);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.brand-marquee{position:relative;overflow:hidden;margin-top:1rem;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.brand-track{display:flex;align-items:center;gap:clamp(4rem,9vw,8rem);width:max-content;will-change:transform;animation:brandscroll 28s linear infinite}
+.brand-marquee:hover .brand-track{animation-play-state:paused}
+.brand-logo{height:84px;display:grid;place-items:center;flex:none}
+.brand-logo img{max-height:84px;width:auto;object-fit:contain;filter:grayscale(.3) saturate(.85);opacity:.8;transition:filter .35s,opacity .35s,transform .35s}
+.brand-logo:hover img{filter:none;opacity:1;transform:scale(1.12)}
+@keyframes brandscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* el carrusel de marcas se mantiene en movimiento aunque el SO reduzca animaciones (elemento decorativo) */
+@media (prefers-reduced-motion:reduce){.brand-track{animation:brandscroll 28s linear infinite!important}}
+@media (max-width:600px){.brand-logo{height:58px}.brand-logo img{max-height:58px}}
