@@ -26,6 +26,7 @@
     mobileNav();
     headerScroll();
     scrollReveal();
+    heroParallax();
     heroSlider();
     counters();
     tabs();
@@ -35,6 +36,23 @@
     chatbot();
     whatsapp();
     const y = $("#year"); if (y) y.textContent = new Date().getFullYear();
+  }
+
+  /* ---- Parallax sutil del hero (respeta reduce-motion) ---- */
+  function heroParallax() {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const beans = $(".hero__beans");
+    if (!beans) return;
+    let ticking = false;
+    on(window, "scroll", () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y < 900) beans.style.transform = "translateY(" + (y * 0.12) + "px)";
+        ticking = false;
+      });
+    }, { passive: true });
   }
 
   /* ---- Carrusel del hero ---- */
@@ -141,6 +159,10 @@
     if (!("IntersectionObserver" in window) || !els.length) {
       els.forEach(e => e.classList.add("in")); return;
     }
+    // auto-stagger: reveals sin data-delay reciben un retraso escalonado entre hermanos
+    const groups = new Map();
+    els.forEach(e => { if (!e.dataset.delay) { const p = e.parentElement; const a = groups.get(p) || []; a.push(e); groups.set(p, a); } });
+    groups.forEach(a => { if (a.length > 1) a.forEach((e, i) => { e.dataset.delay = String(Math.min(i * 70, 300)); }); });
     const io = new IntersectionObserver((entries, obs) => {
       entries.forEach(en => {
         if (en.isIntersecting) {

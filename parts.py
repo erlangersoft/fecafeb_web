@@ -41,10 +41,10 @@ PHOTOS = {
   "andes":"https://images.unsplash.com/photo-1531065208531-4036c0dba3ca",
   "bag":"https://images.unsplash.com/photo-1521302080334-4bebac2763a6",
   "green":"https://images.unsplash.com/photo-1518057111178-44a106bad636",
-  "cup":"https://images.unsplash.com/photo-1461023058943-07fcbe16d735",
-  "specialty":"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085",
-  "roast":"https://images.unsplash.com/photo-1498804103079-a6351b050096",
-  "shop":"https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+  "cup":"https://images.unsplash.com/photo-1518057111178-44a106bad636",
+  "specialty":"https://images.unsplash.com/photo-1442550528053-c431ecb55509",
+  "roast":"https://images.unsplash.com/photo-1521302080334-4bebac2763a6",
+  "shop":"https://images.unsplash.com/photo-1429277096327-11ee3b761c93",
   "woman":"https://images.unsplash.com/photo-1530541930197-ff16ac917b0e",
   "people":"https://images.unsplash.com/photo-1530541930197-ff16ac917b0e",
 }
@@ -96,7 +96,7 @@ def head(title, desc, extra_head=""):
       '<meta property="og:image" content="assets/img/logo-fecafeb.png">\n'
       '<link rel="icon" type="image/png" href="assets/img/favicon.png">\n'
       '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-      '<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">\n'
+      '<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">\n'
       '<link rel="stylesheet" href="css/styles.css">\n<link rel="stylesheet" href="css/pages.css">\n' + extra_head + '</head>\n<body>') % (title, desc, title)
 
 SEARCHBTN = '<button class="iconbtn" id="searchBtn" aria-label="Buscar en el sitio" title="Buscar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>'
