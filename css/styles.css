@@ -14,11 +14,11 @@
   --espresso:#241712;      /* bandas oscuras */
   --espresso-2:#2F1F17;
   --gold:#C8962E;          /* acento principal */
-  --gold-d:#9E7415;
+  --gold-d:#7C5C10;
   --gold-soft:#F0E0BE;
   --ink:#241C17;           /* títulos */
   --body:#574C44;          /* texto */
-  --muted:#9A8F85;
+  --muted:#6A6058;
   --line:#ECE6DD;
   --line-2:#E0D8CC;
   --ok:#2F7D57;            /* solo micro-acento (check EUDR) */
@@ -61,7 +61,7 @@ p{color:var(--body)}
    radial-gradient(900px 360px at 85% -20%,rgba(200,150,46,.16),transparent 60%),
    linear-gradient(180deg,var(--espresso-2),var(--espresso));color:#e9ddd0}
 .section--accent h2,.section--accent h3{color:#fff}
-.eyebrow{display:inline-flex;align-items:center;gap:.55rem;font-weight:700;font-size:.74rem;
+.eyebrow{display:inline-flex;align-items:center;gap:.55rem;font-weight:700;font-size:.79rem;
   letter-spacing:.15em;text-transform:uppercase;color:var(--gold-d);margin-bottom:.9rem}
 .eyebrow::before{content:"";width:24px;height:2px;background:var(--gold);display:inline-block;border-radius:2px}
 .section--accent .eyebrow{color:var(--gold-soft)}
@@ -202,7 +202,7 @@ p{color:var(--body)}
 
 /* ---------- Franja de aliados (marquee animado) ---------- */
 .partners{background:#fff;border-bottom:1px solid var(--line);padding:1.6rem 0;overflow:hidden}
-.partners__title{text-align:center;font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1.1rem}
+.partners__title{text-align:center;font-size:.86rem;font-weight:700;letter-spacing:.03em;color:var(--muted);margin-bottom:1.1rem}
 .marquee{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .marquee__track{display:flex;gap:3rem;width:max-content;animation:marquee 32s linear infinite}
 .marquee:hover .marquee__track{animation-play-state:paused}
@@ -402,7 +402,7 @@ p{color:var(--body)}
 /* ---------- 18. Footer ---------- */
 .footer{background:var(--espresso);color:#b2a596;padding:3.6rem 0 1.6rem}
 .footer__grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1.2fr;gap:2rem;padding-bottom:2.4rem;border-bottom:1px solid rgba(255,255,255,.1)}
-.footer h4{color:#fff;font-size:1rem;margin-bottom:1rem;font-family:var(--f-head)}
+.footer h3{color:#fff;font-size:1rem;margin-bottom:1rem;font-family:var(--f-head)}
 .footer__brand img{height:56px;margin-bottom:1rem;background:#fff;padding:6px 10px;border-radius:10px}
 .footer__brand p{font-size:.9rem;color:#9c8f80;max-width:34ch}
 .footer ul{display:grid;gap:.55rem}
@@ -430,7 +430,7 @@ p{color:var(--body)}
 
 .chat{position:fixed;right:22px;bottom:158px;z-index:81;width:min(360px,calc(100vw - 44px));background:#fff;border-radius:20px;
   box-shadow:var(--shadow-lg);overflow:hidden;border:1px solid var(--line);transform-origin:bottom right;
-  transform:scale(.6) translateY(20px);opacity:0;visibility:hidden;transition:all .3s cubic-bezier(.34,1.56,.64,1)}
+  transform:scale(.6) translateY(20px);opacity:0;visibility:hidden;transition:all .34s cubic-bezier(.16,1,.3,1)}
 .chat.is-open{transform:scale(1) translateY(0);opacity:1;visibility:visible}
 .chat__head{background:linear-gradient(135deg,var(--coffee),var(--espresso));color:#fff;padding:1rem 1.2rem;display:flex;align-items:center;gap:.7rem}
 .chat__head img{height:36px;width:36px;border-radius:50%;background:#fff;padding:3px}
