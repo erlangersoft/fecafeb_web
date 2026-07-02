@@ -34,5 +34,17 @@
       if(i===2) render(z); // por defecto Apolo
     });
     setTimeout(function(){ map.invalidateSize(); }, 200);
+
+    // ---- Mapa de la oficina de FECAFEB (Contacto) ----
+    var oe = document.getElementById("mapOffice");
+    if (oe && typeof L !== "undefined") {
+      var off = [-16.5045, -68.1631]; // El Alto · La Paz (aprox. Av. Juan Pablo II)
+      var om = L.map(oe, {scrollWheelZoom:false}).setView(off, 14);
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",{attribution:"&copy; OpenStreetMap &middot; &copy; CARTO",subdomains:"abcd",maxZoom:19}).addTo(om);
+      var opin = L.divIcon({className:"",html:'<div style="width:18px;height:18px;border-radius:50% 50% 50% 0;background:#4E342E;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.4)"></div>',iconSize:[18,18],iconAnchor:[9,18]});
+      L.marker(off,{icon:opin}).addTo(om).bindPopup("FECAFEB · Av. Juan Pablo II 2974, El Alto");
+      setTimeout(function(){ om.invalidateSize(); }, 200);
+    }
+
   });
 })();

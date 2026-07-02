@@ -59,18 +59,20 @@ def ph(label, cls=""):
 # ---- Navegación (orden solicitado por el directivo) ----
 NAV = [
  ("index.html","Inicio",None),
- ("quienes-somos.html","Quiénes Somos",[("quienes-somos.html#mvv","Misión, Visión y Valores"),
+ ("quienes-somos.html","Quiénes Somos",[("quienes-somos.html#mvv","Misión, Visión, objetivos y valores"),
      ("quienes-somos.html#directorio","Directorio"),("quienes-somos.html#fiscalizacion","Comité de Fiscalización"),
-     ("comite-mujeres.html","Comité de Mujeres"),("quienes-somos.html#historia","Historia")]),
- ("afiliados.html","Afiliados",None),
- ("trazabilidad.html","Trazabilidad",None),
+     ("comite-mujeres.html","Comité de Mujeres"),("quienes-somos.html#historia","Línea del tiempo")]),
  ("servicios.html","Servicios",[("escuela-cafe.html","Escuela de Café"),("kullaka.html","Marca Kullaka"),
      ("taza-presidencial.html","Taza Presidencial"),("tienda.html","Tienda / Pedidos"),("servicios.html","Asistencia técnica")]),
- ("publicaciones.html","Publicaciones",None),
- ("noticias.html","Noticias",None),
+ ("prensa.html","Prensa",[("prensa.html#notas","Notas de prensa · FECAFEB"),
+     ("prensa.html#externas","Noticias externas · medios"),("prensa.html#otras","Otras fuentes de prensa")]),
+ ("biblioteca.html","Biblioteca",[("biblioteca.html#publicaciones","Publicaciones (guías, manuales)"),
+     ("biblioteca.html#normativa","Normativa (leyes, decretos)"),("biblioteca.html#fotos","Fotos (álbumes)"),
+     ("biblioteca.html#videos","Videos")]),
+ ("trazabilidad.html","Trazabilidad",[("trazabilidad.html","Trazabilidad EUDR"),("afiliados.html","Afiliados")]),
  ("contacto.html","Contacto",None),
 ]
-NAVKEY={"index.html":"nav.home","quienes-somos.html":"nav.about","afiliados.html":"nav.affiliates","trazabilidad.html":"nav.trace","servicios.html":"nav.services","publicaciones.html":"nav.pubs","noticias.html":"nav.news","contacto.html":"nav.contact"}
+NAVKEY={"index.html":"nav.home","quienes-somos.html":"nav.about","servicios.html":"nav.services","prensa.html":"nav.press","biblioteca.html":"nav.library","trazabilidad.html":"nav.trace","contacto.html":"nav.contact"}
 def menu(active):
     chev='<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>'
     out=[]
@@ -153,7 +155,7 @@ def footer():
       '<p>Federación de Caficultores Exportadores de Bolivia. Ente rector del sector cafetalero boliviano desde 1991.</p>'
       '<div class="social" style="margin-top:1rem">%s</div></div>'
       '<div><h3>Federación</h3><ul><li><a href="quienes-somos.html">Quiénes Somos</a></li><li><a href="quienes-somos.html#directorio">Directorio</a></li>'
-      '<li><a href="comite-mujeres.html">Comité de Mujeres</a></li><li><a href="afiliados.html">Afiliados</a></li></ul></div>'
+      '<li><a href="comite-mujeres.html">Comité de Mujeres</a></li><li><a href="servicios.html">Servicios</a></li></ul></div>'
       '<div><h3>Café & Mercados</h3><ul><li><a href="escuela-cafe.html">Escuela de Café</a></li><li><a href="kullaka.html">Marca Kullaka</a></li>'
       '<li><a href="taza-presidencial.html">Taza Presidencial</a></li><li><a href="trazabilidad.html">Trazabilidad EUDR</a></li></ul></div>'
       '<div><h3>Boletín semanal</h3><p style="font-size:.9rem;color:#9c8f80">Precios, clima y convocatorias del café boliviano.</p>'

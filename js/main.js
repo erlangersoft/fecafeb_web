@@ -233,7 +233,7 @@
   const DICT = {
     es: {
       "nav.home":"Inicio","nav.about":"Quiénes Somos","nav.affiliates":"Afiliados","nav.trace":"Trazabilidad",
-      "nav.services":"Servicios","nav.pubs":"Publicaciones","nav.news":"Noticias","nav.contact":"Contacto",
+      "nav.services":"Servicios","nav.press":"Prensa","nav.library":"Biblioteca","nav.contact":"Contacto",
       "cta.platform":"Portal","cta.platform2":"Portal Institucional","cta.escuela":"Escuela de Café","cta.register":"Regístrese",
       "hero.badge":"Café orgánico y de especialidad de Bolivia",
       "hero.title":"El café boliviano que <em>Europa</em> busca, con trazabilidad garantizada",
@@ -242,7 +242,7 @@
     },
     en: {
       "nav.home":"Home","nav.about":"About Us","nav.affiliates":"Members","nav.trace":"Traceability",
-      "nav.services":"Services","nav.pubs":"Publications","nav.news":"News","nav.contact":"Contact",
+      "nav.services":"Services","nav.press":"Press","nav.library":"Library","nav.contact":"Contact",
       "cta.platform":"Portal","cta.platform2":"Institutional Portal","cta.escuela":"Coffee School","cta.register":"Register",
       "hero.badge":"Organic & specialty coffee from Bolivia",
       "hero.title":"The Bolivian coffee <em>Europe</em> is looking for, with guaranteed traceability",

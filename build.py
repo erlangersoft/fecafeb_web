@@ -307,37 +307,78 @@ taza = f"""
 page("taza-presidencial.html","servicios.html","Taza Presidencial · FECAFEB","Torneo Nacional Taza Presidencial de Bolivia: catación SCA, resultados y subasta internacional.",taza,
      ("Servicios / Taza Presidencial","Taza Presidencial","El evento cumbre del café boliviano, bajo estándares SCA."))
 
-# ===================== PUBLICACIONES =====================
+# ===================== BIBLIOTECA =====================
 docs=[("doc","Estatuto Orgánico y Reglamento Interno","Documento institucional · PDF"),
       ("doc","Plan Estratégico Institucional 2023–2027","Estrategia · PDF"),
-      ("doc","Reglamento Taza Presidencial 2026–2027","Convocatoria · PDF"),
-      ("doc","Guía de cumplimiento EUDR para afiliadas","Trazabilidad · PDF"),
+      ("doc","Guía de cumplimiento EUDR para afiliadas","Guía técnica · PDF"),
+      ("doc","Manual de buenas prácticas de beneficiado","Manual · PDF"),
       ("doc","Memoria anual FECAFEB","Rendición de cuentas · PDF")]
-doclist=''.join(f'<div class="doc reveal"><div class="doc__ico">{I[ic]}</div><div class="doc__b"><b>{t}</b><span>{s}</span></div><a class="doc__dl" href="#">{I["dl"]} Descargar</a></div>' for ic,t,s in docs)
-GAL=[("Cafetales de los Yungas","tall","field"),("Cosecha selectiva","","cherries"),("Beneficiado y secado","","bag"),("Catación y calidad","","cup"),("Familias cafetaleras","","hands"),("Escuela de Café","tall","shop"),("Café verde de exportación","","green"),("Comité de Mujeres","","harvest")]
+doclist=''.join(f'<div class="doc reveal"><div class="doc__ico">{I[ic]}</div><div class="doc__b"><b>{t}</b><span>{sub}</span></div><a class="doc__dl" href="#">{I["dl"]} Descargar</a></div>' for ic,t,sub in docs)
+norm=[("doc","Ley N° 351 (2013) — Personalidad jurídica de OSFL","Ley · PDF"),
+      ("doc","D.S. 1597 — Reglamento de la Ley 351","Decreto Supremo · PDF"),
+      ("doc","Resolución Ministerial N° 156/25","Resolución · PDF"),
+      ("doc","Reglamento UE 2023/1115 (EUDR)","Normativa internacional · PDF"),
+      ("doc","Estatuto Orgánico — Testimonio 092/2026","Instrumento legal · PDF")]
+normlist=''.join(f'<div class="doc reveal"><div class="doc__ico">{I[ic]}</div><div class="doc__b"><b>{t}</b><span>{sub}</span></div><a class="doc__dl" href="#">{I["dl"]} Descargar</a></div>' for ic,t,sub in norm)
+GAL=[("Álbum · Taza Presidencial","tall","cherries"),("Álbum · Cosecha Yungas","","field"),("Álbum · Beneficiado y secado","","bag"),("Álbum · Escuela de Café","","hands"),("Álbum · Comité de Mujeres","","harvest"),("Álbum · Café verde de exportación","tall","green"),("Álbum · Cafetales de altura","","farm"),("Álbum · Familias cafetaleras","","cup")]
 gal=''.join(f'<figure class="{c}"><img src="{U(k,700)}" alt="{t}" loading="lazy" onerror="this.style.display=&quot;none&quot;"><figcaption>{t}</figcaption></figure>' for t,c,k in GAL)
-pub = f"""
-<section class="section"><div class="container">
-  <div class="head-block"><span class="eyebrow">Documentos</span><h2>Publicaciones y descargas</h2><p class="lead">Documentos institucionales, reglamentos y reportes. (Descargas de ejemplo; se gestionarán desde el CMS.)</p></div>
+vids=[("Taza Presidencial — resumen","farm"),("Escuela de Café — catación","cherries"),("Origen Yungas — cosecha","field")]
+vidcards=''.join(f'<article class="news__item reveal"><div class="news__cover"><span class="badge">Video</span><img src="{U(k,640)}" alt="{t}" loading="lazy" onerror="this.style.display=&quot;none&quot;"></div><div class="news__body"><h3>{t}</h3><a href="#">▶ Reproducir</a></div></article>' for t,k in vids)
+biblio = f"""
+<section class="section section--pattern" id="publicaciones"><div class="container">
+  <div class="head-block"><span class="eyebrow">Publicaciones</span><h2>Guías, manuales y documentos</h2><p class="lead">Documentos institucionales y técnicos. (Descargas de ejemplo; se gestionarán desde el CMS.)</p></div>
   <div class="docs">{doclist}</div>
 </div></section>
-<section class="section section--pattern"><div class="container"><div class="head-block"><span class="eyebrow">Blog del Café</span><h2>Historias, técnica y mercado</h2><p class="lead">Artículos sobre producción, calidad, mercados y vida cafetalera boliviana.</p></div><div class="blog"><article class="post reveal"><div class="cover"><span class="cat">Calidad</span><img src="https://images.unsplash.com/photo-1442550528053-c431ecb55509?auto=format&fit=crop&w=640&q=70" alt="Cómo la altura define el perfil de taza del café yungueño" loading="lazy" onerror="this.style.display=&quot;none&quot;"></div><div class="post__b"><time>Junio 2026</time><h3>Cómo la altura define el perfil de taza del café yungueño</h3><p>Acidez, dulzor y aromas: la altitud de los Yungas marca la diferencia.</p><a href="#">Leer artículo →</a></div></article><article class="post reveal"><div class="cover"><span class="cat">Sostenibilidad</span><img src="https://images.unsplash.com/photo-1500423079914-b65af272b8db?auto=format&fit=crop&w=640&q=70" alt="Agroforestería: producir café cuidando el bosque" loading="lazy" onerror="this.style.display=&quot;none&quot;"></div><div class="post__b"><time>Mayo 2026</time><h3>Agroforestería: producir café cuidando el bosque</h3><p>Sistemas bajo sombra que protegen suelos, agua y biodiversidad.</p><a href="#">Leer artículo →</a></div></article><article class="post reveal"><div class="cover"><span class="cat">Mercado</span><img src="https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=640&q=70" alt="EUDR: qué cambia para el exportador boliviano en 2026" loading="lazy" onerror="this.style.display=&quot;none&quot;"></div><div class="post__b"><time>Abril 2026</time><h3>EUDR: qué cambia para el exportador boliviano en 2026</h3><p>Claves de la diligencia debida y la georreferenciación de parcelas.</p><a href="#">Leer artículo →</a></div></article></div></div></section>
-<section class="section"><div class="container"><div class="head-block"><span class="eyebrow">Comunicados</span><h2>Comunicados oficiales</h2></div><div class="comunicados"><div class="comunicado reveal"><time>15 jun 2026</time><div><b>Convocatoria Taza Presidencial 2026–2027</b><span>Apertura de inscripciones para cooperativas y asociaciones afiliadas.</span></div><a href="#">Ver comunicado →</a></div><div class="comunicado reveal"><time>28 may 2026</time><div><b>Lineamientos de cumplimiento EUDR para afiliadas</b><span>Plazos y requisitos de georreferenciación de parcelas.</span></div><a href="#">Ver comunicado →</a></div><div class="comunicado reveal"><time>10 abr 2026</time><div><b>Asamblea General Ordinaria — citación</b><span>Orden del día y documentación para las organizaciones afiliadas.</span></div><a href="#">Ver comunicado →</a></div></div></div></section>
-<section class="section section--tint"><div class="container"><div class="head-block center"><span class="eyebrow">Galería</span><h2>El origen, en imágenes</h2><p class="lead">Imágenes de referencia, reemplazables por fotografías propias de FECAFEB.</p></div>
+<section class="section section--tint" id="normativa"><div class="container">
+  <div class="head-block"><span class="eyebrow">Normativa</span><h2>Decretos, leyes y resoluciones</h2><p class="lead">Marco legal nacional e internacional del café boliviano.</p></div>
+  <div class="docs">{normlist}</div>
+</div></section>
+<section class="section" id="fotos"><div class="container">
+  <div class="head-block"><span class="eyebrow">Fotos</span><h2>Álbumes fotográficos</h2><p class="lead">Colecciones por evento y tema (p. ej. Taza Presidencial). Imágenes de referencia, reemplazables por las de FECAFEB.</p></div>
   <div class="gallery">{gal}</div>
 </div></section>
+<section class="section section--tint" id="videos"><div class="container">
+  <div class="head-block"><span class="eyebrow">Videos</span><h2>Videoteca</h2><p class="lead">Material audiovisual institucional (demo).</p></div>
+  <div class="news">{vidcards}</div>
+</div></section>
 """
-page("publicaciones.html","publicaciones.html","Publicaciones · FECAFEB","Documentos institucionales, reglamentos, reportes y galería del café boliviano.",pub,
-     ("Publicaciones","Publicaciones","Documentos, reglamentos, reportes y galería de FECAFEB."))
+page("biblioteca.html","biblioteca.html","Biblioteca · FECAFEB","Publicaciones, normativa, álbumes de fotos y videos del café boliviano.",biblio,
+     ("Biblioteca","Biblioteca","Publicaciones, normativa, fotos y videos de FECAFEB."))
 
-# ===================== NOTICIAS =====================
-noti = f"""
-<section class="section"><div class="container"><div class="news">{NEWS_ALL}</div></div></section>
+# ===================== PRENSA =====================
+comun=('<div class="comunicados">'
+ '<div class="comunicado reveal"><time>15 jun 2026</time><div><b>Convocatoria Taza Presidencial 2026–2027</b><span>Apertura de inscripciones para cooperativas y asociaciones afiliadas.</span></div><a href="#">Ver comunicado →</a></div>'
+ '<div class="comunicado reveal"><time>28 may 2026</time><div><b>Lineamientos de cumplimiento EUDR para afiliadas</b><span>Plazos y requisitos de georreferenciación de parcelas.</span></div><a href="#">Ver comunicado →</a></div>'
+ '<div class="comunicado reveal"><time>10 abr 2026</time><div><b>Asamblea General Ordinaria — citación</b><span>Orden del día y documentación para las organizaciones afiliadas.</span></div><a href="#">Ver comunicado →</a></div>'
+ '</div>')
+ext=[("El Deber","Café boliviano gana espacio en ferias europeas","Cobertura sobre exportación y calidad del café de los Yungas.","farm"),
+     ("Los Tiempos","Mujeres cafetaleras impulsan la marca Kullaka","Reportaje sobre el liderazgo femenino en la cadena del café.","hands"),
+     ("Página Siete","Bolivia se prepara para el Reglamento EUDR","Análisis del impacto de la normativa europea en el sector.","field")]
+extcards=''.join(f'<article class="news__item reveal"><div class="news__cover"><span class="badge">{src}</span><img src="{U(k,640)}" alt="{t}" loading="lazy" onerror="this.style.display=&quot;none&quot;"></div><div class="news__body"><time>Medios · 2026</time><h3>{t}</h3><p>{x}</p><a href="#">Ver nota →</a></div></article>' for src,t,x,k in ext)
+prensa = f"""
+<section class="section" id="notas"><div class="container">
+  <div class="head-block"><span class="eyebrow">Notas de prensa · FECAFEB</span><h2>Comunicación oficial</h2><p class="lead">Notas y actualidad emitidas por la Federación.</p></div>
+  <div class="news">{NEWS_ALL}</div>
+  <div class="head-block" style="margin-top:2.8rem"><span class="eyebrow">Comunicados oficiales</span><h2>Comunicados</h2></div>
+  {comun}
+</div></section>
+<section class="section section--tint" id="externas"><div class="container">
+  <div class="head-block"><span class="eyebrow">Noticias externas · medios</span><h2>El café boliviano en los medios</h2><p class="lead">Cobertura de medios de comunicación (enlaces de ejemplo).</p></div>
+  <div class="news">{extcards}</div>
+</div></section>
+<section class="section" id="otras"><div class="container">
+  <div class="head-block"><span class="eyebrow">Otras fuentes de prensa</span><h2>Más fuentes</h2><p class="lead">Gremios, organismos aliados y boletines (por completar).</p></div>
+  <div class="docs">
+    <div class="doc reveal"><div class="doc__ico">{I['globe']}</div><div class="doc__b"><b>CNCJ-Bolivia · Comercio Justo</b><span>Comunicación del sistema de comercio justo</span></div><a class="doc__dl" href="https://www.comerciojustobolivia.org.bo/" target="_blank" rel="noopener">Visitar →</a></div>
+    <div class="doc reveal"><div class="doc__ico">{I['doc']}</div><div class="doc__b"><b>Boletín semanal FECAFEB</b><span>Precios, clima y convocatorias</span></div><a class="doc__dl" href="#">Suscribirse →</a></div>
+  </div>
+</div></section>
 <section class="section section--accent"><div class="container center"><div class="head-block center"><span class="eyebrow">Boletín semanal</span><h2>Reciba precios, clima y convocatorias</h2><p class="lead">Resumen semanal para socios y aliados del café boliviano.</p></div>
   <form class="footer__news" data-demo style="max-width:420px;margin:0 auto"><input type="email" placeholder="Su correo" required aria-label="Correo"><button type="submit" aria-label="Suscribirse">→</button></form></div></section>
 """
-page("noticias.html","noticias.html","Noticias · FECAFEB","Noticias, eventos, boletín semanal y actualidad del café boliviano.",noti,
-     ("Noticias","Noticias","Actualidad, eventos y boletín del café boliviano."))
+page("prensa.html","prensa.html","Prensa · FECAFEB","Notas de prensa de FECAFEB, noticias externas de medios y otras fuentes de prensa.",prensa,
+     ("Prensa","Prensa","Notas de prensa, cobertura de medios y otras fuentes."))
+
 
 # ===================== CONTACTO =====================
 con = f"""
@@ -347,19 +388,21 @@ con = f"""
     <div class="info-row reveal" data-delay="60"><div class="ico">{I['phone']}</div><div><b>Teléfono / WhatsApp</b><a href="https://wa.me/59171537365" target="_blank" rel="noopener">+591 71537365</a></div></div>
     <div class="info-row reveal" data-delay="120"><div class="ico">{I['mail']}</div><div><b>Correo</b><a href="mailto:contacto@fecafeb.org">contacto@fecafeb.org</a></div></div>
     <div class="info-row reveal" data-delay="180"><div class="ico">{I['screen']}</div><div><b>Portal Institucional</b><a href="#">Acceso para afiliados y técnicos (próximamente)</a></div></div>
-    <div class="map-ph">{ph("Mapa de ubicación (El Alto · La Paz) — integrar Google Maps / Leaflet")}</div>
+    <div id="mapOffice" style="height:300px;border-radius:var(--radius);border:1px solid var(--line);z-index:1;margin-top:.4rem"></div>
   </div>
   <form class="form" data-demo>
     <div class="form__ok">✓ ¡Gracias! Su mensaje fue registrado. Le contactaremos pronto.</div>
     <div class="form__row"><div class="field"><label for="n">Nombre</label><input id="n" type="text" required placeholder="Su nombre"></div><div class="field"><label for="e">Correo</label><input id="e" type="email" required placeholder="correo@empresa.com"></div></div>
     <div class="form__row"><div class="field"><label for="p">Perfil</label><select id="p"><option>Comprador / importador (UE)</option><option>Cooperativa / asociación</option><option>Prensa</option><option>Otro</option></select></div><div class="field"><label for="c">País</label><input id="c" type="text" placeholder="Ej. Alemania"></div></div>
+    <div class="form__row"><div class="field"><label for="tel">Teléfono</label><input id="tel" type="tel" placeholder="+591 ..."></div><div class="field"><label for="asu">Asunto</label><select id="asu"><option>Consulta comercial</option><option>Afiliación</option><option>Prensa</option><option>Escuela de Café</option><option>Otro</option></select></div></div>
     <div class="field"><label for="m">Mensaje</label><textarea id="m" required placeholder="Cuéntenos qué café busca o cómo podemos ayudarle…"></textarea></div>
     <button class="btn btn--lg" type="submit" style="width:100%">Enviar mensaje</button>
     <p class="form__note">Demo de plantilla — conectar a backend/CRM en la siguiente fase.</p>
   </form>
 </div></section>
 """
-page("contacto.html","contacto.html","Contacto · FECAFEB","Contacte a FECAFEB: compradores, cooperativas y aliados del café boliviano.",con,
-     ("Contacto","Hablemos de café","Compradores, cooperativas y aliados: escríbanos y le responderemos a la brevedad."))
+page("contacto.html","contacto.html","Contacto · FECAFEB","Contacte a FECAFEB: oficina en El Alto (La Paz), formulario y datos de contacto.",con,
+     ("Contacto","Hablemos de café","Compradores, cooperativas y aliados: escríbanos y le responderemos a la brevedad."),
+     extra_head=LEAFLET_CSS, extra_js=LEAFLET_JS + '<script src="js/maps.js"></script>')
 
 print("OK - sitio generado")
