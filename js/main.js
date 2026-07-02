@@ -236,8 +236,8 @@
       "nav.services":"Servicios","nav.press":"Prensa","nav.library":"Biblioteca","nav.contact":"Contacto",
       "cta.platform":"Portal","cta.platform2":"Portal Institucional","cta.escuela":"Escuela de Café","cta.register":"Regístrese",
       "hero.badge":"Café orgánico y de especialidad de Bolivia",
-      "hero.title":"El café boliviano que <em>Europa</em> busca, con trazabilidad garantizada",
-      "hero.lead":"Federación de Caficultores Exportadores de Bolivia: 17.500 familias productoras, 42 organizaciones y trazabilidad geoespacial conforme al Reglamento UE 2023/1115 (EUDR).",
+      "hero.title":"Federación de Caficultores <em>Exportadores</em> de Bolivia",
+      "hero.lead":"21 organizaciones y ~1.389 familias productoras afiliadas, que representan al sector cafetalero boliviano, con trazabilidad geoespacial conforme al Reglamento UE 2023/1115 (EUDR).",
       "hero.cta1":"Importar nuestro café","hero.cta2":"Conocer la Federación"
     },
     en: {
@@ -245,8 +245,8 @@
       "nav.services":"Services","nav.press":"Press","nav.library":"Library","nav.contact":"Contact",
       "cta.platform":"Portal","cta.platform2":"Institutional Portal","cta.escuela":"Coffee School","cta.register":"Register",
       "hero.badge":"Organic & specialty coffee from Bolivia",
-      "hero.title":"The Bolivian coffee <em>Europe</em> is looking for, with guaranteed traceability",
-      "hero.lead":"Federation of Coffee Exporting Growers of Bolivia: 17,500 producing families, 42 organizations and geospatial traceability compliant with EU Regulation 2023/1115 (EUDR).",
+      "hero.title":"Federation of Coffee <em>Exporting</em> Growers of Bolivia",
+      "hero.lead":"21 organizations and ~1,389 affiliated producer families, representing the Bolivian coffee sector, with geospatial traceability compliant with EU Regulation 2023/1115 (EUDR).",
       "hero.cta1":"Source our coffee","hero.cta2":"About the Federation"
     }
   }

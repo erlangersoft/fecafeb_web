@@ -43,7 +43,7 @@
       box.dataset.code = code;
       if(!d){
         box.innerHTML = '<div class="lot__hd"><div><div class="k">Lote</div><h3>'+code+'</h3></div></div>'+
-          '<div style="padding:1.6rem"><p>No se encontró el lote <b>'+code+'</b>. Verifique el código impreso en el empaque o escríbanos a <a href="mailto:contacto@fecafeb.org">contacto@fecafeb.org</a>.</p></div>';
+          '<div style="padding:1.6rem"><p>No se encontró el lote <b>'+code+'</b>. Verifique el código impreso en el empaque o escríbanos a <a href="mailto:fecafebfinanzas@gmail.com">fecafebfinanzas@gmail.com</a>.</p></div>';
         box.classList.add("show"); return;
       }
       box.innerHTML = card(d);

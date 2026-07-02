@@ -9,25 +9,25 @@ home = f"""
 <div class="container hero__inner">
   <div class="hero__content">
     <span class="hero__badge"><span class="dot"></span><span data-i18n="hero.badge">Café orgánico y de especialidad de Bolivia</span></span>
-    <h1 data-i18n="hero.title">El café boliviano que <em>Europa</em> busca, con trazabilidad garantizada</h1>
-    <p class="hero__lead" data-i18n="hero.lead">Federación de Caficultores Exportadores de Bolivia: 17.500 familias productoras, 42 organizaciones y trazabilidad geoespacial conforme al Reglamento UE 2023/1115 (EUDR).</p>
+    <h1 data-i18n="hero.title">Federación de Caficultores <em>Exportadores</em> de Bolivia</h1>
+    <p class="hero__lead" data-i18n="hero.lead">21 organizaciones y ~1.389 familias productoras afiliadas, que representan al sector cafetalero boliviano, con trazabilidad geoespacial conforme al Reglamento UE 2023/1115 (EUDR).</p>
     <div class="hero__actions">
       <a href="afiliados.html" class="btn btn--gold btn--lg" data-i18n="hero.cta1">Importar nuestro café</a>
       <a href="quienes-somos.html" class="btn btn--ghost btn--lg" data-i18n="hero.cta2">Conocer la Federación</a>
     </div>
     <div class="hero__stats">
-      <div><div class="num" data-count="17500" data-sep>0</div><div class="lbl">Familias cafetaleras</div></div>
-      <div><div class="num" data-count="42">0</div><div class="lbl">Organizaciones afiliadas</div></div>
+      <div><div class="num" data-count="1389" data-sep>0</div><div class="lbl">Familias productoras afiliadas</div></div>
+      <div><div class="num" data-count="21">0</div><div class="lbl">Organizaciones afiliadas</div></div>
       <div><div class="num">1991</div><div class="lbl">Año de fundación</div></div>
       <div><div class="num">EUDR</div><div class="lbl">Trazabilidad UE 2023/1115</div></div>
     </div>
   </div>
   <aside class="hero__slider reveal" data-controls aria-label="Galería del café boliviano">
-    <span class="hero__ribbon">EUDR ready</span>
+    <span class="hero__ribbon">Novedades</span>
     <div class="hero__slides">
-      {slide('cherries','Cosecha de café en los Yungas','Trazabilidad EUDR','Geolocalización de cada parcela para el mercado europeo',' is-active')}
-      {slide('field','Cafetales de altura','Café de especialidad','Orgánico y de altura · origen Yungas, Bolivia')}
-      {slide('hands','Familias cafetaleras de Bolivia','17.500 familias','Caficultores de Bolivia · 42 organizaciones')}
+      {slide('harvest','Escuela de Café','Escuela de Café · nuevo curso','Inicio 10 de julio — inscripciones abiertas',' is-active')}
+      {slide('hands','Cumbre de Mujeres Cafetaleras','Cumbre de Mujeres Cafetaleras','Encuentro nacional · julio 2026')}
+      {slide('field','Trazabilidad y georreferenciación','Trazabilidad y georreferenciación','Cada organización afiliada, geolocalizada para la UE')}
     </div>
     <button class="hero__nav prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
     <button class="hero__nav next" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg></button>
@@ -46,20 +46,19 @@ home = f"""
   <div class="about__content reveal" data-delay="120">
     <span class="eyebrow">Quiénes Somos</span><h2>Una federación, miles de familias detrás de cada grano</h2>
     <p class="lead">Desde 1991, FECAFEB representa, articula y fortalece a las organizaciones de productores de café de Bolivia, impulsando un sector competitivo, sostenible y con identidad.</p>
-    <ul class="values" style="margin:1.4rem 0 1.6rem"><li>{I['chk']} 17.500 familias productoras</li><li>{I['chk']} 42 organizaciones afiliadas</li><li>{I['chk']} Café orgánico y de especialidad</li><li>{I['chk']} Trazabilidad lista para la UE</li></ul>
+    <ul class="values" style="margin:1.4rem 0 1.6rem"><li>{I['chk']} 1.389 familias productoras afiliadas</li><li>{I['chk']} 21 organizaciones afiliadas</li><li>{I['chk']} Café orgánico y de especialidad</li><li>{I['chk']} Trazabilidad lista para la UE</li></ul>
     <a href="quienes-somos.html" class="btn">Conocer más</a>
   </div>
 </div></section>
 <section class="section section--accent" id="cifras"><div class="container">
-  <div class="head-block center"><span class="eyebrow">El sector en cifras</span><h2>Respaldo productivo y alcance nacional</h2></div>
+  <div class="head-block center"><span class="eyebrow">El sector en cifras</span><h2>Respaldo productivo y alcance nacional</h2><p class="lead">Datos verificados de FECAFEB (2026). Además, la Federación forma parte de un sector cafetalero boliviano de alrededor de 17.500 familias.</p></div>
   <div class="metrics">
-    <div class="metric reveal"><div class="num" data-count="17500" data-sep>0</div><div class="lbl">Familias productoras</div></div>
-    <div class="metric reveal" data-delay="80"><div class="num" data-count="42">0</div><div class="lbl">Cooperativas, asociaciones y Coracas</div></div>
-    <div class="metric reveal" data-delay="160"><div class="num">3</div><div class="lbl">Departamentos: La Paz, Santa Cruz, Cochabamba</div></div>
-    <div class="metric reveal" data-delay="240"><div class="num">96%</div><div class="lbl">Producción en La Paz (Yungas / Caranavi)</div></div>
+    <div class="metric reveal"><div class="num" data-count="21">0</div><div class="lbl">Organizaciones afiliadas</div></div>
+    <div class="metric reveal" data-delay="80"><div class="num" data-count="1389" data-sep>0</div><div class="lbl">Familias productoras afiliadas</div></div>
+    <div class="metric reveal" data-delay="160"><div class="num" data-count="276">0</div><div class="lbl">Mujeres productoras</div></div>
+    <div class="metric reveal" data-delay="240"><div class="num" data-count="1276" data-sep>0</div><div class="lbl">Toneladas de café (producción)</div></div>
   </div>
 </div></section>
-{brands_marquee()}
 <section class="section"><div class="container">
   <div class="head-block center"><span class="eyebrow">Noticias</span><h2>Actualidad cafetalera</h2></div>
   <div class="news">{''.join(__import__('parts').__dict__.get('NEWS3',''))}</div>
@@ -68,7 +67,8 @@ home = f"""
 """
 
 # noticias data
-NEWS=[("Eventos","Junio 2026","FECAFEB impulsa la trazabilidad EUDR para sus afiliadas","Nueva plataforma digital para sistematizar datos de productores y parcelas.","farm"),
+NEWS=[("Boletín","Julio 2026","El café boliviano que Europa busca, con trazabilidad garantizada","Nota de prensa: origen, calidad y trazabilidad EUDR del café boliviano para el mercado europeo.","cherries"),
+      ("Eventos","Junio 2026","FECAFEB impulsa la trazabilidad EUDR para sus afiliadas","Nueva plataforma digital para sistematizar datos de productores y parcelas.","farm"),
       ("Calidad","Mayo 2026","Taza Presidencial: el café boliviano brilla en el exterior","Productores de los Yungas destacan por su café de especialidad.","cherries"),
       ("Comité de Mujeres","Abril 2026","Cumbre de Mujeres Cafetaleras fortalece liderazgos","Productoras lideran la mejora de la calidad y la marca Kullaka.","hands"),
       ("Comercio","Marzo 2026","Ronda de negocios con compradores europeos","Encuentro comercial para conectar la oferta boliviana con la demanda de la UE.","bag"),
@@ -79,7 +79,7 @@ def news_card(c,d,t,x,k):
 NEWS_ALL=''.join(news_card(*n) for n in NEWS)
 NEWS_3=''.join(news_card(*n) for n in NEWS[:3])
 home=home.replace("{''.join(__import__('parts').__dict__.get('NEWS3',''))}", NEWS_3)
-page("index.html","index.html","FECAFEB · Federación de Caficultores Exportadores de Bolivia","FECAFEB agrupa a 17.500 familias y 42 organizaciones cafetaleras de Bolivia. Café orgánico y de especialidad con trazabilidad EUDR.",home)
+page("index.html","index.html","FECAFEB · Federación de Caficultores Exportadores de Bolivia","FECAFEB agrupa a 21 organizaciones y ~1.389 familias productoras afiliadas de Bolivia. Café orgánico y de especialidad con trazabilidad EUDR.",home)
 
 # ===================== QUIÉNES SOMOS =====================
 def board(groups):
@@ -144,10 +144,11 @@ afil = f"""
 </div></div></section>
 <section class="section section--tint"><div class="container">{access("La base de datos de afiliados se publica en tres niveles, protegiendo la información estratégica de cada cooperativa.")}</div></section>
 <section class="section"><div class="container">
-  <div class="head-block center"><span class="eyebrow">Red de afiliadas</span><h2>Zonas productoras · 42 organizaciones</h2>
-  <p class="lead">Cooperativas, asociaciones y Coracas de La Paz, Santa Cruz y Cochabamba. Seleccione un marcador para ver su información.</p></div>
+  <div class="head-block center"><span class="eyebrow">Red de afiliadas</span><h2>Zonas productoras · 21 organizaciones afiliadas</h2>
+  <p class="lead">Cooperativas, asociaciones y Coracas de La Paz, Santa Cruz y Cochabamba (datos verificados 2026). Seleccione un marcador para ver su información.</p></div>
   __MAPBO__
 </div></section>
+<section class="section"><div class="container"><div class="head-block"><span class="eyebrow">Directorio de afiliadas</span><h2>Organizaciones afiliadas a FECAFEB (2026)</h2><p class="lead">Listado verificado de las 21 organizaciones de productores afiliadas.</p></div><div style="overflow-x:auto"><table class="ptable"><thead><tr><th>N°</th><th>Sigla</th><th>Organización</th><th>Zona / Cantón</th></tr></thead><tbody><tr><td class="rank">1</td><td class="score">CORACA CRC</td><td>Corporación Agrop. Campesina Regional Carrasco La Reserva</td><td>Carrasco La Reserva</td></tr><tr><td class="rank">2</td><td class="score">ILLAMPU</td><td>Coop. Agrop. Integral Corpus Cristhy Illampu R.L.</td><td>Entre Ríos</td></tr><tr><td class="rank">3</td><td class="score">APCERME</td><td>Asoc. Prod. de Café Ecológico Río Mercedes</td><td>Caranavi</td></tr><tr><td class="rank">4</td><td class="score">MONTAÑA VERDE</td><td>Asoc. Agrop. Prod. Ecológicos de Café Montaña Verde</td><td>San Lorenzo</td></tr><tr><td class="rank">5</td><td class="score">ALTO SAJAMA</td><td>Coop. Agropecuaria Alto Sajama</td><td>San Lorenzo</td></tr><tr><td class="rank">6</td><td class="score">CENAPROC</td><td>Central Asociados Prod. de Café de Montaña</td><td>San Lorenzo</td></tr><tr><td class="rank">7</td><td class="score">UNIÓN PROAGRO</td><td>Unión de Productores Agropecuarios</td><td>Chijchipani</td></tr><tr><td class="rank">8</td><td class="score">AIPEP</td><td>Asoc. Integral de Prod. Ecológicos Pumiri</td><td>Calama</td></tr><tr><td class="rank">9</td><td class="score">MEJILLONES</td><td>Coop. Agropecuaria Mejillones R.L.</td><td>Calama</td></tr><tr><td class="rank">10</td><td class="score">SAN JUAN</td><td>Coop. Agrícola Cafetalera San Juan R.L.</td><td>Carrasco La Reserva</td></tr><tr><td class="rank">11</td><td class="score">ANTOFAGASTA</td><td>Coop. Agropecuaria Antofagasta</td><td>Carrasco La Reserva</td></tr><tr><td class="rank">12</td><td class="score">CELCCAR</td><td>Central Local de Cooperativas Caranavi</td><td>Caranavi</td></tr><tr><td class="rank">13</td><td class="score">COAINE</td><td>Coop. Agropecuaria Integral Nor Este</td><td>Caranavi</td></tr><tr><td class="rank">14</td><td class="score">VILLA ORIENTE</td><td>Coop. Agrícola Villa Oriente R.L.</td><td>Entre Ríos</td></tr><tr><td class="rank">15</td><td class="score">ASOCAFE</td><td>Asoc. de Caficultores de Taypiplaya</td><td>Taypiplaya</td></tr><tr><td class="rank">16</td><td class="score">APROCAFE</td><td>Asoc. de Productores de Café Ecológico</td><td>Caranavi</td></tr><tr><td class="rank">17</td><td class="score">CIAPEC</td><td>Coop. Integral Agrícola de Prod. Ecológicos</td><td>Entre Ríos</td></tr><tr><td class="rank">18</td><td class="score">APCERL</td><td>Asoc. Prod. Cafetaleros Ecológicos Regional Larecaja</td><td>Larecaja</td></tr><tr><td class="rank">19</td><td class="score">AGROCAM</td><td>Asociación Agropecuaria Calama Mojsa</td><td>Calama</td></tr><tr><td class="rank">20</td><td class="score">ASPAGRO</td><td>Asociación Productores Santa Cruz</td><td>Santa Cruz</td></tr><tr><td class="rank">21</td><td class="score">Café Tropic</td><td>Café Tropic Cochabamba</td><td>Cochabamba</td></tr></tbody></table></div><p class="form__note" style="margin-top:1rem">Fuente: Lista de Afiliados FECAFEB 2026. Producción total ~1.276 TM · exportación 66 contenedores.</p></div></section>
 """
 afil = afil.replace("__MAPBO__", '<div class="zonas"><div id="mapZonas"></div><aside class="zona-info" id="zonaInfo"></aside></div><p class="form__note" style="margin-top:1rem">Mapa base OpenStreetMap / CARTO (open source). En el sistema, al acercar el mapa se podrá consultar la parcela de cada productor.</p>')
 page("afiliados.html","afiliados.html","Afiliados · FECAFEB","Afíliese a FECAFEB o regístrese como comprador. Tres niveles de acceso y mapa de zonas productoras.",afil,
@@ -261,6 +262,7 @@ kul = f"""
   <article class="card reveal" data-delay="80"><div class="card__ico">{I['bean']}</div><h3>Especialidad de altura</h3><p>Origen Yungas, orgánico, perfiles de taza diferenciados.</p></article>
   <article class="card reveal" data-delay="160"><div class="card__ico">{I['globe']}</div><h3>Mercado nacional e internacional</h3><p>Comercialización con identidad y trazabilidad de impacto.</p></article>
 </div></section>
+<section class="section"><div class="container feature"><div class="feature__media reveal"><img class="photo" src="assets/img/logo-kullaka.png" alt="Kullaka de Altura — Edición Limitada"></div><div class="feature__content reveal" data-delay="120"><span class="tag tag--gold">Edición limitada de lujo</span><h2>Kullaka de Altura</h2><p class="lead">En homenaje a la 1ra Cumbre de Mujeres Cafetaleras de Bolivia — “Mujeres de cara al Bicentenario”.</p><ul><li>{I['chk']} Variedad Catuai, cultivada a 1.700 m.s.n.m.</li><li>{I['chk']} Proceso natural, con secado artesanal</li><li>{I['chk']} Aroma: flores blancas y frutos rojos</li><li>{I['chk']} En boca: frutas tropicales, notas de vino, chocolate intenso y resabio jugoso</li></ul><p class="form__note">Su compra apoya directamente a las mujeres que cultivan el futuro del café boliviano · Bolivia 2025.</p></div></div></section>
 <section class="section section--accent"><div class="container center"><div class="head-block center"><span class="eyebrow">Compradores</span><h2>Lleve Kullaka a su mercado</h2><p class="lead">Café con historia, calidad y respaldo institucional de FECAFEB.</p></div><a href="contacto.html" class="btn btn--gold btn--lg">Solicitar información comercial</a></div></section>
 """
 page("kullaka.html","servicios.html","Marca Kullaka · FECAFEB","Café Kullaka, la marca de especialidad con identidad de mujer de FECAFEB. Esencia que abraza.",kul,
@@ -386,7 +388,7 @@ con = f"""
   <div class="contact__info">
     <div class="info-row reveal"><div class="ico">{I['pin']}</div><div><b>Dirección</b><span>Av. Juan Pablo II 2974, El Alto · La Paz, Bolivia</span></div></div>
     <div class="info-row reveal" data-delay="60"><div class="ico">{I['phone']}</div><div><b>Teléfono / WhatsApp</b><a href="https://wa.me/59171537365" target="_blank" rel="noopener">+591 71537365</a></div></div>
-    <div class="info-row reveal" data-delay="120"><div class="ico">{I['mail']}</div><div><b>Correo</b><a href="mailto:contacto@fecafeb.org">contacto@fecafeb.org</a></div></div>
+    <div class="info-row reveal" data-delay="120"><div class="ico">{I['mail']}</div><div><b>Correo</b><a href="mailto:fecafebfinanzas@gmail.com">fecafebfinanzas@gmail.com</a></div></div>
     <div class="info-row reveal" data-delay="180"><div class="ico">{I['screen']}</div><div><b>Portal Institucional</b><a href="#">Acceso para afiliados y técnicos (próximamente)</a></div></div>
     <div id="mapOffice" style="height:300px;border-radius:var(--radius);border:1px solid var(--line);z-index:1;margin-top:.4rem"></div>
   </div>

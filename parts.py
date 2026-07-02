@@ -107,7 +107,7 @@ def header(active):
     return ('<div class="topbar"><div class="container topbar__row">'
       '<div class="topbar__info">'
       '<a class="topbar__tel topbar__lnk" href="tel:+59171537365">'+I["phone"]+' +591 71537365</a>'
-      '<a class="topbar__lnk" href="mailto:contacto@fecafeb.org">'+I["mail"]+' contacto@fecafeb.org</a>'
+      '<a class="topbar__lnk" href="mailto:fecafebfinanzas@gmail.com">'+I["mail"]+' fecafebfinanzas@gmail.com</a>'
       '<span>El Alto · La Paz · Bolivia</span></div>'
       '<div class="topbar__right">'
       '<div class="social" aria-label="Redes sociales">'+SOC+'</div>'
@@ -174,13 +174,17 @@ def page(fname, active, title, desc, body, sub=None, extra_head="", extra_js="")
 
 # ---- Bloques reutilizables ----
 def hub():
-    p=[("afiliados.html","users","Socios Afiliados","Cooperativas y productores"),
-       ("escuela-cafe.html","cap","Escuela del Café","Formación y catación"),
-       ("comite-mujeres.html","venus","Comité de Mujeres","Equidad y liderazgo"),
-       ("kullaka.html","cup","Marca Kullaka","Vitrina comercial"),
-       ("taza-presidencial.html","trophy","Taza Presidencial","Torneo nacional SCA"),
-       ("trazabilidad.html","shield","Reglamento EUDR","Cumplimiento UE")]
-    cards=''.join('<a class="pillar reveal" href="%s"><span class="pillar__ico">%s</span><b>%s</b><span>%s</span></a>'%(h,I[ic],t,d) for h,ic,t,d in p)
+    # (logo, icono_fallback) — se usa el logo si existe
+    p=[("afiliados.html","logo-fecafeb.png","users","Socios Afiliados","Cooperativas y productores"),
+       ("escuela-cafe.html","logo-escuela-cafe.png","cap","Escuela del Café","Formación y catación"),
+       ("comite-mujeres.html","logo-comite-mujeres.jpg","venus","Comité de Mujeres","Equidad y liderazgo"),
+       ("kullaka.html","logo-kullaka.png","cup","Marca Kullaka","Vitrina comercial"),
+       ("taza-presidencial.html",None,"trophy","Taza Presidencial","Torneo nacional SCA"),
+       ("trazabilidad.html",None,"shield","Reglamento EUDR","Cumplimiento UE")]
+    def cell(h,logo,ic,t,d):
+        media = ('<span class="pillar__ico pillar__logo"><img src="assets/img/%s" alt="%s" loading="lazy"></span>'%(logo,t)) if logo else ('<span class="pillar__ico">%s</span>'%I[ic])
+        return '<a class="pillar reveal" href="%s">%s<b>%s</b><span>%s</span></a>'%(h,media,t,d)
+    cards=''.join(cell(*x) for x in p)
     return '<section class="hub"><div class="container"><div class="hub__grid">%s</div></div></section>'%cards
 
 def access(intro):
