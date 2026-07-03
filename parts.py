@@ -162,7 +162,7 @@ def footer():
       '<form class="footer__news" data-demo><input type="email" placeholder="Su correo" required aria-label="Correo"><button type="submit" aria-label="Suscribirse">→</button></form>'
       '<p style="font-size:.82rem;margin-top:1rem;color:#9c8f80">Av. Juan Pablo II 2974<br>El Alto · La Paz · Bolivia</p></div></div>'
       '<div class="footer__bottom"><span>© <span id="year">2026</span> FECAFEB · Federación de Caficultores Exportadores de Bolivia.</span>'
-      '<span>Diseño y desarrollo: ERLANGER-SOFT · Cognitio SRL · Proyecto AAGIL — Ayuda en Acción</span></div></div></footer>') % SOC
+      '<span>Diseño y desarrollo: Cognitio SRL · Proyecto AAGIL — Ayuda en Acción</span></div></div></footer>') % SOC
 
 def page(fname, active, title, desc, body, sub=None, extra_head="", extra_js=""):
     html = head(title, desc, extra_head) + header(active)
