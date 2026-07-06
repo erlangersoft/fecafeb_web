@@ -42,7 +42,7 @@ home = f"""
   <span>{I['bean']} Orgánico &amp; de especialidad</span>
 </div></div>
 <section class="section section--pattern"><div class="container about">
-  <div class="about__media reveal"><div class="frame">{img('people','Familia cafetalera y equipo de FECAFEB',900)}</div><span class="pill">Único ente regulador del café de calidad</span></div>
+  <div class="about__media reveal"><div class="frame"><div class="mslider" data-mslider><img src="assets/img/photos/p_equipo.jpg" alt="Equipo e institucionalidad de FECAFEB" class="is-active" loading="lazy"><img src="assets/img/photos/p_mujeres.jpg" alt="Cumbre de Mujeres Cafetaleras" loading="lazy"><img src="assets/img/photos/p_productores.jpg" alt="Productores de café de los Yungas" loading="lazy"><img src="assets/img/photos/p_caranavi.jpg" alt="Caranavi, capital cafetalera" loading="lazy"><span class="mslider__dots"></span></div></div><span class="pill">Único ente regulador del café de calidad</span></div>
   <div class="about__content reveal" data-delay="120">
     <span class="eyebrow">Quiénes Somos</span><h2>Una federación, miles de familias detrás de cada grano</h2>
     <p class="lead">Desde 1991, FECAFEB representa, articula y fortalece a las organizaciones de productores de café de Bolivia, impulsando un sector competitivo, sostenible y con identidad.</p>
@@ -75,7 +75,7 @@ NEWS=[("Boletín","Julio 2026","El café boliviano que Europa busca, con trazabi
       ("Sostenibilidad","Febrero 2026","Agroforestería: café que protege el bosque","Modelo productivo alineado a la normativa de deforestación de la UE.","field"),
       ("Institucional","Enero 2026","FECAFEB presenta su Plan Estratégico 2023–2027","Hoja de ruta hacia la sostenibilidad financiera e institucional.","harvest")]
 def news_card(c,d,t,x,k):
-    return f'<article class="news__item reveal"><div class="news__cover"><span class="badge">{c}</span><img src="{U(k,640)}" alt="{t}" loading="lazy" onerror="this.style.display=&quot;none&quot;"></div><div class="news__body"><time>{d}</time><h3>{t}</h3><p>{x}</p><a href="#">Leer más →</a></div></article>'
+    return f'<article class="news__item reveal"><div class="news__cover"><span class="badge">{c}</span><img src="{U(k,640)}" alt="{t}" loading="lazy" onerror="this.style.display=&quot;none&quot;"></div><div class="news__body"><time>{d}</time><h3>{t}</h3><p>{x}</p></div></article>'
 NEWS_ALL=''.join(news_card(*n) for n in NEWS)
 NEWS_3=''.join(news_card(*n) for n in NEWS[:3])
 home=home.replace("{''.join(__import__('parts').__dict__.get('NEWS3',''))}", NEWS_3)
@@ -110,7 +110,7 @@ qs = f"""
   </div>
 </div></section>
 <section class="section section--tint" id="instancias"><div class="container">
-  <div class="head-block center"><span class="eyebrow">Instancias de FECAFEB</span><h2>Nuestra estructura de gobierno</h2>
+  <div class="head-block center"><span class="eyebrow">Instancias de FECAFEB</span><h2>Nuestra estructura</h2>
   <p class="lead">Directorio Ejecutivo Nacional, Comité de Fiscalización y Comité de Mujeres, conforme al Estatuto Orgánico.</p></div>
   {board(GROUPS)}
   <div class="center" style="margin-top:1.6rem"><a href="comite-mujeres.html" class="btn btn--ghost">Conocer al Comité de Mujeres</a></div>
@@ -125,12 +125,12 @@ qs = f"""
   </ul>
 </div></section>
 <section class="section section--tint" id="cooperacion"><div class="container"><div class="head-block center"><span class="eyebrow">Cooperación internacional</span><h2>Aliados que fortalecen a FECAFEB</h2><p class="lead">Proyectos ejecutados con cooperación nacional e internacional en los últimos años (2022–2026).</p></div><div class="grid grid-3">
-  <article class="card reveal"><div class="card__ico">{I['leaf']}</div><h3>Ayuda en Acción Bolivia</h3><p>Emprendimientos inclusivos en la cadena del café y comercialización con identidad de género (2025–2026).</p></article>
-  <article class="card reveal" data-delay="80"><div class="card__ico">{I['globe']}</div><h3>Embajada de Francia — PISCCA</h3><p>Café sin violencia ni discriminación, dedicado a jóvenes y mujeres cafetaleras (2024–2025).</p></article>
-  <article class="card reveal" data-delay="160"><div class="card__ico">{I['chart']}</div><h3>Fundación Rabobank</h3><p>Asistencia técnica financiera, administrativa y de marketing; módulo de Administración de la Escuela del Café (2024–2025).</p></article>
-  <article class="card reveal"><div class="card__ico">{I['users']}</div><h3>OIT (ILO)</h3><p>Plan Estratégico Institucional y consolidación institucional de FECAFEB (2023).</p></article>
-  <article class="card reveal" data-delay="80"><div class="card__ico">{I['leaf']}</div><h3>Producción sostenible</h3><p>Consolidación de métodos de producción, viveros, bioinsumos y riego tecnificado (2022–2023).</p></article>
-  <article class="card reveal" data-delay="160"><div class="card__ico">{I['shield']}</div><h3>Proyecto AAGIL</h3><p>Ayuda en Acción con cofinanciamiento de la Unión Europea — transformación digital y trazabilidad EUDR.</p></article>
+  <article class="card reveal"><div class="coop__mark" data-m="aea">Ayuda en Acción</div><h3>Ayuda en Acción Bolivia</h3><p>Emprendimientos inclusivos en la cadena del café y comercialización con identidad de género (2025–2026).</p></article>
+  <article class="card reveal" data-delay="80"><div class="coop__mark" data-m="fr">Embajada de Francia</div><h3>Embajada de Francia — PISCCA</h3><p>Café sin violencia ni discriminación, dedicado a jóvenes y mujeres cafetaleras (2024–2025).</p></article>
+  <article class="card reveal" data-delay="160"><div class="coop__mark" data-m="rabo">Rabobank</div><h3>Fundación Rabobank</h3><p>Asistencia técnica financiera, administrativa y de marketing; módulo de Administración de la Escuela del Café (2024–2025).</p></article>
+  <article class="card reveal"><div class="coop__mark" data-m="oit">OIT · ILO</div><h3>OIT (ILO)</h3><p>Plan Estratégico Institucional y consolidación institucional de FECAFEB (2023).</p></article>
+  <article class="card reveal" data-delay="80"><div class="coop__mark" data-m="sos">Cooperación</div><h3>Producción sostenible</h3><p>Consolidación de métodos de producción, viveros, bioinsumos y riego tecnificado (2022–2023).</p></article>
+  <article class="card reveal" data-delay="160"><div class="coop__mark" data-m="ue">AAGIL · UE</div><h3>Proyecto AAGIL</h3><p>Ayuda en Acción con cofinanciamiento de la Unión Europea — transformación digital y trazabilidad EUDR.</p></article>
 </div>
 <p class="form__note" style="margin-top:1.2rem">FECAFEB · organización civil sin fines de lucro (Ley N° 351 de 2013) · NIT 1000949028 · fundada el 15 de mayo de 1991 · El Alto, Bolivia.</p></div></section>
 """
@@ -192,7 +192,7 @@ traz = f"""
     <ul class="values" style="margin-top:1rem"><li>{I['chk']} 32 productores certificados · 216 ha registradas</li><li>{I['chk']} Certificación orgánica IMOcert (UE 848 / NOP)</li><li>{I['chk']} Parcelas georreferenciadas en UTM 19S, altitud 1.040–1.465 m.s.n.m.</li><li>{I['chk']} Padrón de miembros y productos listos para TRACES NT</li></ul>
   </div>
 </div></section>
-<section class="section"><div class="container"><div class="head-block"><span class="eyebrow">Comité de Geolocalización y Tecnología</span><h2>Monitoreo, trazabilidad e innovación en campo</h2><p class="lead">Comité responsable del monitoreo de parcelas, la trazabilidad y la innovación tecnológica de las organizaciones afiliadas.</p></div><div class="head-block" style="margin-top:1rem"><span class="eyebrow">Autoevaluación EUDR</span><h2>Escala de calificación</h2><p class="lead">Herramienta para medir el nivel de preparación de cada organización frente al Reglamento EUDR.</p></div><div class="access"><div class="access-card lvl-c"><div class="access-card__top"><span class="access-card__ico" style="font-family:var(--f-head);font-weight:700">1–5</span><span class="access-badge">Nivel Crítico</span></div><h3>Requiere acciones inmediatas</h3><p>Cumplimiento incipiente o no conforme; alto riesgo residual.</p></div><div class="access-card lvl-b"><div class="access-card__top"><span class="access-card__ico" style="font-family:var(--f-head);font-weight:700">6–8</span><span class="access-badge">Nivel Moderado</span></div><h3>Requiere seguimiento y fortalecimiento</h3><p>Requisito funcional y en proceso de mejora; riesgo moderado.</p></div><div class="access-card lvl-a"><div class="access-card__top"><span class="access-card__ico" style="font-family:var(--f-head);font-weight:700">9–10</span><span class="access-badge">Nivel Sólido</span></div><h3>Buenas prácticas consolidadas</h3><p>Requisito plenamente integrado y verificable; riesgo bajo o nulo.</p></div></div><div class="head-block" style="margin-top:2.6rem"><span class="eyebrow">Recursos de interés</span><h2>EUDR · enlaces oficiales</h2></div><div class="docs"><div class="doc reveal"><div class="doc__ico">{I['globe']}</div><div class="doc__b"><b>Comisión Europea</b><span>Regulation on Deforestation-free products</span></div><a class="doc__dl" href="https://environment.ec.europa.eu/topics/forests/deforestation/regulation-deforestation-free-products_en" target="_blank" rel="noopener">Abrir →</a></div><div class="doc reveal"><div class="doc__ico">{I['globe']}</div><div class="doc__b"><b>Ministerio para la Transición Ecológica (España)</b><span>Información sobre el EUDR</span></div><a class="doc__dl" href="https://www.miteco.gob.es" target="_blank" rel="noopener">Abrir →</a></div><div class="doc reveal"><div class="doc__ico">{I['globe']}</div><div class="doc__b"><b>Team Europe · Cadenas de valor libres de deforestación</b><span>Iniciativa del equipo Europa</span></div><a class="doc__dl" href="https://international-partnerships.ec.europa.eu" target="_blank" rel="noopener">Abrir →</a></div><div class="doc reveal"><div class="doc__ico">{I['globe']}</div><div class="doc__b"><b>EUDR Community of Practice</b><span>European Forest Institute</span></div><a class="doc__dl" href="https://www.efi.int" target="_blank" rel="noopener">Abrir →</a></div></div></div></section>
+<section class="section"><div class="container"><div class="head-block"><span class="eyebrow">Comité de Geolocalización y Tecnología</span><h2>Monitoreo, trazabilidad e innovación en campo</h2><p class="lead">Comité responsable del monitoreo de parcelas, la trazabilidad y la innovación tecnológica de las organizaciones afiliadas.</p></div><div class="head-block" style="margin-top:1rem"><span class="eyebrow">Autoevaluación EUDR</span><h2>Escala de calificación</h2><p class="lead">Herramienta para medir el nivel de preparación de cada organización frente al Reglamento EUDR.</p></div><div class="access"><div class="access-card lvl-c"><div class="access-card__top"><span class="access-card__ico" style="font-family:var(--f-head);font-weight:700">1–5</span><span class="access-badge">Nivel Crítico</span></div><h3>Requiere acciones inmediatas</h3><p>Cumplimiento incipiente o no conforme; alto riesgo residual.</p></div><div class="access-card lvl-b"><div class="access-card__top"><span class="access-card__ico" style="font-family:var(--f-head);font-weight:700">6–8</span><span class="access-badge">Nivel Moderado</span></div><h3>Requiere seguimiento y fortalecimiento</h3><p>Requisito funcional y en proceso de mejora; riesgo moderado.</p></div><div class="access-card lvl-a"><div class="access-card__top"><span class="access-card__ico" style="font-family:var(--f-head);font-weight:700">9–10</span><span class="access-badge">Nivel Sólido</span></div><h3>Buenas prácticas consolidadas</h3><p>Requisito plenamente integrado y verificable; riesgo bajo o nulo.</p></div></div><div class="eudr-tool reveal"><div class="eudr-tool__b"><span class="eyebrow" style="color:var(--gold)">AL-INVEST Verde · financiado por la Unión Europea</span><h2>Sistema de autoevaluación y cumplimiento EUDR</h2><p class="lead">Herramienta oficial (SENAVEX) para que cada organización mida su nivel de cumplimiento del Reglamento de la UE sobre productos libres de deforestación, con base en su documentación y georreferenciación.</p></div><a class="btn btn--gold btn--lg" href="https://autoevaluacioneudr.senavex.gob.bo/" target="_blank" rel="noopener">Abrir autoevaluación EUDR →</a></div><div class="head-block" style="margin-top:2.6rem"><span class="eyebrow">Recursos de interés</span><h2>EUDR · enlaces oficiales</h2></div><div class="docs"><div class="doc reveal"><div class="doc__ico">{I['globe']}</div><div class="doc__b"><b>Comisión Europea</b><span>Regulation on Deforestation-free products</span></div><a class="doc__dl" href="https://environment.ec.europa.eu/topics/forests/deforestation/regulation-deforestation-free-products_en" target="_blank" rel="noopener">Abrir →</a></div><div class="doc reveal"><div class="doc__ico">{I['globe']}</div><div class="doc__b"><b>Ministerio para la Transición Ecológica (España)</b><span>Información sobre el EUDR</span></div><a class="doc__dl" href="https://www.miteco.gob.es" target="_blank" rel="noopener">Abrir →</a></div><div class="doc reveal"><div class="doc__ico">{I['globe']}</div><div class="doc__b"><b>Team Europe · Cadenas de valor libres de deforestación</b><span>Iniciativa del equipo Europa</span></div><a class="doc__dl" href="https://international-partnerships.ec.europa.eu" target="_blank" rel="noopener">Abrir →</a></div><div class="doc reveal"><div class="doc__ico">{I['globe']}</div><div class="doc__b"><b>EUDR Community of Practice</b><span>European Forest Institute</span></div><a class="doc__dl" href="https://www.efi.int" target="_blank" rel="noopener">Abrir →</a></div><div class="doc reveal"><div class="doc__ico">{I['shield']}</div><div class="doc__b"><b>SENAVEX · Autoevaluación EUDR (Bolivia)</b><span>Sistema nacional de cumplimiento</span></div><a class="doc__dl" href="https://autoevaluacioneudr.senavex.gob.bo/" target="_blank" rel="noopener">Abrir →</a></div></div></div></section>
 <section class="section"><div class="container">{access("El portal de trazabilidad expone la información en tres niveles, garantizando la seguridad de los datos GIS estratégicos de exportación.")}</div></section>
 """
 page("trazabilidad.html","trazabilidad.html","Trazabilidad EUDR · FECAFEB","Consulta pública de trazabilidad por lote y cumplimiento EUDR (UE 2023/1115).",traz,
@@ -324,69 +324,109 @@ taza = f"""
     <ul class="values" style="margin-top:1.2rem"><li>{I['chk']} Convocatoria digitalizada y reglamentos descargables</li><li>{I['chk']} Resultados y precios históricos de subastas</li><li>{I['chk']} Directorio de jueces nacionales e internacionales</li></ul>
   </div>
 </div></section>
-<section class="section section--pattern"><div class="container"><div class="head-block center"><span class="eyebrow">Cronograma 2026–2027</span><h2>Ciclo de 10 fases de trabajo</h2><p class="lead">Ruta técnica y comercial coordinada con el Gobierno Autónomo Municipal de Caranavi (GAM), sede central del torneo.</p></div><div class="steps">
-  <div class="step reveal"><h3>1 · Lanzamiento</h3><p>Mié. 8 de julio — presentación pública del plan nacional y apertura de inscripciones.</p></div>
-  <div class="step reveal"><h3>2 · Capacitaciones</h3><p>Julio–agosto — talleres de poscosecha, secado y cata en Caranavi y zonas solicitantes.</p></div>
-  <div class="step reveal"><h3>3 · Plantel de jurados</h3><p>3 de agosto — convocatoria y formación de catadores con capacitador internacional.</p></div>
-  <div class="step reveal"><h3>4 · Recepción de muestras</h3><p>3–10 de agosto — acopio oficial de microlotes coordinado con el GAM Caranavi.</p></div>
-  <div class="step reveal"><h3>5 · Preselección</h3><p>7–14 de septiembre — trillado, codificación ciega e inicio de cata.</p></div>
-  <div class="step reveal"><h3>6 · Etapa nacional</h3><p>5–12 de octubre — mesas de cata con jueces y productores finalistas.</p></div>
-  <div class="step reveal"><h3>7 · Chuquiago Marka</h3><p>2–10 de noviembre — feria comercial, fase internacional y campeonatos de barismo.</p></div>
-  <div class="step reveal"><h3>8 · Degustaciones</h3><p>Desde el 10 de noviembre — promoción del Top 10 en cafeterías de especialidad.</p></div>
-  <div class="step reveal"><h3>9 · Subasta electrónica</h3><p>15–22 de noviembre — puja global en tiempo real por los lotes de rango presidencial.</p></div>
-  <div class="step reveal"><h3>10 · Procesado y exportación</h3><p>Diciembre 2026 – enero 2027 — trillado, envasado al vacío y despacho a compradores globales.</p></div>
-</div></div></section>
+<section class="section"><div class="container"><div class="head-block center"><span class="eyebrow">Cronograma 2026–2027</span><h2>Ciclo de 10 fases de trabajo</h2><p class="lead">Ruta técnica y comercial coordinada con el Gobierno Autónomo Municipal de Caranavi (GAM), sede central del torneo.</p></div><div class="phases"><article class="phase reveal"><div class="phase__n">01</div><div class="phase__b"><span class="phase__date">Mié. 8 de julio</span><h3>Lanzamiento</h3><p>Presentación pública del plan nacional y apertura de inscripciones.</p></div></article><article class="phase reveal"><div class="phase__n">02</div><div class="phase__b"><span class="phase__date">Julio–agosto</span><h3>Capacitaciones técnicas</h3><p>Talleres de poscosecha, secado y cata en Caranavi y zonas solicitantes.</p></div></article><article class="phase reveal"><div class="phase__n">03</div><div class="phase__b"><span class="phase__date">3 de agosto</span><h3>Plantel de jurados</h3><p>Convocatoria y formación de catadores con capacitador internacional.</p></div></article><article class="phase reveal"><div class="phase__n">04</div><div class="phase__b"><span class="phase__date">3–10 de agosto</span><h3>Recepción de muestras</h3><p>Acopio oficial de microlotes coordinado con el GAM Caranavi.</p></div></article><article class="phase reveal"><div class="phase__n">05</div><div class="phase__b"><span class="phase__date">7–14 de septiembre</span><h3>Preselección</h3><p>Trillado, codificación ciega e inicio de la cata.</p></div></article><article class="phase reveal"><div class="phase__n">06</div><div class="phase__b"><span class="phase__date">5–12 de octubre</span><h3>Etapa nacional</h3><p>Mesas de cata con jueces y productores finalistas.</p></div></article><article class="phase reveal"><div class="phase__n">07</div><div class="phase__b"><span class="phase__date">2–10 de noviembre</span><h3>Chuquiago Marka</h3><p>Feria comercial, fase internacional y campeonatos de barismo.</p></div></article><article class="phase reveal"><div class="phase__n">08</div><div class="phase__b"><span class="phase__date">Desde el 10 de nov.</span><h3>Degustaciones</h3><p>Promoción del Top 10 en cafeterías de especialidad.</p></div></article><article class="phase reveal"><div class="phase__n">09</div><div class="phase__b"><span class="phase__date">15–22 de noviembre</span><h3>Subasta electrónica</h3><p>Puja global en tiempo real por los lotes de rango presidencial.</p></div></article><article class="phase reveal"><div class="phase__n">10</div><div class="phase__b"><span class="phase__date">Dic. 2026 – ene. 2027</span><h3>Procesado y exportación</h3><p>Trillado, envasado al vacío y despacho a compradores globales.</p></div></article></div></div></section>
 <section class="section section--tint"><div class="container"><div class="head-block center"><span class="eyebrow">Resultados (referenciales)</span><h2>Tabla de puntajes — edición 2025</h2><p class="lead">Datos de ejemplo; se cargarán los resultados oficiales al integrar el módulo de subastas.</p></div>
   <div style="overflow-x:auto"><table class="ptable"><thead><tr><th>Puesto</th><th>Cooperativa</th><th>Zona</th><th>Variedad</th><th>Puntaje</th></tr></thead><tbody>{rows}</tbody></table></div>
 </div></section>
+<section class="section"><div class="container"><div class="head-block"><span class="eyebrow">Documentos del torneo</span><h2>Reglamentos y bases</h2><p class="lead">Documentos oficiales del Torneo Taza de Calidad Café Presidencial, disponibles para descarga.</p></div><div class="docs"><div class="doc reveal"><div class="doc__ico">{I['doc']}</div><div class="doc__b"><b>Reglamento del Torneo 2022</b><span>Bases y reglas de participación</span></div><a class="doc__dl" href="assets/docs/reglamento-torneo-2022.pdf" download>{I['dl']} Descargar</a></div><div class="doc reveal"><div class="doc__ico">{I['doc']}</div><div class="doc__b"><b>Reglamento de Subasta 2022</b><span>Procedimiento de subasta electrónica de microlotes</span></div><a class="doc__dl" href="assets/docs/reglamento-subasta-2022.pdf" download>{I['dl']} Descargar</a></div><div class="doc reveal"><div class="doc__ico">{I['globe']}</div><div class="doc__b"><b>Más publicaciones del torneo</b><span>Repositorio · Biblioteca</span></div><a class="doc__dl" href="publicaciones.html#publicaciones">Ver repositorio →</a></div></div></div></section>
 <section class="section section--accent"><div class="container center"><div class="head-block center"><span class="eyebrow">Convocatoria abierta</span><h2>Participe en la Taza Presidencial 2026–2027</h2><p class="lead">Inscriba su lote y compita por llegar a la subasta internacional.</p></div><a href="contacto.html" class="btn btn--gold btn--lg">Ver convocatoria</a></div></section>
 """
 page("taza-presidencial.html","servicios.html","Taza Presidencial · FECAFEB","Torneo Nacional Taza Presidencial de Bolivia: catación SCA, resultados y subasta internacional.",taza,
      ("Servicios / Taza Presidencial","Taza Presidencial","El evento cumbre del café boliviano, bajo estándares SCA."))
 
-# ===================== BIBLIOTECA =====================
-docs=[("doc","Estatuto Orgánico y Reglamento Interno","Documento institucional · PDF"),
-      ("doc","Plan Estratégico Institucional 2023–2027","Estrategia · PDF"),
-      ("doc","Guía de cumplimiento EUDR para afiliadas","Guía técnica · PDF"),
-      ("doc","Manual de buenas prácticas de beneficiado","Manual · PDF"),
-      ("doc","Memoria anual FECAFEB","Rendición de cuentas · PDF")]
-doclist=''.join(f'<div class="doc reveal"><div class="doc__ico">{I[ic]}</div><div class="doc__b"><b>{t}</b><span>{sub}</span></div><a class="doc__dl" href="#">{I["dl"]} Descargar</a></div>' for ic,t,sub in docs)
-norm=[("doc","Ley N° 351 (2013) — Personalidad jurídica de OSFL","Ley · PDF"),
-      ("doc","D.S. 1597 — Reglamento de la Ley 351","Decreto Supremo · PDF"),
-      ("doc","Resolución Ministerial N° 156/25","Resolución · PDF"),
-      ("doc","Reglamento UE 2023/1115 (EUDR)","Normativa internacional · PDF"),
-      ("doc","Estatuto Orgánico — Testimonio 092/2026","Instrumento legal · PDF")]
-normlist=''.join(f'<div class="doc reveal"><div class="doc__ico">{I[ic]}</div><div class="doc__b"><b>{t}</b><span>{sub}</span></div><a class="doc__dl" href="#">{I["dl"]} Descargar</a></div>' for ic,t,sub in norm)
-GAL=[("Álbum · Taza / Café Presidencial","tall","cherries"),("Álbum · Cumbre de Mujeres","","hands"),("Álbum · Café verde de exportación","","bag"),("Álbum · Productoras y liderazgo","","harvest"),("Álbum · Caranavi, capital cafetalera","","andes"),("Álbum · Café Kullaka","tall","shop"),("Álbum · Equipo e institucionalidad","","people"),("Álbum · Retratos del café","","woman")]
-gal=''.join(f'<figure class="{c}"><img src="{U(k,700)}" alt="{t}" loading="lazy" onerror="this.style.display=&quot;none&quot;"><figcaption>{t}</figcaption></figure>' for t,c,k in GAL)
-vids=[("Taza Presidencial — resumen","farm"),("Escuela de Café — catación","cherries"),("Origen Yungas — cosecha","field")]
-vidcards=''.join(f'<article class="news__item reveal"><div class="news__cover"><span class="badge">Video</span><img src="{U(k,640)}" alt="{t}" loading="lazy" onerror="this.style.display=&quot;none&quot;"></div><div class="news__body"><h3>{t}</h3><a href="#">▶ Reproducir</a></div></article>' for t,k in vids)
-biblio = f"""
+# ===================== BIBLIOTECA · PUBLICACIONES =====================
+import json as _json
+# Publicaciones reales (portada + PDF descargable + categoría para taxonomía)
+PUBS=[
+ ("Estatuto Orgánico y Reglamento Interno","Institucional","c_estatuto.jpg","estatuto.pdf","Instrumento constitutivo de FECAFEB — Testimonio N° 092/2026."),
+ ("Plan Estratégico Institucional 2023–2027","Institucional","c_pei.jpg","pei-2023-2027.pdf","Objetivos, líneas estratégicas y hoja de ruta de la Federación."),
+ ("Reglamento del Torneo Taza Presidencial 2022","Taza Presidencial","c_reglamento_torneo.jpg","reglamento-torneo-2022.pdf","Reglas del torneo nacional de calidad de café boliviano."),
+ ("Reglamento de Subasta de Café 2022","Taza Presidencial","c_reglamento_subasta.jpg","reglamento-subasta-2022.pdf","Procedimiento de la subasta electrónica de microlotes."),
+ ("Kullaka de Altura — Edición Limitada","Marca Kullaka","c_kullaka.jpg","kullaka.pdf","Ficha del café de especialidad con identidad de mujer."),
+]
+_cats=[]
+for _,c,_,_,_ in PUBS:
+    if c not in _cats: _cats.append(c)
+chips='<button class="chip is-active" data-cat="all">Todas</button>'+''.join(f'<button class="chip" data-cat="{c}">{c}</button>' for c in _cats)
+def pub_card(t,cat,cover,pdf,desc):
+    return (f'<article class="pub reveal" data-cat="{cat}" data-title="{t.lower()}">'
+            f'<div class="pub__cover"><img src="assets/img/covers/{cover}" alt="{t}" loading="lazy"><span class="pub__cat">{cat}</span></div>'
+            f'<div class="pub__b"><h3>{t}</h3><p>{desc}</p><div class="pub__act">'
+            f'<button class="btn btn--sm btn--ghost" data-pdf="assets/docs/{pdf}" data-title="{t}">{I["doc"]} Ver</button>'
+            f'<a class="btn btn--sm btn--gold" href="assets/docs/{pdf}" download>{I["dl"]} Descargar</a>'
+            f'</div></div></article>')
+pubcards=''.join(pub_card(*p) for p in PUBS)
+# Normativa (enlaces oficiales reales)
+NORM=[("Ley N° 511 — Adhesión al Convenio Internacional del Café 2007","SENAVEX · Normativa del café","https://senavex.gob.bo/normativa-cafe/"),
+      ("Sistema de autoevaluación y cumplimiento EUDR","SENAVEX · AL-INVEST Verde (UE)","https://autoevaluacioneudr.senavex.gob.bo/"),
+      ("Reglamento (UE) 2023/1115 — Productos libres de deforestación","Comisión Europea","https://environment.ec.europa.eu/topics/forests/deforestation/regulation-deforestation-free-products_en"),
+      ("Estatuto Orgánico — Testimonio N° 092/2026","Instrumento legal · descarga PDF","assets/docs/estatuto.pdf")]
+def norm_row(t,sub,href):
+    ext = href.startswith("http")
+    lab = "Visitar →" if ext else "Descargar"
+    at = ' target="_blank" rel="noopener"' if ext else ' download'
+    return (f'<div class="doc reveal"><div class="doc__ico">{I["shield"] if ext else I["doc"]}</div>'
+            f'<div class="doc__b"><b>{t}</b><span>{sub}</span></div>'
+            f'<a class="doc__dl" href="{href}"{at}>{lab}</a></div>')
+normlist=''.join(norm_row(*n) for n in NORM)
+publicaciones = f"""
 <section class="section section--pattern" id="publicaciones"><div class="container">
-  <div class="head-block"><span class="eyebrow">Publicaciones</span><h2>Guías, manuales y documentos</h2><p class="lead">Documentos institucionales y técnicos. (Descargas de ejemplo; se gestionarán desde el CMS.)</p></div>
-  <div class="docs">{doclist}</div>
+  <div class="head-block"><span class="eyebrow">Repositorio · Publicaciones</span><h2>Documentos y descargas</h2><p class="lead">Documentos institucionales y técnicos de FECAFEB. Filtre por categoría o busque por título; visualice en línea o descargue el PDF.</p></div>
+  <div class="repo-bar"><div class="chips" data-pubfilter>{chips}</div><label class="repo-search">{I['globe']}<input type="search" id="pubSearch" placeholder="Buscar publicación…" aria-label="Buscar publicación"></label></div>
+  <div class="pubs" id="pubGrid">{pubcards}</div>
+  <p class="repo-empty" id="pubEmpty" hidden>No se encontraron publicaciones con ese criterio.</p>
 </div></section>
 <section class="section section--tint" id="normativa"><div class="container">
-  <div class="head-block"><span class="eyebrow">Normativa</span><h2>Decretos, leyes y resoluciones</h2><p class="lead">Marco legal nacional e internacional del café boliviano.</p></div>
+  <div class="head-block"><span class="eyebrow">Normativa</span><h2>Leyes, reglamentos y cumplimiento</h2><p class="lead">Marco legal nacional e internacional del café boliviano y enlaces oficiales de cumplimiento.</p></div>
   <div class="docs">{normlist}</div>
 </div></section>
-<section class="section" id="fotos"><div class="container">
-  <div class="head-block"><span class="eyebrow">Fotos</span><h2>Álbumes fotográficos</h2><p class="lead">Colecciones por evento y tema (p. ej. Taza Presidencial). Imágenes de referencia, reemplazables por las de FECAFEB.</p></div>
-  <div class="gallery">{gal}</div>
-</div></section>
-<section class="section section--tint" id="videos"><div class="container">
-  <div class="head-block"><span class="eyebrow">Videos</span><h2>Videoteca</h2><p class="lead">Material audiovisual institucional (demo).</p></div>
-  <div class="news">{vidcards}</div>
+<section class="section section--accent"><div class="container center"><div class="head-block center"><span class="eyebrow">Biblioteca</span><h2>Explore también fotos y videos</h2></div><div class="hero__actions" style="justify-content:center"><a class="btn btn--gold btn--lg" href="fotos.html">Ver galería de fotos</a><a class="btn btn--ghost btn--lg" href="videos.html">Ver videoteca</a></div></div></section>
+"""
+page("publicaciones.html","publicaciones.html","Publicaciones · Biblioteca FECAFEB","Repositorio de documentos institucionales y técnicos de FECAFEB, con buscador, categorías y descargas en PDF.",publicaciones,
+     ("Biblioteca / Publicaciones","Publicaciones","Repositorio documental de FECAFEB: institucional, normativa y técnica."),
+     extra_js='<script src="js/repo.js"></script>')
+
+# ===================== BIBLIOTECA · FOTOS =====================
+_caps=_json.load(open("assets/img/gallery/_captions.json",encoding="utf-8"))
+GKEYS=["g01","g02","g03","g04","g05","g06","g07","g08","g09","g10","g11","g12"]
+gitems=''.join(
+  f'<figure class="gcell reveal" data-full="assets/img/gallery/{k}.jpg" data-cap="{_caps.get(k,"")}">'
+  f'<img src="assets/img/gallery/{k}.jpg" alt="{_caps.get(k,"")}" loading="lazy">'
+  f'<figcaption>{_caps.get(k,"")}</figcaption></figure>' for k in GKEYS)
+fotos = f"""
+<section class="section"><div class="container">
+  <div class="head-block"><span class="eyebrow">Galería</span><h2>Fotografías de FECAFEB</h2><p class="lead">Archivo real de la Federación: Cumbre de Mujeres Cafetaleras, Taza / Café Presidencial y actividades de campo. Haga clic en cualquier imagen para ampliarla.</p></div>
+  <div class="gallery-grid">{gitems}</div>
 </div></section>
 """
-page("biblioteca.html","biblioteca.html","Biblioteca · FECAFEB","Publicaciones, normativa, álbumes de fotos y videos del café boliviano.",biblio,
-     ("Biblioteca","Biblioteca","Publicaciones, normativa, fotos y videos de FECAFEB."))
+page("fotos.html","publicaciones.html","Fotos · Biblioteca FECAFEB","Galería fotográfica real de FECAFEB: Cumbre de Mujeres, Taza Presidencial y actividades de campo.",fotos,
+     ("Biblioteca / Fotos","Galería de fotos","Archivo fotográfico real de la Federación."),
+     extra_js='<script src="js/lightbox.js"></script>')
+
+# ===================== BIBLIOTECA · VIDEOS =====================
+VIDS=[("Cumbre de Mujeres Cafetaleras — CMCB25","Resumen del encuentro nacional de productoras 2025.","g01"),
+      ("Taza / Café Presidencial — etapa internacional","Catación y subasta con jurados internacionales.","g05"),
+      ("Escuela del Café — catación y barismo","Formación técnica de la familia cafetalera.","g06")]
+vcards=''.join(
+  f'<article class="vcard reveal"><div class="vcard__cover"><img src="assets/img/gallery/{k}.jpg" alt="{t}" loading="lazy"><span class="vcard__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="vcard__badge">Video</span></div>'
+  f'<div class="vcard__b"><h3>{t}</h3><p>{d}</p></div></article>' for t,d,k in VIDS)
+videos = f"""
+<section class="section"><div class="container">
+  <div class="head-block"><span class="eyebrow">Videoteca</span><h2>Videos de FECAFEB</h2><p class="lead">Material audiovisual institucional. La reproducción se integrará con el gestor de contenidos (CMS); el archivo original de alta resolución permanece en el repositorio de la Federación.</p></div>
+  <div class="vgrid">{vcards}</div>
+</div></section>
+<section class="section section--accent"><div class="container center"><div class="head-block center"><span class="eyebrow">Más videos</span><h2>Síganos en Facebook</h2><p class="lead">Publicamos transmisiones y videos de nuestras actividades en el canal oficial de FECAFEB.</p></div><a class="btn btn--gold btn--lg" href="https://www.facebook.com/profile.php?id=100091538775267" target="_blank" rel="noopener">Ver videos en Facebook →</a></div></section>
+"""
+page("videos.html","publicaciones.html","Videos · Biblioteca FECAFEB","Videoteca institucional de FECAFEB: Cumbre de Mujeres, Taza Presidencial y Escuela del Café.",videos,
+     ("Biblioteca / Videos","Videoteca","Material audiovisual de la Federación."))
+
+# biblioteca.html -> redirección a publicaciones
 
 # ===================== PRENSA =====================
 comun=('<div class="comunicados">'
- '<div class="comunicado reveal"><time>15 jun 2026</time><div><b>Convocatoria Taza Presidencial 2026–2027</b><span>Apertura de inscripciones para cooperativas y asociaciones afiliadas.</span></div><a href="#">Ver comunicado →</a></div>'
- '<div class="comunicado reveal"><time>28 may 2026</time><div><b>Lineamientos de cumplimiento EUDR para afiliadas</b><span>Plazos y requisitos de georreferenciación de parcelas.</span></div><a href="#">Ver comunicado →</a></div>'
- '<div class="comunicado reveal"><time>10 abr 2026</time><div><b>Asamblea General Ordinaria — citación</b><span>Orden del día y documentación para las organizaciones afiliadas.</span></div><a href="#">Ver comunicado →</a></div>'
+ '<div class="comunicado reveal"><time>15 jun 2026</time><div><b>Convocatoria Taza Presidencial 2026–2027</b><span>Apertura de inscripciones para cooperativas y asociaciones afiliadas.</span></div><a href="taza-presidencial.html">Ver convocatoria →</a></div>'
+ '<div class="comunicado reveal"><time>28 may 2026</time><div><b>Lineamientos de cumplimiento EUDR para afiliadas</b><span>Plazos y requisitos de georreferenciación de parcelas.</span></div><a href="trazabilidad.html">Ver detalles →</a></div>'
+ '<div class="comunicado reveal"><time>10 abr 2026</time><div><b>Asamblea General Ordinaria — citación</b><span>Orden del día y documentación para las organizaciones afiliadas.</span></div><a href="quienes-somos.html#instancias">Más información →</a></div>'
  '</div>')
 EXT=[("El Deber","Café boliviano gana espacio en ferias europeas","Cobertura sobre exportación y calidad del café de los Yungas.","farm"),
      ("Los Tiempos","Mujeres cafetaleras impulsan la marca Kullaka","Reportaje sobre el liderazgo femenino en la cadena del café.","hands"),
@@ -404,14 +444,11 @@ prensa = f"""
   {comun}
 </div></section>
 <section class="section" id="externas"><div class="container">
-  <div class="head-block"><span class="eyebrow">Noticias externas · medios</span><h2>El café boliviano en los medios</h2><p class="lead">Cobertura de medios de comunicación (enlaces de ejemplo).</p></div>
-  <div class="news">{extnews}</div>
-</div></section>
-<section class="section" id="otras"><div class="container">
-  <div class="head-block"><span class="eyebrow">Otras fuentes de prensa</span><h2>Más fuentes</h2><p class="lead">Gremios, organismos aliados y boletines (por completar).</p></div>
+  <div class="head-block"><span class="eyebrow">Noticias externas</span><h2>FECAFEB en la web y redes</h2><p class="lead">Actividad, campañas y cobertura del café boliviano en nuestros canales oficiales y de aliados.</p></div>
   <div class="docs">
-    <div class="doc reveal"><div class="doc__ico">{I['globe']}</div><div class="doc__b"><b>CNCJ-Bolivia · Comercio Justo</b><span>Comunicación del sistema de comercio justo</span></div><a class="doc__dl" href="https://www.comerciojustobolivia.org.bo/" target="_blank" rel="noopener">Visitar →</a></div>
-    <div class="doc reveal"><div class="doc__ico">{I['doc']}</div><div class="doc__b"><b>Boletín semanal FECAFEB</b><span>Precios, clima y convocatorias</span></div><a class="doc__dl" href="#">Suscribirse →</a></div>
+    <div class="doc reveal"><div class="doc__ico">{I['globe']}</div><div class="doc__b"><b>Facebook · FECAFEB</b><span>Actividades, convocatorias y transmisiones en vivo</span></div><a class="doc__dl" href="https://www.facebook.com/profile.php?id=100091538775267" target="_blank" rel="noopener">Visitar →</a></div>
+    <div class="doc reveal"><div class="doc__ico">{I['share']}</div><div class="doc__b"><b>Instagram · @fecafeb</b><span>Fotografía y campañas del café boliviano</span></div><a class="doc__dl" href="https://www.instagram.com/fecafeb/" target="_blank" rel="noopener">Visitar →</a></div>
+    <div class="doc reveal"><div class="doc__ico">{I['globe']}</div><div class="doc__b"><b>CNCJ-Bolivia · Comercio Justo</b><span>Sistema de comercio justo boliviano</span></div><a class="doc__dl" href="https://www.comerciojustobolivia.org.bo/" target="_blank" rel="noopener">Visitar →</a></div>
   </div>
 </div></section>
 <section class="section section--accent"><div class="container center"><div class="head-block center"><span class="eyebrow">Boletín semanal</span><h2>Reciba precios, clima y convocatorias</h2><p class="lead">Resumen semanal para socios y aliados del café boliviano.</p></div>
@@ -431,7 +468,7 @@ contacto = f"""
     <div class="info-row reveal"><div class="ico">{_PIN}</div><div><b>Dirección</b><span>Av. Juan Pablo II 2974, El Alto · La Paz, Bolivia</span></div></div>
     <div class="info-row reveal" data-delay="60"><div class="ico">{_TEL}</div><div><b>Teléfono / WhatsApp</b><a href="https://wa.me/59171537365" target="_blank" rel="noopener">+591 71537365</a></div></div>
     <div class="info-row reveal" data-delay="120"><div class="ico">{_MAIL}</div><div><b>Correo</b><a href="mailto:fecafebfinanzas@gmail.com">fecafebfinanzas@gmail.com</a></div></div>
-    <div class="info-row reveal" data-delay="180"><div class="ico">{_LOCK}</div><div><b>Portal Institucional</b><a href="#">Acceso para afiliados y técnicos (próximamente)</a></div></div>
+    <div class="info-row reveal" data-delay="180"><div class="ico">{_LOCK}</div><div><b>Portal Institucional</b><span style="color:var(--muted)">Acceso para afiliados y técnicos (próximamente)</span></div></div>
     <div id="mapOffice" style="height:300px;border-radius:var(--radius);border:1px solid var(--line);z-index:1;margin-top:.4rem"></div>
   </div>
   <form class="form" data-demo>
@@ -459,5 +496,5 @@ def redir(fname, target):
     open(fname,"w",encoding="utf-8").write(html)
 redir("nosotros.html","quienes-somos.html")
 redir("noticias.html","prensa.html")
-redir("publicaciones.html","biblioteca.html")
-redir("galeria.html","publicaciones.html")
+redir("biblioteca.html","publicaciones.html")
+redir("galeria.html","fotos.html")

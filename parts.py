@@ -67,10 +67,10 @@ NAV = [
  ("servicios.html","Servicios",[("escuela-cafe.html","Escuela de Café"),("kullaka.html","Marca Kullaka"),
      ("taza-presidencial.html","Taza Presidencial"),("tienda.html","Tienda / Pedidos"),("servicios.html","Asistencia técnica")]),
  ("prensa.html","Prensa",[("prensa.html#notas","Notas de prensa"),
-     ("prensa.html#externas","Noticias externas"),("prensa.html#otras","Otras fuentes de prensa")]),
- ("biblioteca.html","Biblioteca",[("biblioteca.html#publicaciones","Publicaciones"),
-     ("biblioteca.html#normativa","Normativa"),("biblioteca.html#fotos","Fotos"),
-     ("biblioteca.html#videos","Videos")]),
+     ("prensa.html#externas","Noticias externas")]),
+ ("publicaciones.html","Biblioteca",[("publicaciones.html#publicaciones","Publicaciones"),
+     ("publicaciones.html#normativa","Normativa"),("fotos.html","Fotos"),
+     ("videos.html","Videos")]),
  ("trazabilidad.html","Trazabilidad",[("trazabilidad.html","Trazabilidad EUDR"),("afiliados.html","Afiliados")]),
  ("contacto.html","Contacto",None),
 ]
@@ -115,11 +115,11 @@ def header(active):
       '<div class="lang" role="group" aria-label="Idioma"><button data-lang="es" class="is-active" type="button">ES</button><button data-lang="en" type="button">EN</button></div>'
       '<div class="topbar__act">'
       '<a href="escuela-cafe.html" class="tbtn" title="Escuela de Café">'+I["cap"]+'<span data-i18n="cta.escuela">Escuela de Café</span></a>'
-      '<a href="#" class="tbtn tbtn--icon" title="Portal Institucional" aria-label="Portal Institucional">'+I["lock"]+'</a>'
+      '<a href="contacto.html" class="tbtn tbtn--icon" title="Portal Institucional (acceso próximamente)" aria-label="Portal Institucional">'+I["lock"]+'</a>'
       '<a href="afiliados.html" class="tbtn tbtn--gold" data-i18n="cta.register">Regístrese</a>'
       '</div></div></div></div>'
       '<header class="header"><div class="container nav">'
-      '<a href="index.html" class="brand" aria-label="FECAFEB inicio"><img src="assets/img/logo-fecafeb.png" alt="FECAFEB"></a>'
+      '<a href="index.html" class="brand" aria-label="FECAFEB inicio"><img src="assets/img/logo-horizontal.png" alt="FECAFEB · Federación de Caficultores Exportadores de Bolivia"></a>'
       '<nav aria-label="Principal"><ul class="menu" id="menu">'+menu(active)+'</ul></nav>'
       '<div class="nav__cta">'+SEARCHBTN+CARTBTN+'<span id="userSlot"></span>'
       '<button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span></button>'
@@ -130,7 +130,7 @@ def subhero(crumb, title, desc):
             '<h1>%s</h1><p class="lead">%s</p></div></section>') % (crumb, title, desc)
 
 SIDERAIL = ('<div class="siderail" aria-label="Accesos rápidos">'
-  '<a href="#" title="Portal Institucional">%s<span>Portal Institucional</span></a>'
+  '<a href="contacto.html" title="Portal Institucional (acceso próximamente)">%s<span>Portal Institucional</span></a>'
   '<a class="is-gold" href="afiliados.html" title="Regístrese como exportador">%s<span>Regístrese como exportador</span></a>'
   '<a href="trazabilidad.html" title="Trazabilidad EUDR">%s<span>Trazabilidad EUDR</span></a>'
   '<a href="escuela-cafe.html" title="Escuela de Café">%s<span data-i18n="cta.escuela">Escuela de Café</span></a>'

@@ -359,3 +359,14 @@
     $$(".chip").forEach(c => on(c, "click", () => { add(c.textContent, "user"); botRespond(match(c.dataset.q || c.textContent)); }));
   }
 })();
+
+/* Mini-slider del Home (sección Nosotros) */
+(function(){
+  var s=document.querySelector('[data-mslider]'); if(!s) return;
+  var imgs=[].slice.call(s.querySelectorAll('img')); if(imgs.length<2) return;
+  var dots=s.querySelector('.mslider__dots');
+  imgs.forEach(function(_,n){var b=document.createElement('b'); if(n===0)b.className='is-active'; b.addEventListener('click',function(){go(n);}); if(dots)dots.appendChild(b);});
+  var db=dots?[].slice.call(dots.children):[], i=0;
+  function go(n){imgs[i].classList.remove('is-active'); if(db[i])db[i].classList.remove('is-active'); i=(n+imgs.length)%imgs.length; imgs[i].classList.add('is-active'); if(db[i])db[i].classList.add('is-active');}
+  setInterval(function(){go(i+1);},4200);
+})();
