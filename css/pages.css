@@ -30,6 +30,7 @@
 .access-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
   padding:1.7rem;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:.5rem;
   border-top:4px solid var(--line-2)}
+.access-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#d8cebf}
 .access-card.lvl-a{border-top-color:var(--ok)}
 .access-card.lvl-b{border-top-color:var(--gold)}
 .access-card.lvl-c{border-top-color:var(--coffee)}
@@ -47,6 +48,7 @@
 .access-card li svg{width:16px;height:16px;color:var(--gold-d);flex:none;margin-top:.2rem}
 .access-card .lockmsg{margin-top:auto;padding-top:.8rem;font-size:.8rem;color:var(--muted);display:flex;align-items:center;gap:.4rem}
 .access-card .lockmsg svg{width:15px;height:15px}
+.access-card p{max-width:34ch}
 @media (max-width:860px){.access{grid-template-columns:1fr}}
 
 /* ---------- Banda de marcas / logos institucionales ---------- */
