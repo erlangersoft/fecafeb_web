@@ -59,6 +59,7 @@
   function heroSlider() {
     const slider = $(".hero__slider");
     if (!slider) return;
+    const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const slides = $$(".hero__slide", slider);
     const dotsBox = $(".hero__dots", slider);
     if (slides.length < 2) return;
@@ -79,12 +80,17 @@
       dots[i] && dots[i].classList.add("is-active");
       if (manual) restart();
     }
-    function restart() { clearInterval(timer); timer = setInterval(() => go(i + 1), 5500); }
+    function restart() {
+      clearInterval(timer);
+      if (!reduceMotion) timer = setInterval(() => go(i + 1), 5500);
+    }
     const prev = $(".hero__nav.prev", slider), next = $(".hero__nav.next", slider);
     on(prev, "click", () => go(i - 1, true));
     on(next, "click", () => go(i + 1, true));
-    on(slider, "mouseenter", () => clearInterval(timer));
-    on(slider, "mouseleave", restart);
+    if (!reduceMotion) {
+      on(slider, "mouseenter", () => clearInterval(timer));
+      on(slider, "mouseleave", restart);
+    }
     restart();
   }
 
@@ -92,11 +98,16 @@
   function counters() {
     const els = $$("[data-count]");
     if (!els.length) return;
+    const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const run = el => {
       const target = parseFloat(el.dataset.count) || 0;
       const sep = el.hasAttribute("data-sep");
       const dur = 1400, t0 = performance.now();
       const fmt = v => sep ? Math.round(v).toLocaleString("es-BO") : Math.round(v).toString();
+      if (reduceMotion) {
+        el.textContent = fmt(target);
+        return;
+      }
       const tick = now => {
         const p = Math.min(1, (now - t0) / dur);
         const eased = 1 - Math.pow(1 - p, 3);

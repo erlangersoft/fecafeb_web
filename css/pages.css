@@ -15,7 +15,7 @@
 .pillar{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.6rem;background:#fff;
   border:1px solid var(--line);border-radius:var(--radius);padding:1.3rem .9rem;box-shadow:var(--shadow);
   transition:transform var(--t),box-shadow var(--t),border-color var(--t)}
-.pillar:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--gold-soft)}
+.pillar:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#d8cebf}
 .pillar__ico{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:var(--cream);color:var(--coffee)}
 .pillar__ico svg{width:28px;height:28px}
 .pillar__logo{background:#fff;border:1px solid var(--line);overflow:hidden}
@@ -59,7 +59,7 @@
 .docs{display:grid;gap:.9rem}
 .doc{display:flex;align-items:center;gap:1rem;background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);
   padding:1rem 1.2rem;box-shadow:var(--shadow-sm);transition:transform var(--t),box-shadow var(--t),border-color var(--t)}
-.doc:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--gold-soft)}
+.doc:hover{transform:translateY(-1px);box-shadow:var(--shadow);border-color:#d8cebf}
 .doc__ico{width:44px;height:44px;border-radius:11px;background:var(--cream);color:var(--coffee);display:grid;place-items:center;flex:none}
 .doc__ico svg{width:22px;height:22px}
 .doc__b{flex:1}
@@ -81,6 +81,36 @@
 .pillar-hero{display:grid;grid-template-columns:auto 1fr;gap:1.4rem;align-items:center}
 .pillar-hero img{height:96px;width:auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px;box-shadow:var(--shadow-sm)}
 @media (max-width:600px){.pillar-hero{grid-template-columns:1fr;text-align:center}.pillar-hero img{margin:0 auto}}
+
+/* ---------- Marca Kullaka ---------- */
+.kullaka-hero{display:grid;grid-template-columns:1.02fr .98fr;gap:2rem;align-items:stretch}
+.kullaka-hero__content{display:flex;flex-direction:column;justify-content:center;padding:clamp(1rem,2vw,1.6rem) 0}
+.kullaka-hero__logo{display:flex;align-items:center;gap:1rem;margin-bottom:1.1rem}
+.kullaka-hero__logo img{height:78px;width:auto;border-radius:18px;background:#fff;border:1px solid var(--line);padding:10px;box-shadow:var(--shadow-sm)}
+.kullaka-hero__copy{font-size:1.04rem;max-width:58ch}
+.kullaka-hero__panel{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:1.6rem}
+.kullaka-hero__panel div{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:16px;padding:1rem .95rem;backdrop-filter:blur(6px)}
+.kullaka-hero__panel b{display:block;font-family:var(--f-head);font-size:.98rem;color:var(--ink);margin-bottom:.15rem}
+.kullaka-hero__panel span{display:block;font-size:.8rem;color:var(--muted)}
+.kullaka-hero__media{position:relative;min-height:420px;border-radius:28px;overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid rgba(36,28,23,.08)}
+.kullaka-hero__media img{width:100%;height:100%;object-fit:cover}
+.kullaka-hero__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(36,23,18,.06),rgba(36,23,18,.42))}
+.kullaka-hero__stamp{position:absolute;left:18px;right:18px;bottom:18px;z-index:2;display:flex;justify-content:space-between;align-items:end;gap:1rem;color:#fff}
+.kullaka-hero__stamp strong{display:block;font-family:var(--f-head);font-size:1.14rem}
+.kullaka-hero__stamp span{display:block;font-size:.84rem;color:rgba(255,255,255,.82);max-width:26ch}
+.kullaka-badge{display:inline-flex;align-items:center;gap:.45rem;background:rgba(255,255,255,.88);color:var(--coffee);padding:.38rem .72rem;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.kullaka-values{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.kullaka-values .card{padding:1.45rem 1.25rem;background:linear-gradient(180deg,#fff,rgba(250,248,244,.82))}
+.kullaka-values .card p{font-size:.9rem}
+.kullaka-feature .feature__media{padding:0;overflow:hidden;background:#fff}
+.kullaka-feature .feature__media img{width:100%;height:100%;min-height:420px;object-fit:cover;filter:none}
+.kullaka-note{display:inline-flex;align-items:center;gap:.55rem;background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:.45rem .85rem;font-size:.8rem;color:var(--coffee);font-weight:600}
+.kullaka-note svg{width:16px;height:16px;color:var(--gold-d)}
+@media (max-width:900px){
+  .kullaka-hero{grid-template-columns:1fr}
+  .kullaka-hero__panel,.kullaka-values{grid-template-columns:1fr}
+  .kullaka-hero__media{min-height:340px}
+}
 
 /* ===================================================================
    Ajustes v4 — cabecera, topbar animada, riel tooltip, Leaflet, consulta de lote, blog
@@ -106,7 +136,7 @@
 .topbar a.topbar__lnk::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:1px;background:var(--gold-soft);transition:right var(--t)}
 .topbar a.topbar__lnk:hover::after{right:0}
 .social a{transition:background var(--t),transform var(--t),color var(--t)}
-.social a:hover{transform:translateY(-2px) scale(1.08) rotate(-4deg)}
+.social a:hover{transform:translateY(-1px) scale(1.03)}
 
 /* Riel lateral: tooltip deslizante (sin desplazar el resto) */
 .siderail{gap:8px}
@@ -172,7 +202,7 @@
 /* ---------- Blog / Comunicados (Publicaciones) ---------- */
 .blog{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .post{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform var(--t),box-shadow var(--t)}
-.post:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.post:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 .post .cover{aspect-ratio:16/10;position:relative}
 .post .cover img{width:100%;height:100%;object-fit:cover}
 .post .cover .cat{position:absolute;top:10px;left:10px;background:#fff;color:var(--ink);font-size:.7rem;font-weight:700;padding:.25rem .6rem;border-radius:6px}
@@ -181,7 +211,7 @@
 .post__b h3{font-size:1.05rem}
 .post__b a{margin-top:auto;font-weight:700;color:var(--coffee);font-size:.86rem}
 .comunicados{display:grid;gap:.8rem}
-.comunicado{display:flex;gap:1rem;align-items:center;background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:var(--radius-sm);padding:1rem 1.2rem;box-shadow:var(--shadow-sm)}
+.comunicado{display:flex;gap:1rem;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:1rem 1.2rem;box-shadow:var(--shadow-sm)}
 .comunicado time{font-family:var(--f-head);color:var(--gold-d);font-weight:700;font-size:.86rem;white-space:nowrap}
 .comunicado b{font-family:var(--f-head);color:var(--ink);display:block}
 .comunicado span{font-size:.85rem;color:var(--muted)}
@@ -205,8 +235,7 @@
 .brand-logo img{max-height:84px;width:auto;object-fit:contain;filter:grayscale(.3) saturate(.85);opacity:.8;transition:filter .35s,opacity .35s,transform .35s}
 .brand-logo:hover img{filter:none;opacity:1;transform:scale(1.12)}
 @keyframes brandscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-/* el carrusel de marcas se mantiene en movimiento aunque el SO reduzca animaciones (elemento decorativo) */
-@media (prefers-reduced-motion:reduce){.brand-track{animation:brandscroll 28s linear infinite!important}}
+@media (prefers-reduced-motion:reduce){.brand-track{animation:none!important;transform:none!important}}
 @media (max-width:600px){.brand-logo{height:58px}.brand-logo img{max-height:58px}}
 
 /* ===================================================================
