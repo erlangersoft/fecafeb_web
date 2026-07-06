@@ -64,10 +64,10 @@ NAV = [
      ("comite-mujeres.html","Comité de Mujeres"),("quienes-somos.html#historia","Línea del tiempo")]),
  ("servicios.html","Servicios",[("escuela-cafe.html","Escuela de Café"),("kullaka.html","Marca Kullaka"),
      ("taza-presidencial.html","Taza Presidencial"),("tienda.html","Tienda / Pedidos"),("servicios.html","Asistencia técnica")]),
- ("prensa.html","Prensa",[("prensa.html#notas","Notas de prensa · FECAFEB"),
-     ("prensa.html#externas","Noticias externas · medios"),("prensa.html#otras","Otras fuentes de prensa")]),
- ("biblioteca.html","Biblioteca",[("biblioteca.html#publicaciones","Publicaciones (guías, manuales)"),
-     ("biblioteca.html#normativa","Normativa (leyes, decretos)"),("biblioteca.html#fotos","Fotos (álbumes)"),
+ ("prensa.html","Prensa",[("prensa.html#notas","Notas de prensa"),
+     ("prensa.html#externas","Noticias externas"),("prensa.html#otras","Otras fuentes de prensa")]),
+ ("biblioteca.html","Biblioteca",[("biblioteca.html#publicaciones","Publicaciones"),
+     ("biblioteca.html#normativa","Normativa"),("biblioteca.html#fotos","Fotos"),
      ("biblioteca.html#videos","Videos")]),
  ("trazabilidad.html","Trazabilidad",[("trazabilidad.html","Trazabilidad EUDR"),("afiliados.html","Afiliados")]),
  ("contacto.html","Contacto",None),
@@ -86,9 +86,8 @@ def menu(active):
             out.append('<li class="%s"><a href="%s" data-i18n="%s">%s</a></li>'%(act.strip(),href,k,label))
     return ''.join(out)
 
-SOC = ('<a href="https://www.facebook.com/CoordinadoraNacionaldeComercioJustodeBolivia/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6v1.9h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/></svg></a>'
-       '<a href="https://x.com/CJustoBolivia" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2H21l-6.5 7.4L22 22h-6.8l-4.7-6.2L4.9 22H2l7-8L2 2h6.9l4.3 5.7L18.2 2Z"/></svg></a>'
-       '<a href="https://www.youtube.com/channel/UCpIXQthmTVTEnk9LJOU46yg" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.5A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.5a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12Zm-13 3V9l5 3-5 3Z"/></svg></a>')
+SOC = ('<a href="https://www.facebook.com/profile.php?id=100091538775267" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6v1.9h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/></svg></a>'
+       '<a href="https://www.instagram.com/fecafeb/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.3-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.3 2.2-.4 1.3-.1 1.7-.1 4.9-.1Zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.2.8-.4.3-.6.7-.8 1.2-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 3.5s0 2.3.1 3.5c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.2.3.4.7.6 1.2.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.2-.8.4-.3.6-.7.8-1.2.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-3.5s0-2.3-.1-3.5c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.2-.3-.4-.7-.6-1.2-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1Zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8Zm0 8.1a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4Zm6.2-8.3a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0Z"/></svg></a>')
 
 def head(title, desc, extra_head=""):
     return ('<!DOCTYPE html>\n<html lang="es">\n<head>\n<meta charset="UTF-8">\n'
