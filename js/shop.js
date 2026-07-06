@@ -2,14 +2,14 @@
    Persistencia local (localStorage); en producción se conecta al backend/CRM. */
 (function(){
   "use strict";
-  var IMG="?auto=format&fit=crop&w=560&q=70";
+  var IMG="";
   var PRODUCTS=[
-    {id:"k-caranavi",name:"Café Kullaka Tostado — Caranavi",tag:"Tostado · 250 g",desc:"Especialidad lavado, notas a chocolate y frutos rojos.",price:12,unit:"250 g",img:"https://images.unsplash.com/photo-1521302080334-4bebac2763a6"+IMG},
-    {id:"k-apolo",name:"Café Kullaka — Mujeres de Apolo",tag:"Tostado · 250 g",desc:"Natural de altura del Comité de Mujeres, frutas tropicales y miel.",price:14,unit:"250 g",img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"+IMG},
-    {id:"k-molido",name:"Café Kullaka Molido",tag:"Molido · 250 g",desc:"Molienda media, ideal para filtrado.",price:12,unit:"250 g",img:"https://images.unsplash.com/photo-1461023058943-07fcbe16d735"+IMG},
-    {id:"verde-shb",name:"Café Verde de Exportación — Lavado SHB",tag:"Exportación · saco 69 kg",desc:"Café verde oro trazable EUDR, listo para embarque.",price:310,unit:"saco 69 kg",img:"https://images.unsplash.com/photo-1518057111178-44a106bad636"+IMG},
-    {id:"verde-org",name:"Café Verde Orgánico de Especialidad",tag:"Exportación · saco 69 kg",desc:"Orgánico certificado, puntaje SCA 86+.",price:360,unit:"saco 69 kg",img:"https://images.unsplash.com/photo-1442550528053-c431ecb55509"+IMG},
-    {id:"set-yungas",name:"Set Degustación Yungas",tag:"Regalo · 3×100 g",desc:"Tres orígenes de los Yungas para descubrir perfiles.",price:20,unit:"3×100 g",img:"https://images.unsplash.com/photo-1498804103079-a6351b050096"+IMG}
+    {id:"k-caranavi",name:"Café Kullaka Tostado — Caranavi",tag:"Tostado · 250 g",desc:"Especialidad lavado, notas a chocolate y frutos rojos.",price:12,unit:"250 g",img:"assets/img/photos/p_kullaka.jpg"+IMG},
+    {id:"k-apolo",name:"Café Kullaka — Mujeres de Apolo",tag:"Tostado · 250 g",desc:"Natural de altura del Comité de Mujeres, frutas tropicales y miel.",price:14,unit:"250 g",img:"assets/img/photos/p_mujeres2.jpg"+IMG},
+    {id:"k-molido",name:"Café Kullaka Molido",tag:"Molido · 250 g",desc:"Molienda media, ideal para filtrado.",price:12,unit:"250 g",img:"assets/img/photos/p_barismo.jpg"+IMG},
+    {id:"verde-shb",name:"Café Verde de Exportación — Lavado SHB",tag:"Exportación · saco 69 kg",desc:"Café verde oro trazable EUDR, listo para embarque.",price:310,unit:"saco 69 kg",img:"assets/img/photos/p_cafeverde.jpg"+IMG},
+    {id:"verde-org",name:"Café Verde Orgánico de Especialidad",tag:"Exportación · saco 69 kg",desc:"Orgánico certificado, puntaje SCA 86+.",price:360,unit:"saco 69 kg",img:"assets/img/photos/p_cata.jpg"+IMG},
+    {id:"set-yungas",name:"Set Degustación Yungas",tag:"Regalo · 3×100 g",desc:"Tres orígenes de los Yungas para descubrir perfiles.",price:20,unit:"3×100 g",img:"assets/img/photos/p_caranavi.jpg"+IMG}
   ];
   var CART_KEY="fecafeb_cart", USER_KEY="fecafeb_user", USERS_KEY="fecafeb_users";
   var $=function(s,c){return (c||document).querySelector(s);};

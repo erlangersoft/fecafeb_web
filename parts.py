@@ -32,24 +32,26 @@ I = {
 CHK = I["chk"]
 
 # ---- Imágenes provisionales (origen boliviano/andino · reemplazables vía CMS) ----
+# Fotografías reales de FECAFEB (archivo de la federación: Cumbre de Mujeres CMCB25,
+# Taza/Café Presidencial 2022–2024). Optimizadas en assets/img/photos/.
 PHOTOS = {
-  "cherries":"https://images.unsplash.com/photo-1442550528053-c431ecb55509",
-  "farm":"https://images.unsplash.com/photo-1429277096327-11ee3b761c93",
-  "field":"https://images.unsplash.com/photo-1500423079914-b65af272b8db",
-  "hands":"https://images.unsplash.com/photo-1559056199-641a0ac8b55e",
-  "harvest":"https://images.unsplash.com/photo-1611854779393-1b2da9d400fe",
-  "andes":"https://images.unsplash.com/photo-1531065208531-4036c0dba3ca",
-  "bag":"https://images.unsplash.com/photo-1521302080334-4bebac2763a6",
-  "green":"https://images.unsplash.com/photo-1518057111178-44a106bad636",
-  "cup":"https://images.unsplash.com/photo-1518057111178-44a106bad636",
-  "specialty":"https://images.unsplash.com/photo-1442550528053-c431ecb55509",
-  "roast":"https://images.unsplash.com/photo-1521302080334-4bebac2763a6",
-  "shop":"https://images.unsplash.com/photo-1429277096327-11ee3b761c93",
-  "woman":"https://images.unsplash.com/photo-1530541930197-ff16ac917b0e",
-  "people":"https://images.unsplash.com/photo-1530541930197-ff16ac917b0e",
+  "cherries":"assets/img/photos/p_cata.jpg",
+  "farm":"assets/img/photos/p_productores.jpg",
+  "field":"assets/img/photos/p_productores.jpg",
+  "hands":"assets/img/photos/p_mujeres.jpg",
+  "harvest":"assets/img/photos/p_mujeres2.jpg",
+  "andes":"assets/img/photos/p_caranavi.jpg",
+  "bag":"assets/img/photos/p_cafeverde.jpg",
+  "green":"assets/img/photos/p_cafeverde.jpg",
+  "cup":"assets/img/photos/p_cata.jpg",
+  "specialty":"assets/img/photos/p_cata.jpg",
+  "roast":"assets/img/photos/p_barismo.jpg",
+  "shop":"assets/img/photos/p_kullaka.jpg",
+  "woman":"assets/img/photos/p_mujer.jpg",
+  "people":"assets/img/photos/p_equipo.jpg",
 }
 def U(key, w=900):
-    return PHOTOS[key] + ("?auto=format&fit=crop&w=%d&q=70" % w)
+    return PHOTOS.get(key, PHOTOS["cherries"])
 def img(key, alt, w=900, cls=""):
     return ('<div class="imgwrap %s" style="height:100%%"><img src="%s" alt="%s" loading="lazy" '
             'onerror="this.style.display=&quot;none&quot;"></div>') % (cls, U(key, w), alt)

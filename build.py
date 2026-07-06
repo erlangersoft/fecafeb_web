@@ -3,7 +3,7 @@
 from parts import *
 
 # ===================== INICIO =====================
-slide = lambda ic,b,s,act="": f'<div class="hero__slide hs-{ic}{act}"><span class="hs-ico">{I[ic]}</span><div class="scrim"></div><div class="cap"><b>{b}</b><span>{s}</span></div></div>'
+slide = lambda src,b,s,act="": f'<div class="hero__slide{act}"><img src="{src}" alt="{b}" loading="lazy" onerror="this.style.display=&quot;none&quot;"><div class="scrim"></div><div class="cap"><b>{b}</b><span>{s}</span></div></div>'
 home = f"""
 <section class="hero" id="home"><div class="hero__beans" aria-hidden="true"></div>
 <div class="container hero__inner">
@@ -25,9 +25,9 @@ home = f"""
   <aside class="hero__slider reveal" data-controls aria-label="Galería del café boliviano">
     <span class="hero__ribbon">Novedades</span>
     <div class="hero__slides">
-      {slide('cap','Escuela de Café · nuevo curso','Inicio 10 de julio — inscripciones abiertas',' is-active')}
-      {slide('venus','Cumbre de Mujeres Cafetaleras','Encuentro nacional · julio 2026')}
-      {slide('shield','Trazabilidad y georreferenciación','Cada organización afiliada, geolocalizada para la UE')}
+      {slide('assets/img/photos/hero1.jpg','Escuela del Café · catación','Formación y análisis sensorial con estándares SCA',' is-active')}
+      {slide('assets/img/photos/hero2.jpg','Cumbre de Mujeres Cafetaleras','Liderazgo de las productoras de café de Bolivia')}
+      {slide('assets/img/photos/hero3.jpg','Café verde de exportación','Trazable y georreferenciado para la Unión Europea (EUDR)')}
     </div>
     <button class="hero__nav prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
     <button class="hero__nav next" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg></button>
@@ -42,7 +42,7 @@ home = f"""
   <span>{I['bean']} Orgánico &amp; de especialidad</span>
 </div></div>
 <section class="section section--pattern"><div class="container about">
-  <div class="about__media reveal"><div class="frame">{ph("Fotografía de FECAFEB · productores de los Yungas (por incorporar del archivo)")}</div><span class="pill">Único ente regulador del café de calidad</span></div>
+  <div class="about__media reveal"><div class="frame">{img('people','Familia cafetalera y equipo de FECAFEB',900)}</div><span class="pill">Único ente regulador del café de calidad</span></div>
   <div class="about__content reveal" data-delay="120">
     <span class="eyebrow">Quiénes Somos</span><h2>Una federación, miles de familias detrás de cada grano</h2>
     <p class="lead">Desde 1991, FECAFEB representa, articula y fortalece a las organizaciones de productores de café de Bolivia, impulsando un sector competitivo, sostenible y con identidad.</p>
@@ -357,7 +357,7 @@ norm=[("doc","Ley N° 351 (2013) — Personalidad jurídica de OSFL","Ley · PDF
       ("doc","Reglamento UE 2023/1115 (EUDR)","Normativa internacional · PDF"),
       ("doc","Estatuto Orgánico — Testimonio 092/2026","Instrumento legal · PDF")]
 normlist=''.join(f'<div class="doc reveal"><div class="doc__ico">{I[ic]}</div><div class="doc__b"><b>{t}</b><span>{sub}</span></div><a class="doc__dl" href="#">{I["dl"]} Descargar</a></div>' for ic,t,sub in norm)
-GAL=[("Álbum · Taza Presidencial","tall","cherries"),("Álbum · Cosecha Yungas","","field"),("Álbum · Beneficiado y secado","","bag"),("Álbum · Escuela de Café","","hands"),("Álbum · Comité de Mujeres","","harvest"),("Álbum · Café verde de exportación","tall","green"),("Álbum · Cafetales de altura","","farm"),("Álbum · Familias cafetaleras","","cup")]
+GAL=[("Álbum · Taza / Café Presidencial","tall","cherries"),("Álbum · Cumbre de Mujeres","","hands"),("Álbum · Café verde de exportación","","bag"),("Álbum · Productoras y liderazgo","","harvest"),("Álbum · Caranavi, capital cafetalera","","andes"),("Álbum · Café Kullaka","tall","shop"),("Álbum · Equipo e institucionalidad","","people"),("Álbum · Retratos del café","","woman")]
 gal=''.join(f'<figure class="{c}"><img src="{U(k,700)}" alt="{t}" loading="lazy" onerror="this.style.display=&quot;none&quot;"><figcaption>{t}</figcaption></figure>' for t,c,k in GAL)
 vids=[("Taza Presidencial — resumen","farm"),("Escuela de Café — catación","cherries"),("Origen Yungas — cosecha","field")]
 vidcards=''.join(f'<article class="news__item reveal"><div class="news__cover"><span class="badge">Video</span><img src="{U(k,640)}" alt="{t}" loading="lazy" onerror="this.style.display=&quot;none&quot;"></div><div class="news__body"><h3>{t}</h3><a href="#">▶ Reproducir</a></div></article>' for t,k in vids)
