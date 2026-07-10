@@ -82,16 +82,23 @@ page("index.html","index.html","FECAFEB · Federación de Caficultores Exportado
 
 # ===================== QUIÉNES SOMOS =====================
 def board(groups):
+    def person_card(name,role,org,lead=False):
+        ini=''.join(w[0] for w in name.split()[:2]).upper()
+        orgh=f'<div class="org">{org}</div>' if org else ''
+        cls='person person--lead reveal' if lead else 'person reveal'
+        return f'<div class="{cls}"><div class="av">{ini}</div><b>{name}</b><div class="role">{role}</div>{orgh}</div>'
     out=[]
     for gid,gname,people in groups:
-        cards=''
-        for name,role,org in people:
-            ini=''.join(w[0] for w in name.split()[:2]).upper()
-            orgh=f'<div class="org">{org}</div>' if org else ''
-            cards+=f'<div class="person reveal"><div class="av">{ini}</div><b>{name}</b><div class="role">{role}</div>{orgh}</div>'
-        out.append(f'<div class="board-group" id="{gid}"><h3>{gname}</h3><div class="board">{cards}</div></div>')
+        lead_html=person_card(*people[0],lead=True)
+        rest=people[1:]
+        if rest:
+            row_html=''.join(person_card(*p) for p in rest)
+            tree=f'{lead_html}<div class="orgchart__connector reveal"></div><div class="orgchart__row">{row_html}</div>'
+        else:
+            tree=lead_html
+        out.append(f'<div class="board-group" id="{gid}"><h3>{gname}</h3><div class="orgchart">{tree}</div></div>')
     return ''.join(out)
-GROUPS=[("dir","Directorio Ejecutivo Nacional",[("Hugo Poma Maqui","Presidente",""),("Jimmy Gustavo Chávez Quijhua","Tesorero / Coordinador",""),("Juan Pablo Rojas Marino","Secretario","")]),
+GROUPS=[("directorio","Directorio Ejecutivo Nacional",[("Hugo Poma Maqui","Presidente",""),("Jimmy Gustavo Chávez Quijhua","Tesorero / Coordinador",""),("Juan Pablo Rojas Marino","Secretario","")]),
         ("fiscalizacion","Comité de Fiscalización",[("José Cori Quispe","Presidente","Cooperativa Mejillones"),("Ever Villca","Secretario","Cooperativa Villa Oriente")]),
         ("mujeres-dir","Comité de Mujeres",[("Yola Condori Álvarez","Presidenta","Cooperativa Antofagasta"),("Mari Luz Kalla Osco","Tesorera","Cooperativa San Juan"),("Elsa Calle","Secretaria","Cooperativa CENAPROC")])]
 qs = f"""
