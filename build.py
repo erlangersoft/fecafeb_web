@@ -128,12 +128,12 @@ qs = f"""
   </ul></div>
 </div></section>
 <section class="section section--tint" id="cooperacion"><div class="container"><div class="head-block center"><span class="eyebrow">Cooperación internacional</span><h2>Aliados que fortalecen a FECAFEB</h2><p class="lead">Proyectos ejecutados con cooperación nacional e internacional en los últimos años (2022–2026).</p></div><div class="grid grid-3">
-  <article class="card reveal"><div class="aliado__logo"><img src="assets/img/logos/logo_ayuda_en_accion.png" alt="Ayuda en Acción" loading="lazy"></div><h3>Ayuda en Acción Bolivia</h3><p>Emprendimientos inclusivos en la cadena del café y comercialización con identidad de género (2025–2026).</p></article>
-  <article class="card reveal" data-delay="80"><div class="aliado__logo"><img src="assets/img/logos/logo_embajada_francia.png" alt="Embajada de Francia en Bolivia" loading="lazy"></div><h3>Embajada de Francia — PISCCA</h3><p>Café sin violencia ni discriminación, dedicado a jóvenes y mujeres cafetaleras (2024–2025).</p></article>
-  <article class="card reveal" data-delay="160"><div class="aliado__logo"><img src="assets/img/logos/logo_rabobank_trim.png" alt="Fundación Rabobank" loading="lazy"></div><h3>Fundación Rabobank</h3><p>Asistencia técnica financiera, administrativa y de marketing; módulo de Administración de la Escuela del Café (2024–2025).</p></article>
-  <article class="card reveal"><div class="aliado__logo"><img src="assets/img/logos/logo_fecafeb_comercial_trim.png" alt="FECAFEB" loading="lazy"></div><h3>OIT (ILO)</h3><p>Plan Estratégico Institucional y consolidación institucional de FECAFEB (2023).</p></article>
-  <article class="card reveal" data-delay="80"><div class="aliado__logo"><img src="assets/img/logos/logo_fecafeb_comercial_trim.png" alt="FECAFEB" loading="lazy"></div><h3>Kooperationen</h3><p>Consolidación de métodos de producción, viveros, bioinsumos y riego tecnificado (2022–2023).</p></article>
-  <article class="card reveal" data-delay="160"><div class="aliado__logo"><img src="assets/img/logos/logo_ue.png" alt="Unión Europea" loading="lazy"></div><h3>Proyecto AAGIL</h3><p>Ayuda en Acción con cofinanciamiento de la Unión Europea — transformación digital y trazabilidad EUDR.</p></article>
+  <article class="card aliado-card reveal"><div class="aliado__logo"><img src="assets/img/logos/logo_ayuda_en_accion.png" alt="Ayuda en Acción" loading="lazy"></div><h3>Ayuda en Acción Bolivia</h3><p>Emprendimientos inclusivos en la cadena del café y comercialización con identidad de género (2025–2026).</p></article>
+  <article class="card aliado-card reveal" data-delay="80"><div class="aliado__logo"><img src="assets/img/logos/logo_embajada_francia.png" alt="Embajada de Francia en Bolivia" loading="lazy"></div><h3>Embajada de Francia — PISCCA</h3><p>Café sin violencia ni discriminación, dedicado a jóvenes y mujeres cafetaleras (2024–2025).</p></article>
+  <article class="card aliado-card reveal" data-delay="160"><div class="aliado__logo"><img src="assets/img/logos/logo_rabobank_trim.png" alt="Fundación Rabobank" loading="lazy"></div><h3>Fundación Rabobank</h3><p>Asistencia técnica financiera, administrativa y de marketing; módulo de Administración de la Escuela del Café (2024–2025).</p></article>
+  <article class="card aliado-card reveal"><div class="aliado__logo"><img src="assets/img/logos/logo_fecafeb_comercial_trim.png" alt="FECAFEB" loading="lazy"></div><h3>OIT (ILO)</h3><p>Plan Estratégico Institucional y consolidación institucional de FECAFEB (2023).</p></article>
+  <article class="card aliado-card reveal" data-delay="80"><div class="aliado__logo"><img src="assets/img/logos/logo_fecafeb_comercial_trim.png" alt="FECAFEB" loading="lazy"></div><h3>Kooperationen</h3><p>Consolidación de métodos de producción, viveros, bioinsumos y riego tecnificado (2022–2023).</p></article>
+  <article class="card aliado-card reveal" data-delay="160"><div class="aliado__logo"><img src="assets/img/logos/logo_ue.png" alt="Unión Europea" loading="lazy"></div><h3>Proyecto AAGIL</h3><p>Ayuda en Acción con cofinanciamiento de la Unión Europea — transformación digital y trazabilidad EUDR.</p></article>
 </div>
 <p class="form__note" style="margin-top:1.2rem">FECAFEB · organización civil sin fines de lucro (Ley N° 351 de 2013) · NIT 1000949028 · fundada el 15 de mayo de 1991 · El Alto, Bolivia.</p></div></section>
 """
@@ -273,6 +273,27 @@ muj = f"""
   <div class="about__media reveal"><div class="frame"><div class="mslider" data-mslider><img src="assets/img/photos/p_cumbre_ponente.jpg" alt="Ponente en la 1ra Cumbre Nacional de Mujeres Cafetaleras, Caranavi" class="is-active" loading="lazy"><img src="assets/img/photos/p_mujeres.jpg" alt="Productoras reunidas en la Cumbre de Mujeres" loading="lazy"><img src="assets/img/photos/p_mujeres2.jpg" alt="Certificación de productoras en la Cumbre" loading="lazy"></div></div><span class="pill">1ra Cumbre Nacional</span></div>
   <div class="about__content reveal" data-delay="120"><span class="eyebrow">4 y 5 de abril · Caranavi</span><h2>1ra Cumbre Nacional de Mujeres Cafetaleras</h2>
     <p class="lead">Bajo el lema <b>"Mujeres de cara al Bicentenario"</b>, la Cumbre reunió en el salón "Ex Cisne" de Caranavi a productoras de las cooperativas afiliadas para reconocer trayectorias, entregar certificaciones y proyectar la agenda de género y generacional de FECAFEB.</p>
+  </div>
+</div></section>
+<section class="section"><div class="container"><div class="head-block center"><span class="eyebrow">1ra Cumbre Nacional de Mujeres Cafetaleras</span><h2>Organizadores y colaboradores</h2></div>
+  <div class="sponsor-group reveal">
+    <span class="sponsor-group__label">Coorganizadores</span>
+    <div class="sponsor-row">
+      <img src="assets/img/logos/logo_embajada_francia.png" alt="Embajada de Francia en Bolivia" loading="lazy">
+      <img src="assets/img/logos/logo_ceci.png" alt="CECI" loading="lazy">
+    </div>
+  </div>
+  <div class="sponsor-group reveal" data-delay="100">
+    <span class="sponsor-group__label">Colaboradores</span>
+    <div class="sponsor-row">
+      <img src="assets/img/logos/logo_ue.png" alt="Unión Europea" loading="lazy">
+      <img src="assets/img/logos/logo_helvetas.png" alt="HELVETAS Bolivia" loading="lazy">
+      <img src="assets/img/logos/logo_caritas.png" alt="Pastoral Social Cáritas Coroico" loading="lazy">
+      <img src="assets/img/logos/logo_naciones_unidas.png" alt="Naciones Unidas — Oficina contra la Droga y el Delito" loading="lazy">
+      <img src="assets/img/logos/logo_koica.png" alt="KOICA — Agencia de Cooperación Internacional de Corea" loading="lazy">
+      <img src="assets/img/logos/logo_gregoria_apaza.png" alt="Centro de Promoción de la Mujer Gregoria Apaza" loading="lazy">
+      <img src="assets/img/logos/logo_wsm.png" alt="WSM — We Social Movements" loading="lazy">
+    </div>
   </div>
 </div></section>
 <section class="section section--tint"><div class="container"><div class="head-block center"><span class="eyebrow">Gobernanza</span><h2>Directorio del Comité de Mujeres</h2><p class="lead">Representantes vigentes electas por la Asamblea General de Bases.</p></div><div style="overflow-x:auto"><table class="ptable"><thead><tr><th>Nombre</th><th>Cargo</th><th>Cooperativa de base</th></tr></thead><tbody><tr><td>Sra. Yola Condori Álvarez</td><td class="score">Presidenta</td><td>Cooperativa Antofagasta</td></tr><tr><td>Sra. Mari Luz Kalla Osco</td><td class="score">Tesorera</td><td>Cooperativa San Juan</td></tr><tr><td>Sra. Elsa Calle</td><td class="score">Secretaria</td><td>Cooperativa CENAPROC</td></tr></tbody></table></div></div></section>

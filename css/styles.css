@@ -329,6 +329,17 @@ p{color:var(--body);text-wrap:pretty}
 .aliado__logo img{max-height:100%;max-width:172px;object-fit:contain}
 .aliado__mono{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--cream);
   color:var(--coffee);font-family:var(--f-head);font-weight:700;font-size:1.02rem;letter-spacing:-.01em}
+.aliado-card{transition:transform .4s cubic-bezier(.34,1.56,.64,1),box-shadow .4s ease,border-color .4s ease}
+.aliado-card:hover{transform:translateY(-7px);box-shadow:var(--shadow-lg);border-color:var(--gold-soft)}
+.aliado-card .aliado__logo img,.aliado-card .aliado__mono{transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.aliado-card:hover .aliado__logo img,.aliado-card:hover .aliado__mono{transform:scale(1.09) rotate(-2deg)}
+.aliado-card.reveal{transform:translateY(26px) scale(.96);transition:opacity .55s ease,transform .55s cubic-bezier(.34,1.56,.64,1)}
+.aliado-card.reveal.in{transform:none}
+.sponsor-group{margin-top:1.8rem}
+.sponsor-group__label{display:block;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-d);margin-bottom:.8rem}
+.sponsor-row{display:flex;flex-wrap:wrap;align-items:center;gap:1.8rem}
+.sponsor-row img{height:44px;max-width:140px;object-fit:contain;filter:grayscale(1) opacity(.6);transition:filter .3s ease,transform .3s ease}
+.sponsor-row img:hover{filter:grayscale(0) opacity(1);transform:translateY(-2px) scale(1.05)}
 
 /* Directorio */
 .board-group{margin-top:2.4rem}
