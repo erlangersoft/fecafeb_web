@@ -269,18 +269,26 @@ muj = f"""
     <a href="#cumbre" class="btn btn--gold">Conocer la 1ra Cumbre Nacional</a>
   </div>
 </div></section>
+<section class="section section--tint"><div class="container feature feature--reverse">
+  <div class="feature__media reveal reveal-r"><img class="photo" src="assets/img/logo-kullaka.png" alt="Café Kullaka"></div>
+  <div class="feature__content reveal reveal-l" data-delay="120"><span class="eyebrow">Sinergia institucional y comercial</span><h2>Del liderazgo a la taza: Café Kullaka</h2>
+    <p class="lead">El Comité conecta su trabajo social con un brazo comercial tangible: la marca de café de especialidad <b>Kullaka</b>.</p>
+    <ul><li>{I['chk']} Perfil de la productora (storytelling) que da valor agregado al café</li><li>{I['chk']} Trazabilidad de impacto: el comprador ve qué cooperativa de mujeres produjo su lote</li><li>{I['chk']} Cumbre de Mujeres: intercambio de experiencias y liderazgo</li></ul>
+    <a href="kullaka.html" class="btn">Conocer la Marca Kullaka</a>
+  </div>
+</div></section>
 <section class="section section--accent"><div class="container">
   <div class="head-block center reveal"><span class="eyebrow">El Comité en cifras</span><h2>Presencia real de las mujeres cafetaleras</h2></div>
   <div class="metrics">
-    <div class="metric reveal"><div class="metric__ico">{I['venus']}</div><div class="num" data-count="276" data-sep>0</div><div class="lbl">Mujeres productoras afiliadas</div></div>
-    <div class="metric reveal" data-delay="80"><div class="metric__ico">{I['users']}</div><div class="num" data-count="21">0</div><div class="lbl">Organizaciones representadas</div></div>
-    <div class="metric reveal" data-delay="160"><div class="metric__ico">{I['chart']}</div><div class="num" data-count="3">0</div><div class="lbl">Proyectos activos</div></div>
-    <div class="metric reveal" data-delay="240"><div class="metric__ico">{I['cup']}</div><div class="num" data-count="2025">0</div><div class="lbl">Año de la 1ra Cumbre Nacional</div></div>
+    <div class="metric reveal"><div class="metric__bar"></div><div class="num" data-count="276" data-sep>0</div><div class="lbl">Mujeres productoras afiliadas</div></div>
+    <div class="metric reveal" data-delay="80"><div class="metric__bar"></div><div class="num" data-count="21">0</div><div class="lbl">Organizaciones representadas</div></div>
+    <div class="metric reveal" data-delay="160"><div class="metric__bar"></div><div class="num" data-count="3">0</div><div class="lbl">Proyectos activos</div></div>
+    <div class="metric reveal" data-delay="240"><div class="metric__bar"></div><div class="num" data-count="2025">0</div><div class="lbl">Año de la 1ra Cumbre Nacional</div></div>
   </div>
 </div></section>
 <section class="section section--pattern"><div class="container grid grid-2">
-  <div class="card mv-card reveal"><div class="card__ico">{I['venus']}</div><h3>Nuestra misión</h3><p>Empoderar a las mujeres y jóvenes líderes cafetaleras, garantizando su visibilización y el fortalecimiento de sus liderazgos en la cadena de valor, mediante cursos de capacitación en <b>microfinanzas</b> y <b>Administración de Organizaciones Exportadoras de Café</b>, entre otros.</p></div>
-  <div class="card mv-card reveal" data-delay="120"><div class="card__ico">{I['users']}</div><h3>Valores del Comité</h3><ul class="values"><li>{I['chk']} Sororidad — apoyo mutuo entre las bases</li><li>{I['chk']} Transparencia — información clara y accesible</li><li>{I['chk']} Cooperación — trabajo conjunto por fines comunes</li></ul></div>
+  <div class="card mv-card reveal"><span class="mv-card__n">01</span><h3>Nuestra misión</h3><p>Empoderar a las mujeres y jóvenes líderes cafetaleras, garantizando su visibilización y el fortalecimiento de sus liderazgos en la cadena de valor, mediante cursos de capacitación en <b>microfinanzas</b> y <b>Administración de Organizaciones Exportadoras de Café</b>, entre otros.</p></div>
+  <div class="card mv-card reveal" data-delay="120"><span class="mv-card__n">02</span><h3>Valores del Comité</h3><ul class="values"><li>{I['chk']} Sororidad — apoyo mutuo entre las bases</li><li>{I['chk']} Transparencia — información clara y accesible</li><li>{I['chk']} Cooperación — trabajo conjunto por fines comunes</li></ul></div>
 </div></section>
 <section class="section"><div class="container">
   <div class="head-block center reveal"><span class="eyebrow">Impacto en territorio</span><h2>Proyectos de desarrollo activos</h2></div>
@@ -330,18 +338,6 @@ muj = f"""
       <img src="assets/img/logos/logo_gregoria_apaza.png" alt="Centro de Promoción de la Mujer Gregoria Apaza" loading="lazy">
       <img src="assets/img/logos/logo_wsm.png" alt="WSM — We Social Movements" loading="lazy">
     </div>
-  </div>
-</div></section>
-<section class="section section--tint"><div class="container center">
-  <div class="head-block center"><span class="eyebrow">Gobernanza</span><h2>Directiva del Comité de Mujeres</h2><p class="lead">Representantes vigentes, electas por la Asamblea General de Bases, dentro de la estructura institucional de FECAFEB.</p></div>
-  <a href="quienes-somos.html#mujeres-dir" class="btn btn--gold">Ver la Directiva completa</a>
-</div></section>
-<section class="section"><div class="container feature">
-  <div class="feature__media reveal"><img class="photo" src="assets/img/logo-kullaka.png" alt="Café Kullaka"></div>
-  <div class="feature__content reveal" data-delay="120"><span class="tag">Sinergia institucional y comercial</span><h2>Del liderazgo a la taza: Café Kullaka</h2>
-    <p class="lead">El Comité conecta su trabajo social con un brazo comercial tangible: la marca de café de especialidad <b>Kullaka</b>.</p>
-    <ul><li>{I['chk']} Perfil de la productora (storytelling) que da valor agregado al café</li><li>{I['chk']} Trazabilidad de impacto: el comprador ve qué cooperativa de mujeres produjo su lote</li><li>{I['chk']} Cumbre de Mujeres: intercambio de experiencias y liderazgo</li></ul>
-    <a href="kullaka.html" class="btn">Conocer la Marca Kullaka</a>
   </div>
 </div></section>
 """
