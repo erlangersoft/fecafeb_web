@@ -282,15 +282,15 @@ muj = f"""
       </div>
     </div>
     <div class="fh-dots"></div>
-  </div>
-</div></section>
-<section class="section section--accent"><div class="container">
-  <div class="head-block center reveal"><span class="eyebrow">El Comité en cifras</span><h2>Presencia real de las mujeres cafetaleras</h2></div>
-  <div class="metrics">
-    <div class="metric reveal"><div class="metric__bar"></div><div class="num" data-count="276" data-sep>0</div><div class="lbl">Mujeres productoras afiliadas</div></div>
-    <div class="metric reveal" data-delay="80"><div class="metric__bar"></div><div class="num" data-count="21">0</div><div class="lbl">Organizaciones representadas</div></div>
-    <div class="metric reveal" data-delay="160"><div class="metric__bar"></div><div class="num" data-count="3">0</div><div class="lbl">Proyectos activos</div></div>
-    <div class="metric reveal" data-delay="240"><div class="metric__bar"></div><div class="num" data-count="2025">0</div><div class="lbl">Año de la 1ra Cumbre Nacional</div></div>
+    <div class="hero-stat" data-hstat>
+      <div class="hero-stat__track">
+        <div class="hero-stat__item" data-count="276" data-sep><span class="hero-stat__num">0</span><span class="hero-stat__lbl">Mujeres productoras afiliadas</span></div>
+        <div class="hero-stat__item" data-count="21"><span class="hero-stat__num">0</span><span class="hero-stat__lbl">Organizaciones representadas</span></div>
+        <div class="hero-stat__item" data-count="3"><span class="hero-stat__num">0</span><span class="hero-stat__lbl">Proyectos activos</span></div>
+        <div class="hero-stat__item" data-count="2025"><span class="hero-stat__num">0</span><span class="hero-stat__lbl">Año de la 1ra Cumbre Nacional</span></div>
+      </div>
+      <div class="hero-stat__dots"></div>
+    </div>
   </div>
 </div></section>
 <section class="section section--pattern"><div class="container grid grid-2">

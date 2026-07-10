@@ -30,6 +30,7 @@
     heroParallax();
     heroSlider();
     heroFeatureSlider();
+    heroStats();
     projCarousels();
     counters();
     tabs();
@@ -130,6 +131,50 @@
         timer = setInterval(() => go(i + 1), 6000);
       }
       restart();
+    });
+  }
+
+  /* ---- Cifra flotante sobre el hero (una a la vez, con conteo) ---- */
+  function heroStats() {
+    const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    $$("[data-hstat]").forEach(box => {
+      const items = $$(".hero-stat__item", box);
+      const dotsBox = $(".hero-stat__dots", box);
+      if (!items.length) return;
+      items.forEach((_, n) => {
+        const b = document.createElement("button");
+        b.setAttribute("aria-label", "Ver cifra " + (n + 1));
+        if (n === 0) b.classList.add("is-active");
+        b.addEventListener("click", () => show(n));
+        dotsBox && dotsBox.appendChild(b);
+      });
+      const dots = dotsBox ? $$("button", dotsBox) : [];
+      let i = -1, timer;
+      function countUp(el) {
+        const numEl = $(".hero-stat__num", el);
+        const target = parseFloat(el.dataset.count) || 0;
+        const sep = el.hasAttribute("data-sep");
+        const fmt = v => sep ? Math.round(v).toLocaleString("es-BO") : Math.round(v).toString();
+        if (reduceMotion) { numEl.textContent = fmt(target); return; }
+        numEl.textContent = "0";
+        const dur = 850, t0 = performance.now();
+        (function tick(now) {
+          const p = Math.min(1, (now - t0) / dur);
+          const eased = 1 - Math.pow(1 - p, 3);
+          numEl.textContent = fmt(target * eased);
+          if (p < 1) requestAnimationFrame(tick);
+        })(t0);
+      }
+      function show(n) {
+        if (i >= 0) { items[i].classList.remove("is-active"); dots[i] && dots[i].classList.remove("is-active"); }
+        i = n;
+        items[i].classList.add("is-active");
+        dots[i] && dots[i].classList.add("is-active");
+        countUp(items[i]);
+        clearInterval(timer);
+        timer = setInterval(() => show((i + 1) % items.length), 3200);
+      }
+      show(0);
     });
   }
 
