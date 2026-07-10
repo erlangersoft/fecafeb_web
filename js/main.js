@@ -23,6 +23,7 @@
   document.addEventListener("DOMContentLoaded", init);
 
   function init() {
+    wirePortalLinks();
     mobileNav();
     headerScroll();
     scrollReveal();
@@ -36,6 +37,15 @@
     chatbot();
     whatsapp();
     const y = $("#year"); if (y) y.textContent = new Date().getFullYear();
+  }
+
+  /* ---- Enlace del portal institucional (candado) ---- */
+  function wirePortalLinks() {
+    var targets = $$("a.tbtn--icon[aria-label='Portal Institucional'], .siderail a[title*='Portal Institucional']");
+    targets.forEach(function (a) {
+      a.setAttribute("href", "login.html");
+      a.setAttribute("title", "Portal Institucional");
+    });
   }
 
   /* ---- Parallax sutil del hero (respeta reduce-motion) ---- */

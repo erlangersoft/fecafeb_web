@@ -8,15 +8,17 @@ def news_card(c,d,t,x,k):
     return f'<article class="news__item reveal"><div class="news__cover"><span class="badge">{c}</span><img src="{U(k,640)}" alt="{t}" loading="lazy" onerror="this.style.display=&quot;none&quot;"></div><div class="news__body"><time>{d}</time><h3>{t}</h3><p>{x}</p></div></article>'
 NEWS_HOME=[("Café Presidencial","Torneo 2022","VIII Torneo Nacional Taza de Calidad — Café Presidencial","270 muestras de La Paz, Cochabamba y Santa Cruz compitieron por el título, junto al Ministerio de Relaciones Exteriores y el Ministerio de Desarrollo Rural y Tierras.","cupping"),
            ("Comité de Mujeres","Abril 2025","1ra Cumbre Nacional de Mujeres Cafetaleras","Productoras de todo el país se reunieron en Caranavi para fortalecer liderazgo y calidad bajo el lema “Mujeres de cara al Bicentenario”.","hands"),
-           ("Trazabilidad","Reglamento UE 2023/1115","Trazabilidad geoespacial rumbo al mercado europeo","FECAFEB avanza en la georreferenciación de parcelas de sus 21 organizaciones afiliadas para cumplir el Reglamento europeo de deforestación (EUDR).","field")]
+           ("Trazabilidad","Reglamento UE 2023/1115","Trazabilidad geoespacial rumbo al mercado europeo","FECAFEB avanza en la georreferenciación de parcelas de sus 21 organizaciones afiliadas para cumplir el Reglamento europeo de deforestación (EUDR).","andes")]
 NEWS_HOME_HTML=''.join(news_card(*n) for n in NEWS_HOME)
 home = f"""
 <section class="hero" id="home">
 <div class="hero__slider" data-controls aria-label="Galería del café boliviano">
   <div class="hero__slides">
-    {slide('assets/img/photos/hero1.jpg','Escuela del Café · catación','Formación y análisis sensorial con estándares SCA',' is-active')}
-    {slide('assets/img/photos/hero2.jpg','Cumbre de Mujeres Cafetaleras','Liderazgo de las productoras de café de Bolivia')}
-    {slide('assets/img/photos/hero3.jpg','Café verde de exportación','Trazable y georreferenciado para la Unión Europea (EUDR)')}
+    {slide('assets/img/photos/p_grupo_cumbre.jpg','Una federación unida','Organizaciones y familias productoras de todo el país',' is-active')}
+    {slide('assets/img/photos/p_cumbre_liderazgo.jpg','Liderazgo de las productoras','Cumbre Nacional de Mujeres Cafetaleras')}
+    {slide('assets/img/photos/p_cerezas.jpg','Café de origen boliviano','Cosecha selectiva en los Yungas de La Paz')}
+    {slide('assets/img/photos/p_taza_servida.jpg','Calidad reconocida','Café de especialidad listo para exportación')}
+    {slide('assets/img/photos/p_evaluacion_sensorial.jpg','Evaluación sensorial SCA','Catación y control de calidad en cada torneo')}
   </div>
   <div class="hero__scrim" aria-hidden="true"></div>
   <span class="hero__ribbon">Novedades</span>
@@ -42,7 +44,6 @@ home = f"""
   </div>
 </div>
 </section>
-{brands_marquee()}
 <section class="section section--pattern"><div class="container about">
   <div class="about__media reveal"><div class="frame"><div class="mslider" data-mslider><img src="assets/img/photos/p_equipo.jpg" alt="Equipo e institucionalidad de FECAFEB" class="is-active" loading="lazy"><img src="assets/img/photos/p_mujeres.jpg" alt="Cumbre de Mujeres Cafetaleras" loading="lazy"><img src="assets/img/photos/p_productores.jpg" alt="Productores de café de los Yungas" loading="lazy"><img src="assets/img/photos/p_caranavi.jpg" alt="Caranavi, capital cafetalera" loading="lazy"><span class="mslider__dots"></span></div></div><span class="pill">Único ente regulador del café de calidad</span></div>
   <div class="about__content reveal" data-delay="120">
@@ -71,11 +72,11 @@ home = f"""
 # noticias data
 NEWS=[("Boletín","Julio 2026","El café boliviano que Europa busca, con trazabilidad garantizada","Nota de prensa: origen, calidad y trazabilidad EUDR del café boliviano para el mercado europeo.","cherries"),
       ("Eventos","Junio 2026","FECAFEB impulsa la trazabilidad EUDR para sus afiliadas","Nueva plataforma digital para sistematizar datos de productores y parcelas.","farm"),
-      ("Calidad","Mayo 2026","Taza Presidencial: el café boliviano brilla en el exterior","Productores de los Yungas destacan por su café de especialidad.","cherries"),
+      ("Calidad","Mayo 2026","Taza Presidencial: el café boliviano brilla en el exterior","Productores de los Yungas destacan por su café de especialidad.","cup"),
       ("Comité de Mujeres","Abril 2026","Cumbre de Mujeres Cafetaleras fortalece liderazgos","Productoras lideran la mejora de la calidad y la marca Kullaka.","hands"),
       ("Comercio","Marzo 2026","Ronda de negocios con compradores europeos","Encuentro comercial para conectar la oferta boliviana con la demanda de la UE.","bag"),
       ("Sostenibilidad","Febrero 2026","Agroforestería: café que protege el bosque","Modelo productivo alineado a la normativa de deforestación de la UE.","field"),
-      ("Institucional","Enero 2026","FECAFEB presenta su Plan Estratégico 2023–2027","Hoja de ruta hacia la sostenibilidad financiera e institucional.","harvest")]
+      ("Institucional","Enero 2026","FECAFEB presenta su Plan Estratégico 2023–2027","Hoja de ruta hacia la sostenibilidad financiera e institucional.","people")]
 NEWS_ALL=''.join(news_card(*n) for n in NEWS)
 page("index.html","index.html","FECAFEB · Federación de Caficultores Exportadores de Bolivia","FECAFEB agrupa a 21 organizaciones y ~1.389 familias productoras afiliadas de Bolivia. Café orgánico y de especialidad con trazabilidad EUDR.",home)
 
@@ -100,10 +101,12 @@ qs = f"""
     <span class="eyebrow">Quiénes somos</span><h2>El único ente regulador del café de calidad de Bolivia</h2>
     <p class="lead">FECAFEB es la máxima organización gremial y el <b>único ente regulador del café de calidad</b> en Bolivia, responsable del control de calidad bajo estándares internacionales. Como <b>Federación Nacional de tercer nivel</b>, actúa de puente oficial ante el Estado, la cooperación internacional y los compradores del exterior.</p>
     <div data-tabs>
-      <div class="tabs" role="tablist"><button class="tab is-active" data-target="t-mision" role="tab">Misión</button><button class="tab" data-target="t-vision" role="tab">Visión</button><button class="tab" data-target="t-valores" role="tab">Valores</button></div>
-      <div class="tab-panel is-active" id="t-mision"><p>Impulsar el desarrollo del productor cafetalero de Bolivia, sus familias y sus organizaciones, mediante una gestión innovadora, eficiente, humana y democrática de FECAFEB.</p></div>
-      <div class="tab-panel" id="t-vision"><p>Café de Bolivia reconocido nacional e internacionalmente, posicionando el café orgánico y de especialidad, protegiendo el clima y el medio ambiente e impulsando el consumo masivo de calidad.</p></div>
-      <div class="tab-panel" id="t-valores"><ul class="values"><li>{I['chk']} Consagración sectorial</li><li>{I['chk']} Lealtad</li><li>{I['chk']} Responsabilidad ambiental</li><li>{I['chk']} Honestidad</li><li>{I['chk']} Transparencia</li><li>{I['chk']} Equidad de género</li></ul></div>
+      <div class="tabs" role="tablist"><button class="tab is-active" data-target="t-mision" role="tab">{I['bean']}Misión</button><button class="tab" data-target="t-vision" role="tab">{I['globe']}Visión</button><button class="tab" data-target="t-valores" role="tab">{I['shield']}Valores</button></div>
+      <div class="tab-panel-wrap">
+        <div class="tab-panel is-active" id="t-mision"><p>Impulsar el desarrollo del productor cafetalero de Bolivia, sus familias y sus organizaciones, mediante una gestión innovadora, eficiente, humana y democrática de FECAFEB.</p></div>
+        <div class="tab-panel" id="t-vision"><p>Café de Bolivia reconocido nacional e internacionalmente, posicionando el café orgánico y de especialidad, protegiendo el clima y el medio ambiente e impulsando el consumo masivo de calidad.</p></div>
+        <div class="tab-panel" id="t-valores"><ul class="values"><li>{I['chk']} Consagración sectorial</li><li>{I['chk']} Lealtad</li><li>{I['chk']} Responsabilidad ambiental</li><li>{I['chk']} Honestidad</li><li>{I['chk']} Transparencia</li><li>{I['chk']} Equidad de género</li></ul></div>
+      </div>
     </div>
   </div>
 </div></section>
@@ -115,20 +118,22 @@ qs = f"""
 </div></section>
 <section class="section" id="historia"><div class="container">
   <div class="head-block"><span class="eyebrow">Historia</span><h2>Una trayectoria al servicio del café</h2></div>
-  <ul class="timeline" style="max-width:820px">
+  <div class="timeline-wrap"><ul class="timeline" style="max-width:820px">
     <li class="reveal"><div class="yr">1991</div><div><h3>Fundación de FECAFEB</h3><p>Nace como ente rector con 10 organizaciones de productores. Estatuto protocolizado en 1992 y reconocimiento por Resolución Suprema en 1993.</p></div></li>
-    <li class="reveal"><div class="yr">2000s</div><div><h3>Gestión y desarrollo</h3><p>Transfiere la exportación a sus afiliadas y se consolida como gestora de proyectos, asistencia técnica y la Taza de Excelencia.</p></div></li>
+    <li class="reveal"><div class="yr">2006</div><div><h3>Nace la Escuela del Café</h3><p>FECAFEB instaura su Escuela del Café como brazo de formación técnica para catadores y productores.</p></div></li>
+    <li class="reveal"><div class="yr">2007–2022</div><div><h3>Consolidación institucional</h3><p>Sucesión de directorios (Ángel Condori, Eustaquio Huiza, Eugenio Villca, Víctor Calla, Raúl Mamani, Ruth Vidaurre) y crecimiento hasta 42 organizaciones afiliadas, con participación en 8 versiones de la Taza de Excelencia.</p></div></li>
+    <li class="reveal"><div class="yr">Oct 2022</div><div><h3>Nueva gestión directiva</h3><p>Hugo Poma Maqui asume la presidencia del Directorio Ejecutivo Nacional.</p></div></li>
     <li class="reveal"><div class="yr">2023</div><div><h3>Plan Estratégico 2023–2027</h3><p>Sostenibilidad financiera e institucional, calidad y denominación de origen.</p></div></li>
     <li class="reveal"><div class="yr">2026</div><div><h3>Transformación digital y EUDR</h3><p>Plataforma de datos y trazabilidad geoespacial para el acceso preferente al mercado europeo.</p></div></li>
-  </ul>
+  </ul></div>
 </div></section>
 <section class="section section--tint" id="cooperacion"><div class="container"><div class="head-block center"><span class="eyebrow">Cooperación internacional</span><h2>Aliados que fortalecen a FECAFEB</h2><p class="lead">Proyectos ejecutados con cooperación nacional e internacional en los últimos años (2022–2026).</p></div><div class="grid grid-3">
-  <article class="card reveal"><div class="coop__mark" data-m="aea">Ayuda en Acción</div><h3>Ayuda en Acción Bolivia</h3><p>Emprendimientos inclusivos en la cadena del café y comercialización con identidad de género (2025–2026).</p></article>
-  <article class="card reveal" data-delay="80"><div class="coop__mark" data-m="fr">Embajada de Francia</div><h3>Embajada de Francia — PISCCA</h3><p>Café sin violencia ni discriminación, dedicado a jóvenes y mujeres cafetaleras (2024–2025).</p></article>
-  <article class="card reveal" data-delay="160"><div class="coop__mark" data-m="rabo">Rabobank</div><h3>Fundación Rabobank</h3><p>Asistencia técnica financiera, administrativa y de marketing; módulo de Administración de la Escuela del Café (2024–2025).</p></article>
-  <article class="card reveal"><div class="coop__mark" data-m="oit">OIT · ILO</div><h3>OIT (ILO)</h3><p>Plan Estratégico Institucional y consolidación institucional de FECAFEB (2023).</p></article>
-  <article class="card reveal" data-delay="80"><div class="coop__mark" data-m="sos">Cooperación</div><h3>Producción sostenible</h3><p>Consolidación de métodos de producción, viveros, bioinsumos y riego tecnificado (2022–2023).</p></article>
-  <article class="card reveal" data-delay="160"><div class="coop__mark" data-m="ue">AAGIL · UE</div><h3>Proyecto AAGIL</h3><p>Ayuda en Acción con cofinanciamiento de la Unión Europea — transformación digital y trazabilidad EUDR.</p></article>
+  <article class="card reveal"><div class="aliado__logo"><span class="aliado__mono">AeA</span></div><h3>Ayuda en Acción Bolivia</h3><p>Emprendimientos inclusivos en la cadena del café y comercialización con identidad de género (2025–2026).</p></article>
+  <article class="card reveal" data-delay="80"><div class="aliado__logo"><img src="assets/img/logos/logo_embajada_francia.png" alt="Embajada de Francia en Bolivia" loading="lazy"></div><h3>Embajada de Francia — PISCCA</h3><p>Café sin violencia ni discriminación, dedicado a jóvenes y mujeres cafetaleras (2024–2025).</p></article>
+  <article class="card reveal" data-delay="160"><div class="aliado__logo"><span class="aliado__mono">RB</span></div><h3>Fundación Rabobank</h3><p>Asistencia técnica financiera, administrativa y de marketing; módulo de Administración de la Escuela del Café (2024–2025).</p></article>
+  <article class="card reveal"><div class="aliado__logo"><span class="aliado__mono">OIT</span></div><h3>OIT (ILO)</h3><p>Plan Estratégico Institucional y consolidación institucional de FECAFEB (2023).</p></article>
+  <article class="card reveal" data-delay="80"><div class="aliado__logo"><span class="aliado__mono">K</span></div><h3>Kooperationen</h3><p>Consolidación de métodos de producción, viveros, bioinsumos y riego tecnificado (2022–2023).</p></article>
+  <article class="card reveal" data-delay="160"><div class="aliado__logo"><img src="assets/img/logos/logo_ue.png" alt="Unión Europea" loading="lazy"></div><h3>Proyecto AAGIL</h3><p>Ayuda en Acción con cofinanciamiento de la Unión Europea — transformación digital y trazabilidad EUDR.</p></article>
 </div>
 <p class="form__note" style="margin-top:1.2rem">FECAFEB · organización civil sin fines de lucro (Ley N° 351 de 2013) · NIT 1000949028 · fundada el 15 de mayo de 1991 · El Alto, Bolivia.</p></div></section>
 """
@@ -400,7 +405,7 @@ page("publicaciones.html","publicaciones.html","Publicaciones · Biblioteca FECA
 
 # ===================== BIBLIOTECA · FOTOS =====================
 _caps=_json.load(open("assets/img/gallery/_captions.json",encoding="utf-8"))
-GKEYS=["g01","g02","g03","g04","g05","g06","g07","g08","g09","g10","g11","g12"]
+GKEYS=["g01","g02","g03","g04","g05","g06","g07","g08","g09","g10","g11","g12","g13","g14","g15","g16"]
 gitems=''.join(
   f'<figure class="gcell reveal" data-full="assets/img/gallery/{k}.jpg" data-cap="{_caps.get(k,"")}">'
   f'<img src="assets/img/gallery/{k}.jpg" alt="{_caps.get(k,"")}" loading="lazy">'
@@ -441,8 +446,8 @@ comun=('<div class="comunicados">'
  '<div class="comunicado reveal"><time>10 abr 2026</time><div><b>Asamblea General Ordinaria — citación</b><span>Orden del día y documentación para las organizaciones afiliadas.</span></div><a href="quienes-somos.html#instancias">Más información →</a></div>'
  '</div>')
 EXT=[("El Deber","Café boliviano gana espacio en ferias europeas","Cobertura sobre exportación y calidad del café de los Yungas.","farm"),
-     ("Los Tiempos","Mujeres cafetaleras impulsan la marca Kullaka","Reportaje sobre el liderazgo femenino en la cadena del café.","hands"),
-     ("Página Siete","Bolivia se prepara para el Reglamento EUDR","Análisis del impacto de la normativa europea en el sector.","field")]
+     ("Los Tiempos","Mujeres cafetaleras impulsan la marca Kullaka","Reportaje sobre el liderazgo femenino en la cadena del café.","woman"),
+     ("Página Siete","Bolivia se prepara para el Reglamento EUDR","Análisis del impacto de la normativa europea en el sector.","andes")]
 def ext_card(src,t,x,k):
     return f'<article class="news__item reveal"><div class="news__cover"><span class="badge">{src}</span><img src="{U(k,640)}" alt="{t}" loading="lazy" onerror="this.style.display=&quot;none&quot;"></div><div class="news__body"><time>Medios · 2026</time><h3>{t}</h3><p>{x}</p><a href="#">Ver nota →</a></div></article>'
 extnews=''.join(ext_card(*e) for e in EXT)
