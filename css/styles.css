@@ -438,23 +438,6 @@ p{color:var(--body);text-wrap:pretty}
 .fh-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.8rem}
 .fh-dots button{width:9px;height:9px;border-radius:50%;border:0;background:var(--line-2);cursor:pointer;transition:all .3s ease;padding:0}
 .fh-dots button.is-active{background:var(--gold);width:26px;border-radius:5px}
-.subhero .container{position:relative}
-.hero-stat{position:absolute;top:50%;right:0;transform:translateY(-50%);z-index:3}
-.hero-stat__track{position:relative;width:222px;height:34px}
-.hero-stat__item{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:.45rem;
-  padding:0 .95rem;border-radius:999px;background:var(--gold);box-shadow:var(--shadow-sm);white-space:nowrap;overflow:hidden;
-  opacity:0;transform:translateY(4px);transition:opacity .45s ease,transform .45s cubic-bezier(.22,1,.36,1);pointer-events:none}
-.hero-stat__item.is-active{opacity:1;transform:none;pointer-events:auto}
-.hero-stat__num{font-family:var(--f-head);font-weight:700;font-size:1.05rem;color:#3a2a08;line-height:1;flex:none}
-.hero-stat__lbl{font-size:.76rem;font-weight:600;color:#3a2a08;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hero-stat__dots{display:none}
-@media (max-width:860px){
-  .hero-stat{position:static;transform:none;margin:.6rem 0 0 auto;display:flex;justify-content:flex-end}
-}
-@media (max-width:600px){
-  .hero-stat{margin:.6rem auto 0;justify-content:center}
-  .hero-stat__track{width:min(90vw,222px)}
-}
 
 /* ---------- 13. Afiliados ---------- */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}

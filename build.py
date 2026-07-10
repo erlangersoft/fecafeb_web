@@ -339,14 +339,8 @@ muj = f"""
   </div>
 </div></section>
 """
-MUJ_HERO_STAT = ("""<div class="hero-stat" data-hstat><div class="hero-stat__track">"""
-  """<div class="hero-stat__item" data-count="276" data-sep><span class="hero-stat__num">0</span><span class="hero-stat__lbl">mujeres afiliadas</span></div>"""
-  """<div class="hero-stat__item" data-count="21"><span class="hero-stat__num">0</span><span class="hero-stat__lbl">organizaciones</span></div>"""
-  """<div class="hero-stat__item" data-count="3"><span class="hero-stat__num">0</span><span class="hero-stat__lbl">proyectos activos</span></div>"""
-  """<div class="hero-stat__item" data-count="2025"><span class="hero-stat__num">0</span><span class="hero-stat__lbl">1ra Cumbre Nacional</span></div>"""
-  """</div></div>""")
 page("comite-mujeres.html","quienes-somos.html","Comité de Mujeres · FECAFEB","Comité de Mujeres Cafetaleras de Bolivia: empoderamiento, liderazgo y la marca Café Kullaka.",muj,
-     ("Quiénes Somos / Comité de Mujeres","Comité de Mujeres","Empoderamiento y liderazgo de las productoras de café de Bolivia.",MUJ_HERO_STAT))
+     ("Quiénes Somos / Comité de Mujeres","Comité de Mujeres","Empoderamiento y liderazgo de las productoras de café de Bolivia."))
 
 # ===================== MARCA KULLAKA =====================
 kul = f"""
