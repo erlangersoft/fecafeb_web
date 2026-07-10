@@ -196,13 +196,22 @@
     $$("[data-tabs]").forEach(group => {
       const btns = $$(".tab", group);
       const panels = $$(".tab-panel", group);
-      btns.forEach(btn => on(btn, "click", () => {
+      let idx = 0;
+      let timer = null;
+      const activate = (i) => {
+        idx = i;
         btns.forEach(b => b.classList.remove("is-active"));
         panels.forEach(p => p.classList.remove("is-active"));
-        btn.classList.add("is-active");
-        const panel = $("#" + btn.dataset.target, group);
+        btns[idx].classList.add("is-active");
+        const panel = $("#" + btns[idx].dataset.target, group);
         panel && panel.classList.add("is-active");
-      }));
+      };
+      const restart = () => {
+        if (timer) clearInterval(timer);
+        timer = setInterval(() => activate((idx + 1) % btns.length), 5000);
+      };
+      btns.forEach((btn, i) => on(btn, "click", () => { activate(i); restart(); }));
+      if (btns.length > 1) restart();
     });
   }
 

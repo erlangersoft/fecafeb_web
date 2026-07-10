@@ -101,7 +101,7 @@ qs = f"""
     <span class="eyebrow">Quiénes somos</span><h2>El único ente regulador del café de calidad de Bolivia</h2>
     <p class="lead">FECAFEB es la máxima organización gremial y el <b>único ente regulador del café de calidad</b> en Bolivia, responsable del control de calidad bajo estándares internacionales. Como <b>Federación Nacional de tercer nivel</b>, actúa de puente oficial ante el Estado, la cooperación internacional y los compradores del exterior.</p>
     <div data-tabs>
-      <div class="tabs" role="tablist"><button class="tab is-active" data-target="t-mision" role="tab">{I['bean']}Misión</button><button class="tab" data-target="t-vision" role="tab">{I['globe']}Visión</button><button class="tab" data-target="t-valores" role="tab">{I['shield']}Valores</button></div>
+      <div class="tabs" role="tablist"><button class="tab is-active" data-target="t-mision" role="tab">Misión</button><button class="tab" data-target="t-vision" role="tab">Visión</button><button class="tab" data-target="t-valores" role="tab">Valores</button></div>
       <div class="tab-panel-wrap">
         <div class="tab-panel is-active" id="t-mision"><p>Impulsar el desarrollo del productor cafetalero de Bolivia, sus familias y sus organizaciones, mediante una gestión innovadora, eficiente, humana y democrática de FECAFEB.</p></div>
         <div class="tab-panel" id="t-vision"><p>Café de Bolivia reconocido nacional e internacionalmente, posicionando el café orgánico y de especialidad, protegiendo el clima y el medio ambiente e impulsando el consumo masivo de calidad.</p></div>

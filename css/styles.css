@@ -297,10 +297,10 @@ p{color:var(--body);text-wrap:pretty}
 .tabs{display:flex;gap:.3rem;flex-wrap:wrap;margin:1.5rem 0 0;padding:.32rem;background:var(--cream);border-radius:999px;border:1px solid var(--line)}
 .tab{background:none;border:0;padding:.6rem 1.05rem;font-weight:600;color:var(--muted);cursor:pointer;
   display:inline-flex;align-items:center;gap:.45rem;border-radius:999px;font-size:.93rem;transition:all var(--t)}
-.tab svg{width:17px;height:17px;flex:none}
 .tab:hover{color:var(--coffee)}
 .tab.is-active{color:#fff;background:var(--coffee);box-shadow:var(--shadow-sm)}
-.tab-panel-wrap{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem 1.7rem;margin-top:1rem;box-shadow:var(--shadow-sm);min-height:150px}
+.tab-panel-wrap{background:#fff;border:1px solid var(--gold-soft);border-top:4px solid var(--gold);border-radius:var(--radius);
+  padding:1.7rem 1.9rem;margin-top:1rem;box-shadow:var(--shadow-lg);min-height:150px;position:relative}
 .tab-panel{display:none;animation:fade .4s ease}
 .tab-panel.is-active{display:block}
 .values{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;margin-top:.4rem}
