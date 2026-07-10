@@ -270,23 +270,33 @@ muj = f"""
   </div>
 </div></section>
 <section class="section section--accent"><div class="container">
-  <div class="head-block center"><span class="eyebrow">El Comité en cifras</span><h2>Presencia real de las mujeres cafetaleras</h2></div>
+  <div class="head-block center reveal"><span class="eyebrow">El Comité en cifras</span><h2>Presencia real de las mujeres cafetaleras</h2></div>
   <div class="metrics">
-    <div class="metric reveal"><div class="num" data-count="276" data-sep>0</div><div class="lbl">Mujeres productoras afiliadas</div></div>
-    <div class="metric reveal" data-delay="80"><div class="num" data-count="21">0</div><div class="lbl">Organizaciones representadas</div></div>
-    <div class="metric reveal" data-delay="160"><div class="num" data-count="3">0</div><div class="lbl">Proyectos activos</div></div>
-    <div class="metric reveal" data-delay="240"><div class="num" data-count="2025">0</div><div class="lbl">Año de la 1ra Cumbre Nacional</div></div>
+    <div class="metric reveal"><div class="metric__ico">{I['venus']}</div><div class="num" data-count="276" data-sep>0</div><div class="lbl">Mujeres productoras afiliadas</div></div>
+    <div class="metric reveal" data-delay="80"><div class="metric__ico">{I['users']}</div><div class="num" data-count="21">0</div><div class="lbl">Organizaciones representadas</div></div>
+    <div class="metric reveal" data-delay="160"><div class="metric__ico">{I['chart']}</div><div class="num" data-count="3">0</div><div class="lbl">Proyectos activos</div></div>
+    <div class="metric reveal" data-delay="240"><div class="metric__ico">{I['cup']}</div><div class="num" data-count="2025">0</div><div class="lbl">Año de la 1ra Cumbre Nacional</div></div>
   </div>
 </div></section>
-<section class="section section--tint"><div class="container grid grid-2">
-  <div class="card reveal"><div class="card__ico">{I['venus']}</div><h3>Nuestra misión</h3><p>Empoderar a las mujeres y jóvenes líderes cafetaleras, garantizando su visibilización y el fortalecimiento de sus liderazgos en la cadena de valor, mediante cursos de capacitación en <b>microfinanzas</b> y <b>Administración de Organizaciones Exportadoras de Café</b>, entre otros.</p></div>
-  <div class="card reveal" data-delay="120"><div class="card__ico">{I['users']}</div><h3>Valores del Comité</h3><ul class="values"><li>{I['chk']} Sororidad — apoyo mutuo entre las bases</li><li>{I['chk']} Transparencia — información clara y accesible</li><li>{I['chk']} Cooperación — trabajo conjunto por fines comunes</li></ul></div>
+<section class="section section--pattern"><div class="container grid grid-2">
+  <div class="card mv-card reveal"><div class="card__ico">{I['venus']}</div><h3>Nuestra misión</h3><p>Empoderar a las mujeres y jóvenes líderes cafetaleras, garantizando su visibilización y el fortalecimiento de sus liderazgos en la cadena de valor, mediante cursos de capacitación en <b>microfinanzas</b> y <b>Administración de Organizaciones Exportadoras de Café</b>, entre otros.</p></div>
+  <div class="card mv-card reveal" data-delay="120"><div class="card__ico">{I['users']}</div><h3>Valores del Comité</h3><ul class="values"><li>{I['chk']} Sororidad — apoyo mutuo entre las bases</li><li>{I['chk']} Transparencia — información clara y accesible</li><li>{I['chk']} Cooperación — trabajo conjunto por fines comunes</li></ul></div>
 </div></section>
-<section class="section"><div class="container"><div class="head-block center"><span class="eyebrow">Impacto en territorio</span><h2>Proyectos de desarrollo activos</h2></div><div class="grid grid-3">
-  <article class="card reveal"><div class="card__ico">{I['chart']}</div><h3>Microcrédito y Ahorro</h3><p>Fondo de finanzas comunitarias para adquirir herramientas de campo y renovar parcelas.</p></article>
-  <article class="card reveal" data-delay="80"><div class="card__ico">{I['cap']}</div><h3>Escuela de Liderazgo</h3><p>Capacitación en gestión administrativa de fincas, oratoria y toma de decisiones comunitarias.</p></article>
-  <article class="card reveal" data-delay="160"><div class="card__ico">{I['leaf']}</div><h3>Diversificación de ingresos</h3><p>Apicultura, huertos orgánicos y comercialización de artesanías locales.</p></article>
-</div></div></section>
+<section class="section"><div class="container">
+  <div class="head-block center reveal"><span class="eyebrow">Impacto en territorio</span><h2>Proyectos de desarrollo activos</h2></div>
+  <div class="proj-carousel reveal" data-carousel>
+    <div class="proj-slides">
+      <div class="proj-slide is-active" style="background-image:url('assets/img/photos/p_mujer.jpg')"><div class="proj-slide__scrim"></div><div class="proj-slide__text"><span class="tag tag--gold">Microcrédito y Ahorro</span><p>Fondo de finanzas comunitarias para adquirir herramientas de campo y renovar parcelas.</p></div></div>
+      <div class="proj-slide" style="background-image:url('assets/img/gallery/g11.jpg')"><div class="proj-slide__scrim"></div><div class="proj-slide__text"><span class="tag tag--gold">Escuela de Liderazgo</span><p>Capacitación en gestión administrativa de fincas, oratoria y toma de decisiones comunitarias.</p></div></div>
+      <div class="proj-slide" style="background-image:url('assets/img/photos/p_productores.jpg')"><div class="proj-slide__scrim"></div><div class="proj-slide__text"><span class="tag tag--gold">Diversificación de ingresos</span><p>Apicultura, huertos orgánicos y comercialización de artesanías locales.</p></div></div>
+      <div class="proj-slide" style="background-image:url('assets/img/photos/p_taza_servida.jpg')"><div class="proj-slide__scrim"></div><div class="proj-slide__text"><span class="tag tag--gold">Marca Kullaka</span><p>El brazo comercial del Comité: café de especialidad con identidad de mujer, de la productora a la taza.</p></div></div>
+      <div class="proj-slide" style="background-image:url('assets/img/photos/p_barista_evento.jpg')"><div class="proj-slide__scrim"></div><div class="proj-slide__text"><span class="tag tag--gold">Cumbre Nacional de Mujeres</span><p>Encuentro anual que visibiliza el liderazgo y la trayectoria de las productoras afiliadas.</p></div></div>
+    </div>
+    <div class="proj-dots"></div>
+    <button class="proj-nav prev" aria-label="Proyecto anterior">‹</button>
+    <button class="proj-nav next" aria-label="Siguiente proyecto">›</button>
+  </div>
+</div></section>
 <section class="section section--pattern" id="cumbre"><div class="container about">
   <div class="about__media reveal"><div class="frame"><div class="mslider" data-mslider><img src="assets/img/photos/p_cumbre_ponente.jpg" alt="Ponente en la 1ra Cumbre Nacional de Mujeres Cafetaleras, Caranavi" class="is-active" loading="lazy"><img src="assets/img/photos/p_mujeres.jpg" alt="Productoras reunidas en la Cumbre de Mujeres" loading="lazy"><img src="assets/img/photos/p_mujeres2.jpg" alt="Certificación de productoras en la Cumbre" loading="lazy"></div></div><span class="pill">1ra Cumbre Nacional</span></div>
   <div class="about__content reveal" data-delay="120"><span class="eyebrow">4 y 5 de abril · Caranavi</span><h2>1ra Cumbre Nacional de Mujeres Cafetaleras</h2>
@@ -294,15 +304,14 @@ muj = f"""
   </div>
 </div></section>
 <section class="section section--tint"><div class="container">
-  <div class="head-block center"><span class="eyebrow">Momentos de la Cumbre</span><h2>Así vivimos la 1ra Cumbre Nacional</h2></div>
-  <div class="gallery">
-    <figure class="reveal"><img src="assets/img/photos/p_cumbre_dialogo.jpg" alt="Diálogo entre productoras en la Cumbre" loading="lazy"><figcaption>Diálogo entre productoras</figcaption></figure>
-    <figure class="reveal" data-delay="80"><img src="assets/img/photos/p_cumbre_liderazgo.jpg" alt="Liderazgo de las productoras" loading="lazy"><figcaption>Liderazgo de las productoras</figcaption></figure>
-    <figure class="reveal" data-delay="160"><img src="assets/img/photos/p_grupo_cumbre.jpg" alt="Organizaciones reunidas en la Cumbre" loading="lazy"><figcaption>Una federación unida</figcaption></figure>
-    <figure class="reveal" data-delay="240"><img src="assets/img/gallery/g14.jpg" alt="Cierre de la Cumbre" loading="lazy"><figcaption>Cierre de la Cumbre</figcaption></figure>
+  <div class="head-block center reveal"><span class="eyebrow">Momentos de la Cumbre</span><h2>Así vivimos la 1ra Cumbre Nacional</h2></div>
+  <div class="moments-marquee">
+    <div class="moments-track">
+      {(''.join('<figure class="moment-card"><img src="'+src2+'" alt="'+cap+'" loading="lazy"><figcaption>'+cap+'</figcaption></figure>' for src2,cap in [('assets/img/photos/p_cumbre_dialogo.jpg','Diálogo entre productoras'),('assets/img/photos/p_cumbre_liderazgo.jpg','Liderazgo de las productoras'),('assets/img/photos/p_grupo_cumbre.jpg','Una federación unida'),('assets/img/gallery/g14.jpg','Cierre de la Cumbre')]) * 2)}
+    </div>
   </div>
 </div></section>
-<section class="section"><div class="container"><div class="head-block center"><span class="eyebrow">1ra Cumbre Nacional de Mujeres Cafetaleras</span><h2>Organizadores y colaboradores</h2></div>
+<section class="section"><div class="container"><div class="head-block center reveal"><span class="eyebrow">1ra Cumbre Nacional de Mujeres Cafetaleras</span><h2>Organizadores y colaboradores</h2></div>
   <div class="sponsor-group reveal">
     <span class="sponsor-group__label">Coorganizadores</span>
     <div class="sponsor-row">

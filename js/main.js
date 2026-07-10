@@ -29,6 +29,7 @@
     scrollReveal();
     heroParallax();
     heroSlider();
+    projCarousels();
     counters();
     tabs();
     gallery();
@@ -97,6 +98,40 @@
     on(prev, "click", () => go(i - 1, true));
     on(next, "click", () => go(i + 1, true));
     restart();
+  }
+
+  /* ---- Carrusel de proyectos (múltiples instancias) ---- */
+  function projCarousels() {
+    $$("[data-carousel]").forEach(box => {
+      const slides = $$(".proj-slide", box);
+      const dotsBox = $(".proj-dots", box);
+      if (slides.length < 2) return;
+      let i = 0, timer;
+      slides.forEach((_, n) => {
+        const b = document.createElement("button");
+        b.setAttribute("aria-label", "Ir al proyecto " + (n + 1));
+        if (n === 0) b.classList.add("is-active");
+        b.addEventListener("click", () => go(n, true));
+        dotsBox && dotsBox.appendChild(b);
+      });
+      const dots = dotsBox ? $$("button", dotsBox) : [];
+      function go(n, manual) {
+        slides[i].classList.remove("is-active");
+        dots[i] && dots[i].classList.remove("is-active");
+        i = (n + slides.length) % slides.length;
+        slides[i].classList.add("is-active");
+        dots[i] && dots[i].classList.add("is-active");
+        if (manual) restart();
+      }
+      function restart() {
+        clearInterval(timer);
+        timer = setInterval(() => go(i + 1), 4500);
+      }
+      const prev = $(".proj-nav.prev", box), next = $(".proj-nav.next", box);
+      on(prev, "click", () => go(i - 1, true));
+      on(next, "click", () => go(i + 1, true));
+      restart();
+    });
   }
 
   /* ---- Contadores animados ---- */
