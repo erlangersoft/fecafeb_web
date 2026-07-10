@@ -263,6 +263,15 @@ page("escuela-cafe.html","servicios.html","Escuela de Café · FECAFEB","Platafo
 # ===================== COMITÉ DE MUJERES =====================
 muj = f"""
 <section class="section"><div class="container">
+  <div class="hero-stat" data-hstat>
+    <div class="hero-stat__track">
+      <div class="hero-stat__item" data-count="276" data-sep><span class="hero-stat__num">0</span><span class="hero-stat__lbl">Mujeres productoras afiliadas</span></div>
+      <div class="hero-stat__item" data-count="21"><span class="hero-stat__num">0</span><span class="hero-stat__lbl">Organizaciones representadas</span></div>
+      <div class="hero-stat__item" data-count="3"><span class="hero-stat__num">0</span><span class="hero-stat__lbl">Proyectos activos</span></div>
+      <div class="hero-stat__item" data-count="2025"><span class="hero-stat__num">0</span><span class="hero-stat__lbl">Año de la 1ra Cumbre Nacional</span></div>
+    </div>
+    <div class="hero-stat__dots"></div>
+  </div>
   <div class="feature-hero-wrap">
     <div class="feature-hero" data-hslider>
       <div class="feature fh-slide is-active">
@@ -282,15 +291,6 @@ muj = f"""
       </div>
     </div>
     <div class="fh-dots"></div>
-    <div class="hero-stat" data-hstat>
-      <div class="hero-stat__track">
-        <div class="hero-stat__item" data-count="276" data-sep><span class="hero-stat__num">0</span><span class="hero-stat__lbl">Mujeres productoras afiliadas</span></div>
-        <div class="hero-stat__item" data-count="21"><span class="hero-stat__num">0</span><span class="hero-stat__lbl">Organizaciones representadas</span></div>
-        <div class="hero-stat__item" data-count="3"><span class="hero-stat__num">0</span><span class="hero-stat__lbl">Proyectos activos</span></div>
-        <div class="hero-stat__item" data-count="2025"><span class="hero-stat__num">0</span><span class="hero-stat__lbl">Año de la 1ra Cumbre Nacional</span></div>
-      </div>
-      <div class="hero-stat__dots"></div>
-    </div>
   </div>
 </div></section>
 <section class="section section--pattern"><div class="container grid grid-2">

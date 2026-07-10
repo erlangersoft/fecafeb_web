@@ -438,7 +438,7 @@ p{color:var(--body);text-wrap:pretty}
 .fh-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.8rem}
 .fh-dots button{width:9px;height:9px;border-radius:50%;border:0;background:var(--line-2);cursor:pointer;transition:all .3s ease;padding:0}
 .fh-dots button.is-active{background:var(--gold);width:26px;border-radius:5px}
-.hero-stat{position:absolute;top:-14px;right:2%;z-index:4;width:168px;padding:1rem 1.1rem .85rem;border-radius:16px;
+.hero-stat{width:168px;margin:0 0 1.6rem auto;padding:1rem 1.1rem .85rem;border-radius:16px;
   background:linear-gradient(160deg,#22392c,#182a20);border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow-lg);text-align:center}
 .hero-stat__track{position:relative;min-height:60px;overflow:hidden}
 .hero-stat__item{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.22rem;
@@ -449,7 +449,7 @@ p{color:var(--body);text-wrap:pretty}
 .hero-stat__dots{display:flex;justify-content:center;gap:.3rem;margin-top:.6rem}
 .hero-stat__dots button{width:5px;height:5px;border-radius:50%;border:0;background:rgba(255,255,255,.32);padding:0;transition:all .3s ease}
 .hero-stat__dots button.is-active{background:var(--gold-soft);width:13px;border-radius:3px}
-@media (max-width:860px){.hero-stat{position:static;width:100%;max-width:260px;margin:1.4rem auto 0}}
+@media (max-width:860px){.hero-stat{width:100%;max-width:260px;margin:0 auto 1.6rem}}
 
 /* ---------- 13. Afiliados ---------- */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
