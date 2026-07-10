@@ -119,12 +119,12 @@ qs = f"""
 <section class="section" id="historia"><div class="container">
   <div class="head-block"><span class="eyebrow">Historia</span><h2>Una trayectoria al servicio del café</h2></div>
   <div class="timeline-wrap"><ul class="timeline" style="max-width:820px">
-    <li class="reveal"><div class="yr">1991</div><div><h3>Fundación de FECAFEB</h3><p>Nace como ente rector con 10 organizaciones de productores. Estatuto protocolizado en 1992 y reconocimiento por Resolución Suprema en 1993.</p></div></li>
-    <li class="reveal"><div class="yr">2006</div><div><h3>Nace la Escuela del Café</h3><p>FECAFEB instaura su Escuela del Café como brazo de formación técnica para catadores y productores.</p></div></li>
-    <li class="reveal"><div class="yr">2007–2022</div><div><h3>Consolidación institucional</h3><p>Sucesión de directorios (Ángel Condori, Eustaquio Huiza, Eugenio Villca, Víctor Calla, Raúl Mamani, Ruth Vidaurre) y crecimiento hasta 42 organizaciones afiliadas, con participación en 8 versiones de la Taza de Excelencia.</p></div></li>
-    <li class="reveal"><div class="yr">Oct 2022</div><div><h3>Nueva gestión directiva</h3><p>Hugo Poma Maqui asume la presidencia del Directorio Ejecutivo Nacional.</p></div></li>
-    <li class="reveal"><div class="yr">2023</div><div><h3>Plan Estratégico 2023–2027</h3><p>Sostenibilidad financiera e institucional, calidad y denominación de origen.</p></div></li>
-    <li class="reveal"><div class="yr">2026</div><div><h3>Transformación digital y EUDR</h3><p>Plataforma de datos y trazabilidad geoespacial para el acceso preferente al mercado europeo.</p></div></li>
+    <li class="reveal"><span class="yr">1991</span><h3>Fundación de FECAFEB</h3><p>Nace como ente rector con 10 organizaciones de productores. Estatuto protocolizado en 1992 y reconocimiento por Resolución Suprema en 1993.</p></li>
+    <li class="reveal"><span class="yr">2006</span><h3>Nace la Escuela del Café</h3><p>FECAFEB instaura su Escuela del Café como brazo de formación técnica para catadores y productores.</p></li>
+    <li class="reveal"><span class="yr">2007–2022</span><h3>Consolidación institucional</h3><p>Sucesión de directorios (Ángel Condori, Eustaquio Huiza, Eugenio Villca, Víctor Calla, Raúl Mamani, Ruth Vidaurre) y crecimiento hasta 42 organizaciones afiliadas, con participación en 8 versiones de la Taza de Excelencia.</p></li>
+    <li class="reveal"><span class="yr">Oct 2022</span><h3>Nueva gestión directiva</h3><p>Hugo Poma Maqui asume la presidencia del Directorio Ejecutivo Nacional.</p></li>
+    <li class="reveal"><span class="yr">2023</span><h3>Plan Estratégico 2023–2027</h3><p>Sostenibilidad financiera e institucional, calidad y denominación de origen.</p></li>
+    <li class="reveal"><span class="yr">2026</span><h3>Transformación digital y EUDR</h3><p>Plataforma de datos y trazabilidad geoespacial para el acceso preferente al mercado europeo.</p></li>
   </ul></div>
 </div></section>
 <section class="section section--tint" id="cooperacion"><div class="container"><div class="head-block center"><span class="eyebrow">Cooperación internacional</span><h2>Aliados que fortalecen a FECAFEB</h2><p class="lead">Proyectos ejecutados con cooperación nacional e internacional en los últimos años (2022–2026).</p></div><div class="grid grid-3">
