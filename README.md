@@ -1,6 +1,6 @@
 # FECAFEB — Sitio web institucional (plantilla)
 
-Sitio multipágina, **mobile-first**, estático (HTML/CSS/JS), para la **Federación de Caficultores Exportadores de Bolivia (FECAFEB)**, orientado a compradores de la Unión Europea y a la familia cafetalera. Diseño y desarrollo: **ERLANGER-SOFT · Cognitio SRL** — Proyecto AAGIL (Ayuda en Acción).
+Sitio multipágina, **mobile-first**, estático (HTML/CSS/JS), para la **Federación de Caficultores Exportadores de Bolivia (FECAFEB)**, orientado a compradores de la Unión Europea y a la familia cafetalera. Diseño y desarrollo: **Cognitio SRL** — Proyecto AAGIL (Ayuda en Acción).
 
 > Estado: prototipo navegable con datos/imágenes **de ejemplo**. Pensado para conectarse luego a un **CMS autogestionable** y al **sistema/Portal** (datos de afiliados, trazabilidad, tienda y pedidos).
 
@@ -92,4 +92,4 @@ Inicio · Quiénes Somos · Afiliados · Trazabilidad · Servicios · Publicacio
 - Reemplazo de imágenes y textos definitivos; sitemap.xml y robots.txt.
 
 ---
-© FECAFEB · Plantilla desarrollada por ERLANGER-SOFT · Cognitio SRL.
+© FECAFEB · Plantilla desarrollada por Cognitio SRL.

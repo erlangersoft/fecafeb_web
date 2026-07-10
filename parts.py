@@ -37,18 +37,20 @@ CHK = I["chk"]
 PHOTOS = {
   "cherries":"assets/img/photos/p_cata.jpg",
   "farm":"assets/img/photos/p_productores.jpg",
-  "field":"assets/img/photos/p_productores.jpg",
-  "hands":"assets/img/photos/p_mujeres.jpg",
-  "harvest":"assets/img/photos/p_mujeres2.jpg",
+  "field":"assets/img/photos/p_caranavi.jpg",
+  "hands":"assets/img/photos/p_cumbre_ponente.jpg",
+  "harvest":"assets/img/photos/p_cafeverde.jpg",
   "andes":"assets/img/photos/p_caranavi.jpg",
   "bag":"assets/img/photos/p_cafeverde.jpg",
   "green":"assets/img/photos/p_cafeverde.jpg",
   "cup":"assets/img/photos/p_cata.jpg",
-  "specialty":"assets/img/photos/p_cata.jpg",
+  "specialty":"assets/img/photos/p_cata_detalle.jpg",
+  "cupping":"assets/img/photos/p_cata_detalle.jpg",
   "roast":"assets/img/photos/p_barismo.jpg",
   "shop":"assets/img/photos/p_kullaka.jpg",
   "woman":"assets/img/photos/p_mujer.jpg",
   "people":"assets/img/photos/p_equipo.jpg",
+  "cumbre":"assets/img/photos/p_cumbre_ponente.jpg",
 }
 def U(key, w=900):
     return PHOTOS.get(key, PHOTOS["cherries"])
@@ -99,8 +101,8 @@ def head(title, desc, extra_head=""):
       '<meta property="og:image" content="assets/img/logo-fecafeb.png">\n'
       '<link rel="icon" type="image/png" href="assets/img/favicon.png">\n'
       '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-      '<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">\n'
-      '<link rel="stylesheet" href="css/styles.css">\n<link rel="stylesheet" href="css/pages.css">\n' + extra_head + '</head>\n<body>') % (title, desc, title)
+      '<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">\n'
+      '<link rel="stylesheet" href="css/styles.css?v=20260709c">\n<link rel="stylesheet" href="css/pages.css?v=20260709c">\n' + extra_head + '</head>\n<body>') % (title, desc, title)
 
 SEARCHBTN = '<button class="iconbtn" id="searchBtn" aria-label="Buscar en el sitio" title="Buscar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>'
 CARTBTN = '<button class="iconbtn" id="cartBtn" aria-label="Su pedido" title="Su pedido"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6 5 3H2"/></svg><span class="cartcount" id="cartCount" data-n="0"></span></button>'

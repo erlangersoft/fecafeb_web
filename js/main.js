@@ -59,7 +59,6 @@
   function heroSlider() {
     const slider = $(".hero__slider");
     if (!slider) return;
-    const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const slides = $$(".hero__slide", slider);
     const dotsBox = $(".hero__dots", slider);
     if (slides.length < 2) return;
@@ -82,15 +81,11 @@
     }
     function restart() {
       clearInterval(timer);
-      if (!reduceMotion) timer = setInterval(() => go(i + 1), 5500);
+      timer = setInterval(() => go(i + 1), 5500);
     }
     const prev = $(".hero__nav.prev", slider), next = $(".hero__nav.next", slider);
     on(prev, "click", () => go(i - 1, true));
     on(next, "click", () => go(i + 1, true));
-    if (!reduceMotion) {
-      on(slider, "mouseenter", () => clearInterval(timer));
-      on(slider, "mouseleave", restart);
-    }
     restart();
   }
 

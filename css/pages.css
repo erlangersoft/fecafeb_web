@@ -237,7 +237,6 @@
 .brand-logo img{max-height:84px;width:auto;object-fit:contain;filter:grayscale(.3) saturate(.85);opacity:.8;transition:filter .35s,opacity .35s,transform .35s}
 .brand-logo:hover img{filter:none;opacity:1;transform:scale(1.12)}
 @keyframes brandscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.brand-track{animation:none!important;transform:none!important}}
 @media (max-width:600px){.brand-logo{height:58px}.brand-logo img{max-height:58px}}
 
 /* ===================================================================
