@@ -412,9 +412,9 @@ p{color:var(--body);text-wrap:pretty}
 .metric .lbl{margin-top:.55rem;font-size:.86rem;color:#cbbdac}
 .mv-card{border-top:3px solid var(--gold);transition:transform .4s cubic-bezier(.34,1.56,.64,1),box-shadow .4s ease;position:relative;overflow:hidden}
 .mv-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
-.mv-card__n{font-family:var(--f-head);font-size:3.4rem;font-weight:600;line-height:1;color:var(--gold-soft);opacity:.5;
-  display:block;margin-bottom:.2rem;transition:transform .4s cubic-bezier(.34,1.56,.64,1),opacity .4s ease}
-.mv-card:hover .mv-card__n{transform:translateX(4px) scale(1.05);opacity:.75}
+.mv-card h3{position:relative;padding-bottom:.6rem;margin-bottom:.9rem}
+.mv-card h3::after{content:"";position:absolute;left:0;bottom:0;width:34px;height:2px;background:var(--gold-soft);transition:width .4s ease}
+.mv-card:hover h3::after{width:64px}
 
 /* ---------- 12. Feature (Escuela) ---------- */
 .feature{display:grid;grid-template-columns:.95fr 1.05fr;gap:3rem;align-items:center}
@@ -431,6 +431,12 @@ p{color:var(--body);text-wrap:pretty}
 .feature ul{display:grid;gap:.7rem;margin:1.3rem 0 1.7rem}
 .feature ul li{display:flex;gap:.6rem;align-items:flex-start;font-weight:500;color:var(--ink)}
 .feature ul li svg{width:20px;height:20px;color:var(--gold-d);flex:none;margin-top:.2rem}
+.feature-hero{display:grid}
+.fh-slide{grid-area:1/1;opacity:0;pointer-events:none;transform:scale(.98);transition:opacity .9s ease,transform .9s ease}
+.fh-slide.is-active{opacity:1;pointer-events:auto;transform:none}
+.fh-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.8rem}
+.fh-dots button{width:9px;height:9px;border-radius:50%;border:0;background:var(--line-2);cursor:pointer;transition:all .3s ease;padding:0}
+.fh-dots button.is-active{background:var(--gold);width:26px;border-radius:5px}
 
 /* ---------- 13. Afiliados ---------- */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}

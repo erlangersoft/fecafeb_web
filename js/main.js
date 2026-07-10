@@ -29,6 +29,7 @@
     scrollReveal();
     heroParallax();
     heroSlider();
+    heroFeatureSlider();
     projCarousels();
     counters();
     tabs();
@@ -98,6 +99,38 @@
     on(prev, "click", () => go(i - 1, true));
     on(next, "click", () => go(i + 1, true));
     restart();
+  }
+
+  /* ---- Slider hero-feature (Comité de Mujeres / Café Kullaka intercalados) ---- */
+  function heroFeatureSlider() {
+    $$("[data-hslider]").forEach(box => {
+      const slides = $$(".fh-slide", box);
+      const dotsBox = box.parentElement ? $(".fh-dots", box.parentElement) : null;
+      if (slides.length < 2) return;
+      let i = 0, timer;
+      const labels = ["Comité de Mujeres", "Café Kullaka"];
+      slides.forEach((_, n) => {
+        const b = document.createElement("button");
+        b.setAttribute("aria-label", "Ver " + (labels[n] || "diapositiva " + (n + 1)));
+        if (n === 0) b.classList.add("is-active");
+        b.addEventListener("click", () => go(n, true));
+        dotsBox && dotsBox.appendChild(b);
+      });
+      const dots = dotsBox ? $$("button", dotsBox) : [];
+      function go(n, manual) {
+        slides[i].classList.remove("is-active");
+        dots[i] && dots[i].classList.remove("is-active");
+        i = (n + slides.length) % slides.length;
+        slides[i].classList.add("is-active");
+        dots[i] && dots[i].classList.add("is-active");
+        if (manual) restart();
+      }
+      function restart() {
+        clearInterval(timer);
+        timer = setInterval(() => go(i + 1), 6000);
+      }
+      restart();
+    });
   }
 
   /* ---- Carrusel de proyectos (múltiples instancias) ---- */

@@ -262,19 +262,26 @@ page("escuela-cafe.html","servicios.html","Escuela de Café · FECAFEB","Platafo
 
 # ===================== COMITÉ DE MUJERES =====================
 muj = f"""
-<section class="section"><div class="container feature">
-  <div class="feature__media reveal"><img class="comite-logo" src="assets/img/logo-comite-mujeres.png" alt="Comité de Mujeres Cafetaleras de Bolivia"></div>
-  <div class="feature__content reveal" data-delay="120"><span class="eyebrow">Equidad de género</span><h2>Comité de Mujeres Cafetaleras de Bolivia</h2>
-    <p class="lead">Visibiliza y fortalece el liderazgo de las productoras de café asociadas a FECAFEB en toda la cadena de valor.</p>
-    <a href="#cumbre" class="btn btn--gold">Conocer la 1ra Cumbre Nacional</a>
-  </div>
-</div></section>
-<section class="section section--tint"><div class="container feature feature--reverse">
-  <div class="feature__media reveal reveal-r"><img class="photo" src="assets/img/logo-kullaka.png" alt="Café Kullaka"></div>
-  <div class="feature__content reveal reveal-l" data-delay="120"><span class="eyebrow">Sinergia institucional y comercial</span><h2>Del liderazgo a la taza: Café Kullaka</h2>
-    <p class="lead">El Comité conecta su trabajo social con un brazo comercial tangible: la marca de café de especialidad <b>Kullaka</b>.</p>
-    <ul><li>{I['chk']} Perfil de la productora (storytelling) que da valor agregado al café</li><li>{I['chk']} Trazabilidad de impacto: el comprador ve qué cooperativa de mujeres produjo su lote</li><li>{I['chk']} Cumbre de Mujeres: intercambio de experiencias y liderazgo</li></ul>
-    <a href="kullaka.html" class="btn">Conocer la Marca Kullaka</a>
+<section class="section"><div class="container">
+  <div class="feature-hero-wrap">
+    <div class="feature-hero" data-hslider>
+      <div class="feature fh-slide is-active">
+        <div class="feature__media"><img class="comite-logo" src="assets/img/logo-comite-mujeres.png" alt="Comité de Mujeres Cafetaleras de Bolivia"></div>
+        <div class="feature__content"><span class="eyebrow">Equidad de género</span><h2>Comité de Mujeres Cafetaleras de Bolivia</h2>
+          <p class="lead">Visibiliza y fortalece el liderazgo de las productoras de café asociadas a FECAFEB en toda la cadena de valor.</p>
+          <a href="#cumbre" class="btn btn--gold">Conocer la 1ra Cumbre Nacional</a>
+        </div>
+      </div>
+      <div class="feature fh-slide feature--reverse">
+        <div class="feature__media"><img class="photo" src="assets/img/logo-kullaka.png" alt="Café Kullaka"></div>
+        <div class="feature__content"><span class="eyebrow">Sinergia institucional y comercial</span><h2>Del liderazgo a la taza: Café Kullaka</h2>
+          <p class="lead">El Comité conecta su trabajo social con un brazo comercial tangible: la marca de café de especialidad <b>Kullaka</b>.</p>
+          <ul><li>{I['chk']} Perfil de la productora (storytelling) que da valor agregado al café</li><li>{I['chk']} Trazabilidad de impacto: el comprador ve qué cooperativa de mujeres produjo su lote</li><li>{I['chk']} Cumbre de Mujeres: intercambio de experiencias y liderazgo</li></ul>
+          <a href="kullaka.html" class="btn">Conocer la Marca Kullaka</a>
+        </div>
+      </div>
+    </div>
+    <div class="fh-dots"></div>
   </div>
 </div></section>
 <section class="section section--accent"><div class="container">
@@ -287,8 +294,8 @@ muj = f"""
   </div>
 </div></section>
 <section class="section section--pattern"><div class="container grid grid-2">
-  <div class="card mv-card reveal"><span class="mv-card__n">01</span><h3>Nuestra misión</h3><p>Empoderar a las mujeres y jóvenes líderes cafetaleras, garantizando su visibilización y el fortalecimiento de sus liderazgos en la cadena de valor, mediante cursos de capacitación en <b>microfinanzas</b> y <b>Administración de Organizaciones Exportadoras de Café</b>, entre otros.</p></div>
-  <div class="card mv-card reveal" data-delay="120"><span class="mv-card__n">02</span><h3>Valores del Comité</h3><ul class="values"><li>{I['chk']} Sororidad — apoyo mutuo entre las bases</li><li>{I['chk']} Transparencia — información clara y accesible</li><li>{I['chk']} Cooperación — trabajo conjunto por fines comunes</li></ul></div>
+  <div class="card mv-card reveal"><h3>Nuestra misión</h3><p>Empoderar a las mujeres y jóvenes líderes cafetaleras, garantizando su visibilización y el fortalecimiento de sus liderazgos en la cadena de valor, mediante cursos de capacitación en <b>microfinanzas</b> y <b>Administración de Organizaciones Exportadoras de Café</b>, entre otros.</p></div>
+  <div class="card mv-card reveal" data-delay="120"><h3>Valores del Comité</h3><ul class="values"><li>{I['chk']} Sororidad — apoyo mutuo entre las bases</li><li>{I['chk']} Transparencia — información clara y accesible</li><li>{I['chk']} Cooperación — trabajo conjunto por fines comunes</li></ul></div>
 </div></section>
 <section class="section"><div class="container">
   <div class="head-block center reveal"><span class="eyebrow">Impacto en territorio</span><h2>Proyectos de desarrollo activos</h2></div>
