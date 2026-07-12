@@ -267,9 +267,9 @@ esc = f"""
 </div></section>
 <section class="section section--tint"><div class="container"><div class="head-block center"><span class="eyebrow">Los tres módulos</span><h2>Programa formativo</h2><p class="lead">La Escuela del Café nace en 2006 como <b>FORCAFE</b> (Fortalecimiento Cafetalero), la escuela de los futuros presidentes de las organizaciones; hoy se consolida con tres módulos.</p></div>
   <div class="grid grid-3">
-    <article class="card reveal"><div class="card__ico">{I['chart']}</div><h3>1 · Administración de Organizaciones Exportadoras de Café</h3><p>Gestión, microfinanzas y comercialización para las organizaciones exportadoras.</p></article>
-    <article class="card reveal" data-delay="80"><div class="card__ico">{I['cup']}</div><h3>2 · Calidad — Cata y Barismo</h3><p>Análisis sensorial, protocolo SCA y preparación de café de especialidad.</p></article>
-    <article class="card reveal" data-delay="160"><div class="card__ico">{I['leaf']}</div><h3>3 · Manejo Tecnológico de la Parcela</h3><p>EUDR, buenas prácticas de instalación y manejo de cafetales, e innovación sobre saberes ancestrales.</p></article>
+    {svc_card("", "assets/img/photos/p_equipo.jpg", "Equipo técnico de FECAFEB en sesión de trabajo institucional", "1 · Administración de Organizaciones Exportadoras de Café", "Gestión, microfinanzas y comercialización para las organizaciones exportadoras.")}
+    {svc_card("", "assets/img/photos/p_cata.jpg", "Sesión de catación de café bajo protocolo SCA", "2 · Calidad — Cata y Barismo", "Análisis sensorial, protocolo SCA y preparación de café de especialidad.", 80)}
+    {svc_card("", "assets/img/photos/p_cerezas.jpg", "Manejo agroforestal del cafetal en los Yungas", "3 · Manejo Tecnológico de la Parcela", "EUDR, buenas prácticas de instalación y manejo de cafetales, e innovación sobre saberes ancestrales.", 160)}
   </div>
 </div></section>
 """
@@ -366,12 +366,14 @@ kul = f"""
   <p class="lead">La marca de café de especialidad de FECAFEB enfocada en la calidad del café de las productoras. Kullaka muestra la <b>esencia de la mujer en la taza</b>: el trabajo, el compromiso y la dedicación, reflejados en los sabores más complejos y exóticos de cada taza.</p>
   <div class="hero__actions" style="margin-top:1.2rem"><a href="tienda.html" class="btn btn--gold">Comprar / hacer pedido</a><a href="comite-mujeres.html" class="btn btn--ghost">Comité de Mujeres</a></div></div>
 </div></section>
-<section class="section section--tint"><div class="container grid grid-3">
-  <article class="card reveal"><div class="card__ico">{I['venus']}</div><h3>Identidad de mujer</h3><p>Café producido y liderado por las mujeres cafetaleras de Bolivia.</p></article>
-  <article class="card reveal" data-delay="80"><div class="card__ico">{I['bean']}</div><h3>Especialidad de altura</h3><p>Origen Yungas, orgánico, perfiles de taza diferenciados.</p></article>
-  <article class="card reveal" data-delay="160"><div class="card__ico">{I['globe']}</div><h3>Mercado nacional e internacional</h3><p>Comercialización con identidad y trazabilidad de impacto.</p></article>
+<section class="section section--tint"><div class="container">
+  <div class="grid grid-3">
+    {svc_card("", "assets/img/photos/p_mujer.jpg", "Productora cafetalera boliviana, rostro de la marca Kullaka", "Identidad de mujer", "Café producido y liderado por las mujeres cafetaleras de Bolivia.")}
+    {svc_card("", "assets/img/photos/p_caranavi_plaza.jpg", "Caranavi, origen del café de altura de los Yungas", "Especialidad de altura", "Origen Yungas, orgánico, perfiles de taza diferenciados.", 80)}
+    {svc_card("", "assets/img/photos/p_cafeverde.jpg", "Café verde boliviano listo para comercialización internacional", "Mercado nacional e internacional", "Comercialización con identidad y trazabilidad de impacto.", 160)}
+  </div>
 </div></section>
-<section class="section"><div class="container feature"><div class="feature__media reveal"><img class="photo" src="assets/img/logo-kullaka.png" alt="Kullaka de Altura — Edición Limitada"></div><div class="feature__content reveal" data-delay="120"><span class="tag tag--gold">Edición limitada de lujo</span><h2>Kullaka de Altura</h2><p class="lead">En homenaje a la 1ra Cumbre de Mujeres Cafetaleras de Bolivia — “Mujeres de cara al Bicentenario”.</p><ul><li>{I['chk']} Variedad Catuai, cultivada a 1.700 m.s.n.m.</li><li>{I['chk']} Proceso natural, con secado artesanal</li><li>{I['chk']} Aroma: flores blancas y frutos rojos</li><li>{I['chk']} En boca: frutas tropicales, notas de vino, chocolate intenso y resabio jugoso</li></ul><p class="form__note">Su compra apoya directamente a las mujeres que cultivan el futuro del café boliviano · Bolivia 2025.</p></div></div></section>
+<section class="section"><div class="container feature"><div class="feature__media reveal"><img class="photo" src="assets/img/gallery/g04.jpg" alt="Café Kullaka, edición limitada — Kullaka de Altura"></div><div class="feature__content reveal" data-delay="120"><span class="tag tag--gold">Edición limitada de lujo</span><h2>Kullaka de Altura</h2><p class="lead">En homenaje a la 1ra Cumbre de Mujeres Cafetaleras de Bolivia — “Mujeres de cara al Bicentenario”.</p><ul><li>{I['chk']} Variedad Catuai, cultivada a 1.700 m.s.n.m.</li><li>{I['chk']} Proceso natural, con secado artesanal</li><li>{I['chk']} Aroma: flores blancas y frutos rojos</li><li>{I['chk']} En boca: frutas tropicales, notas de vino, chocolate intenso y resabio jugoso</li></ul><p class="form__note">Su compra apoya directamente a las mujeres que cultivan el futuro del café boliviano · Bolivia 2025.</p></div></div></section>
 <section class="section section--accent"><div class="container center"><div class="head-block center"><span class="eyebrow">Compradores</span><h2>Lleve Kullaka a su mercado</h2><p class="lead">Café con historia, calidad y respaldo institucional de FECAFEB.</p></div><a href="contacto.html" class="btn btn--gold btn--lg">Solicitar información comercial</a></div></section>
 """
 page("kullaka.html","servicios.html","Marca Kullaka · FECAFEB","Café Kullaka, la marca de especialidad con identidad de mujer de FECAFEB. Esencia que abraza.",kul,
@@ -388,10 +390,10 @@ tienda = f"""
 <section class="section section--tint"><div class="container">
   <div class="head-block center"><span class="eyebrow">¿Cómo pedir?</span><h2>Pedidos para el exterior en 4 pasos</h2></div>
   <div class="grid grid-4">
-    <article class="card reveal"><div class="card__ico">{I['cup']}</div><h3>1. Explore</h3><p>Revise el catálogo y agregue productos a su pedido.</p></article>
-    <article class="card reveal" data-delay="80"><div class="card__ico">{I['users']}</div><h3>2. Regístrese</h3><p>Cree su cuenta de comprador (queda en revisión para ser dada de alta por FECAFEB).</p></article>
-    <article class="card reveal" data-delay="160"><div class="card__ico">{I['doc']}</div><h3>3. Solicite</h3><p>Envíe su pedido como solicitud de cotización.</p></article>
-    <article class="card reveal" data-delay="240"><div class="card__ico">{I['globe']}</div><h3>4. Exporte</h3><p>Confirmamos disponibilidad, precios FOB, trazabilidad EUDR y logística.</p></article>
+    <article class="step-card reveal"><span class="step-card__n">01</span><h3>Explore</h3><p>Revise el catálogo y agregue productos a su pedido.</p></article>
+    <article class="step-card reveal" data-delay="80"><span class="step-card__n">02</span><h3>Regístrese</h3><p>Cree su cuenta de comprador (queda en revisión para ser dada de alta por FECAFEB).</p></article>
+    <article class="step-card reveal" data-delay="160"><span class="step-card__n">03</span><h3>Solicite</h3><p>Envíe su pedido como solicitud de cotización.</p></article>
+    <article class="step-card reveal" data-delay="240"><span class="step-card__n">04</span><h3>Exporte</h3><p>Confirmamos disponibilidad, precios FOB, trazabilidad EUDR y logística.</p></article>
   </div>
 </div></section>
 """
@@ -408,6 +410,14 @@ taza = f"""
   <div class="about__content reveal" data-delay="120"><span class="eyebrow">Orgullo boliviano</span><h2>Taza de Calidad Café Presidencial</h2>
     <p class="lead">Torneo nacional organizado desde 2015 por el <b>Ministerio de Relaciones Exteriores</b> y el <b>Ministerio de Desarrollo Rural y Tierras</b>, en coordinación con el Consejo Nacional de Productores de Café y FECAFEB, bajo estándares de catación SCA. La edición VIII (2022) recibió 270 muestras de La Paz, Cochabamba y Santa Cruz, con subasta internacional de los mejores lotes.</p>
     <ul class="values" style="margin-top:1.2rem"><li>{I['chk']} Convocatoria digitalizada y reglamentos descargables</li><li>{I['chk']} Resultados oficiales y perfiles reales de los productores ganadores</li><li>{I['chk']} Directorio de jueces nacionales e internacionales</li></ul>
+  </div>
+</div></section>
+<section class="section section--tint"><div class="container">
+  <div class="head-block center reveal"><span class="eyebrow">Momentos del torneo</span><h2>Catación, jurados y subasta en imágenes</h2></div>
+  <div class="moments-marquee">
+    <div class="moments-track">
+      {(''.join('<figure class="moment-card"><img src="'+src3+'" alt="'+cap3+'" loading="lazy"><figcaption>'+cap3+'</figcaption></figure>' for src3,cap3 in [('assets/img/gallery/g05.jpg','Etapa internacional · Taza Presidencial'),('assets/img/gallery/g06.jpg','Jueces y catadores internacionales'),('assets/img/gallery/g07.jpg','Catación en Santa Cruz'),('assets/img/gallery/g08.jpg','Catación en Caranavi'),('assets/img/gallery/g09.jpg','Mesa de cata · torneo nacional'),('assets/img/gallery/g10.jpg','Recepción de muestras')]) * 2)}
+    </div>
   </div>
 </div></section>
 <section class="section"><div class="container"><div class="head-block center"><span class="eyebrow">Cronograma 2026–2027</span><h2>Ciclo de 10 fases de trabajo</h2><p class="lead">Ruta técnica y comercial coordinada con el Gobierno Autónomo Municipal de Caranavi (GAM), sede central del torneo.</p></div><div class="phases"><article class="phase reveal"><div class="phase__n">01</div><div class="phase__b"><span class="phase__date">Mié. 8 de julio</span><h3>Lanzamiento</h3><p>Presentación pública del plan nacional y apertura de inscripciones.</p></div></article><article class="phase reveal"><div class="phase__n">02</div><div class="phase__b"><span class="phase__date">Julio–agosto</span><h3>Capacitaciones técnicas</h3><p>Talleres de poscosecha, secado y cata en Caranavi y zonas solicitantes.</p></div></article><article class="phase reveal"><div class="phase__n">03</div><div class="phase__b"><span class="phase__date">3 de agosto</span><h3>Plantel de jurados</h3><p>Convocatoria y formación de catadores con capacitador internacional.</p></div></article><article class="phase reveal"><div class="phase__n">04</div><div class="phase__b"><span class="phase__date">3–10 de agosto</span><h3>Recepción de muestras</h3><p>Acopio oficial de microlotes coordinado con el GAM Caranavi.</p></div></article><article class="phase reveal"><div class="phase__n">05</div><div class="phase__b"><span class="phase__date">7–14 de septiembre</span><h3>Preselección</h3><p>Trillado, codificación ciega e inicio de la cata.</p></div></article><article class="phase reveal"><div class="phase__n">06</div><div class="phase__b"><span class="phase__date">5–12 de octubre</span><h3>Etapa nacional</h3><p>Mesas de cata con jueces y productores finalistas.</p></div></article><article class="phase reveal"><div class="phase__n">07</div><div class="phase__b"><span class="phase__date">2–10 de noviembre</span><h3>Chuquiago Marka</h3><p>Feria comercial, fase internacional y campeonatos de barismo.</p></div></article><article class="phase reveal"><div class="phase__n">08</div><div class="phase__b"><span class="phase__date">Desde el 10 de nov.</span><h3>Degustaciones</h3><p>Promoción del Top 10 en cafeterías de especialidad.</p></div></article><article class="phase reveal"><div class="phase__n">09</div><div class="phase__b"><span class="phase__date">15–22 de noviembre</span><h3>Subasta electrónica</h3><p>Puja global en tiempo real por los lotes de rango presidencial.</p></div></article><article class="phase reveal"><div class="phase__n">10</div><div class="phase__b"><span class="phase__date">Dic. 2026 – ene. 2027</span><h3>Procesado y exportación</h3><p>Trillado, envasado al vacío y despacho a compradores globales.</p></div></article></div></div></section>
