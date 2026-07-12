@@ -2646,27 +2646,53 @@ p {
 }
 
 /* ---------- 17. Contacto ---------- */
+.section--contact {
+  background:
+    radial-gradient(700px 340px at 10% 4%, rgba(47, 125, 87, .09), transparent 62%),
+    radial-gradient(860px 360px at 94% 8%, rgba(200, 150, 46, .12), transparent 60%),
+    linear-gradient(180deg, var(--soft-warm), #fff 30%, #fff 100%)
+}
+
 .contact {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.6rem
+  grid-template-columns: minmax(0, 1fr) minmax(360px, .92fr);
+  gap: clamp(1.4rem, 2.5vw, 2.8rem);
+  align-items: start
 }
 
 .contact__info {
   display: grid;
-  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
   align-content: start
 }
 
 .contact-intro {
-  margin-bottom: 2rem
+  grid-column: 1 / -1;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(1.15rem, 1.7vw, 1.9rem);
+  box-shadow: var(--shadow)
+}
+
+.contact-intro h2 {
+  font-size: clamp(1.7rem, 2.5vw, 2.2rem);
+  margin-bottom: .7rem;
+  max-width: 20ch
+}
+
+.contact-intro .lead {
+  font-size: .98rem;
+  color: #5e5148;
+  max-width: 50ch
 }
 
 .contact-meta {
   display: flex;
   flex-wrap: wrap;
   gap: .65rem;
-  margin-bottom: .35rem
+  margin-top: 1rem
 }
 
 .contact-meta span {
@@ -2679,6 +2705,20 @@ p {
   font-size: .8rem;
   font-weight: 600;
   color: var(--coffee)
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1.15rem
+}
+
+.contact-cards {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: 1fr 1fr;
+  gap: .9rem
 }
 
 .info-row {
@@ -2695,7 +2735,8 @@ p {
 
 .info-row:hover {
   border-color: var(--gold-soft);
-  transform: translateY(-2px)
+  transform: translateY(-2px);
+  box-shadow: 0 18px 30px -30px rgba(36, 28, 23, .5)
 }
 
 .info-row .ico {
@@ -2732,12 +2773,109 @@ p {
   color: var(--gold-d)
 }
 
+.contact-map {
+  grid-column: 1 / -1;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden
+}
+
+.contact-map__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .8rem;
+  padding: .95rem 1.1rem;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, #fff, #fbf8f2)
+}
+
+.contact-map__head h3 {
+  font-size: 1.05rem
+}
+
+.contact-map__head span {
+  font-size: .8rem;
+  color: var(--muted);
+  font-weight: 600
+}
+
+.contact-map__canvas {
+  height: 300px;
+  background: var(--soft);
+  z-index: 1
+}
+
+.contact-map__canvas.is-fallback {
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: linear-gradient(180deg, #f8f5ef, #f1ece2)
+}
+
+.map-fallback-msg {
+  margin: 0;
+  font-size: .92rem;
+  color: var(--muted);
+  font-weight: 600;
+  text-align: center
+}
+
 .form {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 1.9rem;
   box-shadow: var(--shadow)
+}
+
+.form--contact {
+  position: sticky;
+  top: calc(var(--header-h) + 1.1rem);
+  overflow: hidden;
+  border-color: #e8decc;
+  box-shadow: var(--shadow-lg)
+}
+
+.form--contact::before {
+  content: "";
+  position: absolute;
+  top: -170px;
+  right: -120px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(200, 150, 46, .2), transparent 66%);
+  pointer-events: none
+}
+
+.form__head {
+  position: relative;
+  margin-bottom: 1.2rem
+}
+
+.form__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: var(--gold-d);
+  margin-bottom: .45rem
+}
+
+.form__head h3 {
+  font-size: clamp(1.3rem, 2vw, 1.62rem);
+  margin-bottom: .4rem
+}
+
+.form__head p {
+  max-width: 46ch;
+  font-size: .92rem;
+  color: var(--muted)
 }
 
 .field {
@@ -2763,7 +2901,7 @@ p {
   font-size: .95rem;
   background: #fff;
   color: var(--ink);
-  transition: border var(--t), box-shadow var(--t)
+  transition: border var(--t), box-shadow var(--t), background var(--t)
 }
 
 .field input:focus,
@@ -2771,7 +2909,8 @@ p {
 .field textarea:focus {
   outline: none;
   border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(200, 150, 46, .16)
+  background: #fffdf8;
+  box-shadow: 0 0 0 4px rgba(200, 150, 46, .16)
 }
 
 .field textarea {
@@ -2801,6 +2940,11 @@ p {
   font-size: .9rem;
   font-weight: 600;
   margin-bottom: 1rem
+}
+
+.form__submit {
+  width: 100%;
+  margin-top: .25rem
 }
 
 .form__ok.show {
@@ -3373,6 +3517,26 @@ p {
     gap: 2rem
   }
 
+  .contact-intro h2 {
+    max-width: none
+  }
+
+  .contact__info {
+    grid-template-columns: 1fr
+  }
+
+  .contact-cards {
+    grid-template-columns: 1fr
+  }
+
+  .form--contact {
+    position: static
+  }
+
+  .contact-map__head {
+    flex-wrap: wrap
+  }
+
   .feature--reverse .feature__media,
   .feature--reverse .feature__content {
     order: 0
@@ -3528,7 +3692,32 @@ p {
     justify-content: center
   }
 
+  .contact-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .55rem
+  }
+
+  .contact-actions .btn {
+    width: 100%
+  }
+
+  .section--contact {
+    padding-top: 1.25rem
+  }
+
+  .contact-intro,
+  .contact-map,
+  .form--contact,
+  .info-row {
+    border-radius: 14px
+  }
+
   .info-row {
     padding: 1rem
+  }
+
+  .form--contact {
+    padding: 1.35rem
   }
 }

@@ -1,9 +1,21 @@
 /* FECAFEB · maps.js — Mapa de zonas productoras (Leaflet + OpenStreetMap/CARTO) */
 (function(){
   "use strict";
-  document.addEventListener("DOMContentLoaded", function(){
+
+  function setMapFallback(el, msg) {
+    if (!el) return;
+    el.classList.add("is-fallback");
+    el.innerHTML = '<p class="map-fallback-msg">' + msg + '</p>';
+  }
+
+  function initZonasMap() {
     var el = document.getElementById("mapZonas");
-    if(!el || typeof L === "undefined") return;
+    if (!el) return;
+    if (typeof L === "undefined") {
+      setMapFallback(el, "Mapa no disponible temporalmente.");
+      return;
+    }
+
     var zonas = [
       {n:"Caranavi", dep:"La Paz", alt:"1.300–1.700 m", taza:"Chocolate, frutos rojos, cuerpo medio.", lat:-15.838, lng:-67.560},
       {n:"Coroico", dep:"La Paz", alt:"1.200–1.700 m", taza:"Dulzor a caña, cítricos suaves.", lat:-16.190, lng:-67.730},
@@ -31,20 +43,31 @@
     zonas.forEach(function(z, i){
       var m = L.marker([z.lat, z.lng], {icon:pin, title:z.n}).addTo(map);
       m.on("click", function(){ render(z); map.panTo([z.lat, z.lng]); });
-      if(i===2) render(z); // por defecto Apolo
+      if(i===2) render(z);
     });
     setTimeout(function(){ map.invalidateSize(); }, 200);
+  }
 
-    // ---- Mapa de la oficina de FECAFEB (Contacto) ----
+  function initOfficeMap() {
     var oe = document.getElementById("mapOffice");
-    if (oe && typeof L !== "undefined") {
-      var off = [-16.5045, -68.1631]; // El Alto · La Paz (aprox. Av. Juan Pablo II)
-      var om = L.map(oe, {scrollWheelZoom:false}).setView(off, 14);
-      L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",{attribution:"&copy; OpenStreetMap &middot; &copy; CARTO",subdomains:"abcd",maxZoom:19}).addTo(om);
-      var opin = L.divIcon({className:"",html:'<div style="width:18px;height:18px;border-radius:50% 50% 50% 0;background:#4E342E;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.4)"></div>',iconSize:[18,18],iconAnchor:[9,18]});
-      L.marker(off,{icon:opin}).addTo(om).bindPopup("FECAFEB · Av. Juan Pablo II 2974, El Alto");
-      setTimeout(function(){ om.invalidateSize(); }, 200);
+    if (!oe) return;
+    if (typeof L === "undefined") {
+      setMapFallback(oe, "Mapa no disponible temporalmente.");
+      return;
     }
 
+    var off = [-16.5045, -68.1631];
+    var om = L.map(oe, {scrollWheelZoom:false}).setView(off, 14);
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+      attribution:"&copy; OpenStreetMap &middot; &copy; CARTO", subdomains:"abcd", maxZoom:19
+    }).addTo(om);
+    var opin = L.divIcon({className:"",html:'<div style="width:18px;height:18px;border-radius:50% 50% 50% 0;background:#4E342E;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.4)"></div>',iconSize:[18,18],iconAnchor:[9,18]});
+    L.marker(off,{icon:opin}).addTo(om).bindPopup("FECAFEB · Av. Juan Pablo II 2974, El Alto");
+    setTimeout(function(){ om.invalidateSize(); }, 200);
+  }
+
+  document.addEventListener("DOMContentLoaded", function(){
+    initZonasMap();
+    initOfficeMap();
   });
 })();
