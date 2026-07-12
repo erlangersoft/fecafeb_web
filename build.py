@@ -210,28 +210,44 @@ page("trazabilidad.html","trazabilidad.html","Trazabilidad EUDR · FECAFEB","Con
      extra_head=LEAFLET_CSS, extra_js=LEAFLET_JS + '<script src="js/trace.js"></script>')
 
 # ===================== SERVICIOS =====================
+def svc_card(href, photo, alt, title, text, delay=None):
+    tag = "a" if href else "article"
+    hrefattr = f' href="{href}"' if href else ""
+    delayattr = f' data-delay="{delay}"' if delay else ""
+    return (f'<{tag} class="svc-card reveal"{delayattr}{hrefattr}>'
+            f'<div class="svc-card__ph"><img src="{photo}" alt="{alt}" loading="lazy"></div>'
+            f'<div class="svc-card__b"><h3>{title}</h3><p>{text}</p></div></{tag}>')
+
 serv = f"""
-<section class="section section--pattern"><div class="container">
-  <div class="head-block center"><span class="eyebrow">Servicios</span><h2>Una plataforma integral de servicios</h2>
-  <p class="lead">Del cultivo a la exportación, acompañamos a la familia cafetalera y conectamos al comprador con un origen confiable. La oferta de servicios responde directamente a los ejes del Plan Estratégico Institucional 2023–2027.</p></div>
-  <div class="grid grid-3">
-    <article class="card reveal"><div class="card__ico">{I['leaf']}</div><h3>Asistencia técnica productiva</h3><p>Acompañamiento en campo para elevar rendimientos y calidad de taza mediante el modelo agroforestal —consolidado con cooperación de KOOPERATIONEN (viveros, bioinsumos, riego tecnificado, 2022–2023)— y el impulso al Programa de Expansión, Renovación y Mejora de Cultivos del PEI.</p></article>
-    <article class="card reveal" data-delay="80"><div class="card__ico">{I['chart']}</div><h3>Comercialización & exportación</h3><p>Vinculación con compradores internacionales y promoción del <b>Sistema de Denominación de Origen del Café Boliviano (SDO)</b>, uno de los ejes de aprendizaje del PEI 2023–2027, junto a la trazabilidad EUDR para el mercado europeo.</p></article>
-    <article class="card reveal" data-delay="160"><div class="card__ico">{I['shield']}</div><h3>Sanidad vegetal e innovación</h3><p>Manejo Integrado de Plagas (MIP) y transferencia tecnológica frente a la broca del café y el cambio climático, dos de las amenazas identificadas en el diagnóstico sectorial del PEI.</p></article>
+<section class="section section--pattern"><div class="container about">
+  <div class="about__media reveal"><div class="frame"><img src="assets/img/photos/p_evaluacion_sensorial.jpg" alt="Equipo técnico de FECAFEB en una evaluación sensorial de café" loading="lazy"></div></div>
+  <div class="about__content reveal" data-delay="120"><span class="eyebrow">Servicios</span><h2>Una plataforma integral de servicios</h2>
+    <p class="lead">Del cultivo a la exportación, acompañamos a la familia cafetalera y conectamos al comprador con un origen confiable. La oferta de servicios responde directamente a los ejes del Plan Estratégico Institucional 2023–2027.</p>
+    <a href="contacto.html" class="btn btn--gold">Contactar al equipo comercial</a>
   </div>
 </div></section>
-<section class="section section--tint"><div class="container"><div class="head-block center"><span class="eyebrow">Servicios destacados</span><h2>Pilares del ecosistema FECAFEB</h2></div>
+<section class="section section--tint"><div class="container">
+  <div class="head-block center"><span class="eyebrow">Al servicio de la familia cafetalera</span><h2>Tres frentes de trabajo permanente</h2></div>
   <div class="grid grid-3">
-    <a class="card reveal" href="escuela-cafe.html"><div class="card__ico">{I['cap']}</div><h3>Escuela de Café</h3><p>Formación en administración de organizaciones exportadoras, catación/barismo bajo protocolo SCA y manejo tecnológico de parcela — nacida en 2006 como FORCAFE.</p></a>
-    <a class="card reveal" data-delay="80" href="kullaka.html"><div class="card__ico">{I['cup']}</div><h3>Marca Kullaka</h3><p>Vitrina comercial del café de especialidad producido y liderado por las mujeres cafetaleras de Bolivia, con trazabilidad de impacto hasta la cooperativa de origen.</p></a>
-    <a class="card reveal" data-delay="160" href="taza-presidencial.html"><div class="card__ico">{I['trophy']}</div><h3>Taza Presidencial</h3><p>Torneo nacional bajo estándares SCA, organizado desde 2015 junto a Cancillería y el Ministerio de Desarrollo Rural y Tierras, con subasta internacional de los mejores lotes.</p></a>
+    {svc_card("", "assets/img/photos/p_cerezas.jpg", "Productora explicando el manejo agroforestal del cafetal", "Asistencia técnica productiva", "Acompañamiento en campo para elevar rendimientos y calidad de taza mediante el modelo agroforestal —consolidado con cooperación de KOOPERATIONEN (viveros, bioinsumos, riego tecnificado, 2022–2023)— y el impulso al Programa de Expansión, Renovación y Mejora de Cultivos del PEI.")}
+    {svc_card("", "assets/img/photos/p_cafeverde.jpg", "Lotes de café verde embolsados, listos para evaluación y exportación", "Comercialización & exportación", "Vinculación con compradores internacionales y promoción del <b>Sistema de Denominación de Origen del Café Boliviano (SDO)</b>, uno de los ejes de aprendizaje del PEI 2023–2027, junto a la trazabilidad EUDR para el mercado europeo.", 80)}
+    {svc_card("", "assets/img/photos/p_seleccion_verde.jpg", "Selección manual de grano verde, control de calidad y sanidad", "Sanidad vegetal e innovación", "Manejo Integrado de Plagas (MIP) y transferencia tecnológica frente a la broca del café y el cambio climático, dos de las amenazas identificadas en el diagnóstico sectorial del PEI.", 160)}
   </div>
 </div></section>
-<section class="section"><div class="container"><div class="head-block center"><span class="eyebrow">Programas emblemáticos</span><h2>Del Plan Estratégico Institucional 2023–2027</h2></div>
+<section class="section"><div class="container">
+  <div class="head-block center"><span class="eyebrow">Servicios destacados</span><h2>Pilares del ecosistema FECAFEB</h2></div>
   <div class="grid grid-3">
-    <article class="card reveal"><div class="card__ico">{I['leaf']}</div><h3>Programa Café 2024–2030</h3><p>Hoja de ruta de expansión y renovación de cultivos a mediano plazo.</p></article>
-    <article class="card reveal" data-delay="80"><div class="card__ico">{I['chart']}</div><h3>Casa del Café Caranavi</h3><p>Infraestructura sectorial para procesamiento y valor agregado en la capital cafetalera de Bolivia.</p></article>
-    <article class="card reveal" data-delay="160"><div class="card__ico">{I['venus']}</div><h3>Café Sin Violencia</h3><p>Programa con la Embajada de Francia (PISCCA) para jóvenes y mujeres cafetaleras, 2024–2025.</p></article>
+    {svc_card("escuela-cafe.html", "assets/img/photos/p_barismo.jpg", "Equipo de barismo FECAFEB preparando café de especialidad", "Escuela de Café", "Formación en administración de organizaciones exportadoras, catación/barismo bajo protocolo SCA y manejo tecnológico de parcela — nacida en 2006 como FORCAFE.")}
+    {svc_card("kullaka.html", "assets/img/photos/p_kullaka.jpg", "Café Kullaka, la marca de especialidad liderada por mujeres", "Marca Kullaka", "Vitrina comercial del café de especialidad producido y liderado por las mujeres cafetaleras de Bolivia, con trazabilidad de impacto hasta la cooperativa de origen.", 80)}
+    {svc_card("taza-presidencial.html", "assets/img/photos/p_muestras_tostado.jpg", "Muestras de tueste analizadas con colorímetro para el torneo nacional", "Taza Presidencial", "Torneo nacional bajo estándares SCA, organizado desde 2015 junto a Cancillería y el Ministerio de Desarrollo Rural y Tierras, con subasta internacional de los mejores lotes.", 160)}
+  </div>
+</div></section>
+<section class="section section--tint"><div class="container">
+  <div class="head-block center"><span class="eyebrow">Programas emblemáticos</span><h2>Del Plan Estratégico Institucional 2023–2027</h2></div>
+  <div class="grid grid-3">
+    {svc_card("", "assets/img/gallery/g02.jpg", "Taller de planificación del Programa Café 2024–2030", "Programa Café 2024–2030", "Hoja de ruta de expansión y renovación de cultivos a mediano plazo.")}
+    {svc_card("", "assets/img/photos/p_caranavi.jpg", "Plaza principal de Caranavi, capital cafetalera de Bolivia", "Casa del Café Caranavi", "Infraestructura sectorial para procesamiento y valor agregado en la capital cafetalera de Bolivia.", 80)}
+    {svc_card("", "assets/img/photos/p_productores.jpg", "Joven productor y productora cafetalera, generaciones unidas", "Café Sin Violencia", "Programa con la Embajada de Francia (PISCCA) para jóvenes y mujeres cafetaleras, 2024–2025.", 160)}
   </div>
 </div></section>
 <section class="section section--accent"><div class="container center"><div class="head-block center"><span class="eyebrow">¿Busca un proveedor de café?</span><h2>Hablemos de su próxima importación</h2><p class="lead">Le orientamos sobre volúmenes, perfiles de taza, certificaciones y trazabilidad EUDR.</p></div><a href="contacto.html" class="btn btn--gold btn--lg">Contactar al equipo comercial</a></div></section>
