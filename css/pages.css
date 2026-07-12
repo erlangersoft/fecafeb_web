@@ -2118,6 +2118,34 @@
   min-height: 2.8em
 }
 
+/* Home: cards de actualidad con altura uniforme */
+#home-news .news {
+  align-items: stretch
+}
+
+#home-news .news__item {
+  height: 100%
+}
+
+#home-news .news__cover {
+  height: 360px;
+  aspect-ratio: auto;
+  overflow: hidden;
+  flex: none
+}
+
+@media (max-width:1024px) {
+  #home-news .news__cover {
+    height: 290px
+  }
+}
+
+@media (max-width:600px) {
+  #home-news .news__cover {
+    height: 220px
+  }
+}
+
 @media (max-width:1024px) {
   #notas .news__cover {
     height: 210px
