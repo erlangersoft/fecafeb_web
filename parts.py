@@ -102,7 +102,7 @@ def head(title, desc, extra_head=""):
       '<link rel="icon" type="image/png" href="assets/img/favicon.png">\n'
       '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
       '<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">\n'
-      '<link rel="stylesheet" href="css/styles.css?v=20260711b">\n<link rel="stylesheet" href="css/pages.css?v=20260711b">\n' + extra_head + '</head>\n<body>') % (title, desc, title)
+      '<link rel="stylesheet" href="css/styles.css?v=20260712a">\n<link rel="stylesheet" href="css/pages.css?v=20260712a">\n' + extra_head + '</head>\n<body>') % (title, desc, title)
 
 SEARCHBTN = '<button class="iconbtn" id="searchBtn" aria-label="Buscar en el sitio" title="Buscar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>'
 CARTBTN = '<button class="iconbtn" id="cartBtn" aria-label="Su pedido" title="Su pedido"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6 5 3H2"/></svg><span class="cartcount" id="cartCount" data-n="0"></span></button>'
